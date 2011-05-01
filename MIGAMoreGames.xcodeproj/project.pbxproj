@@ -1,0 +1,558 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		44550BC2122B2E35009CCB08 /* MIGAAvailability.h in Headers */ = {isa = PBXBuildFile; fileRef = 44550BC1122B2E35009CCB08 /* MIGAAvailability.h */; };
+		44A5182012259EDC00415EB6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A5181F12259EDC00415EB6 /* QuartzCore.framework */; };
+		44A5182212259EF000415EB6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A5182112259EF000415EB6 /* SystemConfiguration.framework */; };
+		44A518431225A29200415EB6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A518421225A29200415EB6 /* UIKit.framework */; };
+		44EE61811225A8AE0046CECB /* MIGAMoreGamesViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 44EE61431225A8AE0046CECB /* MIGAMoreGamesViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		44EE61821225A8AE0046CECB /* MIGAMoreGamesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EE61441225A8AE0046CECB /* MIGAMoreGamesViewController.m */; };
+		44EE61831225A8AE0046CECB /* MIGAConf.h in Headers */ = {isa = PBXBuildFile; fileRef = 44EE61451225A8AE0046CECB /* MIGAConf.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		44EE61841225A8AE0046CECB /* MIGAApplicationInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 44EE61471225A8AE0046CECB /* MIGAApplicationInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		44EE61851225A8AE0046CECB /* MIGAApplicationInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EE61481225A8AE0046CECB /* MIGAApplicationInfo.m */; };
+		44EE61861225A8AE0046CECB /* MIGAMoreGamesActivityReportManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 44EE61491225A8AE0046CECB /* MIGAMoreGamesActivityReportManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		44EE61871225A8AE0046CECB /* MIGAMoreGamesActivityReportManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EE614A1225A8AE0046CECB /* MIGAMoreGamesActivityReportManager.m */; };
+		44EE61881225A8AE0046CECB /* MIGAMoreGamesContentValidation.h in Headers */ = {isa = PBXBuildFile; fileRef = 44EE614B1225A8AE0046CECB /* MIGAMoreGamesContentValidation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		44EE61891225A8AE0046CECB /* MIGAMoreGamesContentValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EE614C1225A8AE0046CECB /* MIGAMoreGamesContentValidation.m */; };
+		44EE618A1225A8AE0046CECB /* MIGAMoreGamesDataStore.h in Headers */ = {isa = PBXBuildFile; fileRef = 44EE614D1225A8AE0046CECB /* MIGAMoreGamesDataStore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		44EE618B1225A8AE0046CECB /* MIGAMoreGamesDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EE614E1225A8AE0046CECB /* MIGAMoreGamesDataStore.m */; };
+		44EE618C1225A8AE0046CECB /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = 44EE61521225A8AE0046CECB /* Reachability.h */; };
+		44EE618D1225A8AE0046CECB /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EE61531225A8AE0046CECB /* Reachability.m */; };
+		44EE618E1225A8AE0046CECB /* MIGAAsyncHttpRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 44EE61561225A8AE0046CECB /* MIGAAsyncHttpRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		44EE618F1225A8AE0046CECB /* MIGAAsyncHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EE61571225A8AE0046CECB /* MIGAAsyncHttpRequest.m */; };
+		44EE61901225A8AE0046CECB /* MIGAAsyncImageRequestManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 44EE61581225A8AE0046CECB /* MIGAAsyncImageRequestManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		44EE61911225A8AE0046CECB /* MIGAAsyncImageRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EE61591225A8AE0046CECB /* MIGAAsyncImageRequestManager.m */; };
+		44EE61921225A8AE0046CECB /* MIGAAsyncImageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 44EE615A1225A8AE0046CECB /* MIGAAsyncImageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		44EE61931225A8AE0046CECB /* MIGAAsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EE615B1225A8AE0046CECB /* MIGAAsyncImageView.m */; };
+		44EE61941225A8AE0046CECB /* MIGACloseButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 44EE615C1225A8AE0046CECB /* MIGACloseButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		44EE61951225A8AE0046CECB /* MIGACloseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EE615D1225A8AE0046CECB /* MIGACloseButton.m */; };
+		44EE61961225A8AE0046CECB /* MIGAGradientView.h in Headers */ = {isa = PBXBuildFile; fileRef = 44EE615E1225A8AE0046CECB /* MIGAGradientView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		44EE61971225A8AE0046CECB /* MIGAGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EE615F1225A8AE0046CECB /* MIGAGradientView.m */; };
+		44EE61981225A8AE0046CECB /* MIGAImpressionTimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 44EE61601225A8AE0046CECB /* MIGAImpressionTimer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		44EE61991225A8AE0046CECB /* MIGAImpressionTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EE61611225A8AE0046CECB /* MIGAImpressionTimer.m */; };
+		44EE619A1225A8AE0046CECB /* MIGALogging.h in Headers */ = {isa = PBXBuildFile; fileRef = 44EE61621225A8AE0046CECB /* MIGALogging.h */; };
+		44EE619B1225A8AE0046CECB /* MIGAPersistentCacheManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 44EE61631225A8AE0046CECB /* MIGAPersistentCacheManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		44EE619C1225A8AE0046CECB /* MIGAPersistentCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EE61641225A8AE0046CECB /* MIGAPersistentCacheManager.m */; };
+		44EE619D1225A8AE0046CECB /* MIGAURL.h in Headers */ = {isa = PBXBuildFile; fileRef = 44EE61651225A8AE0046CECB /* MIGAURL.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		44EE619E1225A8AE0046CECB /* MIGAURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EE61661225A8AE0046CECB /* MIGAURL.m */; };
+		44EE619F1225A8AE0046CECB /* NSString+migaURLEncodedString.h in Headers */ = {isa = PBXBuildFile; fileRef = 44EE61671225A8AE0046CECB /* NSString+migaURLEncodedString.h */; };
+		44EE61A01225A8AE0046CECB /* NSString+migaURLEncodedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EE61681225A8AE0046CECB /* NSString+migaURLEncodedString.m */; };
+		44EE61A11225A8AE0046CECB /* NSString+migaUUID.h in Headers */ = {isa = PBXBuildFile; fileRef = 44EE61691225A8AE0046CECB /* NSString+migaUUID.h */; };
+		44EE61A21225A8AE0046CECB /* NSString+migaUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EE616A1225A8AE0046CECB /* NSString+migaUUID.m */; };
+		44EE61A31225A8AE0046CECB /* UIColor+MIGAExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 44EE616B1225A8AE0046CECB /* UIColor+MIGAExtensions.h */; };
+		44EE61A41225A8AE0046CECB /* UIColor+MIGAExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EE616C1225A8AE0046CECB /* UIColor+MIGAExtensions.m */; };
+		44EE61A51225A8AE0046CECB /* JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 44EE616F1225A8AE0046CECB /* JSON.h */; };
+		44EE61A61225A8AE0046CECB /* NSObject+SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 44EE61701225A8AE0046CECB /* NSObject+SBJSON.h */; };
+		44EE61A71225A8AE0046CECB /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EE61711225A8AE0046CECB /* NSObject+SBJSON.m */; };
+		44EE61A81225A8AE0046CECB /* NSString+SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 44EE61721225A8AE0046CECB /* NSString+SBJSON.h */; };
+		44EE61A91225A8AE0046CECB /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EE61731225A8AE0046CECB /* NSString+SBJSON.m */; };
+		44EE61AA1225A8AE0046CECB /* SBJSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 44EE61741225A8AE0046CECB /* SBJSON.h */; };
+		44EE61AB1225A8AE0046CECB /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EE61751225A8AE0046CECB /* SBJSON.m */; };
+		44EE61AC1225A8AE0046CECB /* SBJsonBase.h in Headers */ = {isa = PBXBuildFile; fileRef = 44EE61761225A8AE0046CECB /* SBJsonBase.h */; };
+		44EE61AD1225A8AE0046CECB /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EE61771225A8AE0046CECB /* SBJsonBase.m */; };
+		44EE61AE1225A8AE0046CECB /* SBJsonParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 44EE61781225A8AE0046CECB /* SBJsonParser.h */; };
+		44EE61AF1225A8AE0046CECB /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EE61791225A8AE0046CECB /* SBJsonParser.m */; };
+		44EE61B01225A8AE0046CECB /* SBJsonWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 44EE617A1225A8AE0046CECB /* SBJsonWriter.h */; };
+		44EE61B11225A8AE0046CECB /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EE617B1225A8AE0046CECB /* SBJsonWriter.m */; };
+		44EE61B21225A8AE0046CECB /* MIGAMoreGamesView.h in Headers */ = {isa = PBXBuildFile; fileRef = 44EE617D1225A8AE0046CECB /* MIGAMoreGamesView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		44EE61B31225A8AE0046CECB /* MIGAMoreGamesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EE617E1225A8AE0046CECB /* MIGAMoreGamesView.m */; };
+		44EE61B41225A8AE0046CECB /* MIGAMoreGamesViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 44EE617F1225A8AE0046CECB /* MIGAMoreGamesViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		44EE61B51225A8AE0046CECB /* MIGAMoreGamesViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 44EE61801225A8AE0046CECB /* MIGAMoreGamesViewCell.m */; };
+		44EE62081225AD7C0046CECB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44EE62071225AD7C0046CECB /* CoreGraphics.framework */; };
+		AA747D9F0F9514B9006C5449 /* MIGAMoreGames_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* MIGAMoreGames_Prefix.pch */; };
+		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		44550BC1122B2E35009CCB08 /* MIGAAvailability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGAAvailability.h; sourceTree = "<group>"; };
+		44A5181F12259EDC00415EB6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		44A5182112259EF000415EB6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		44A518421225A29200415EB6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		44EE61431225A8AE0046CECB /* MIGAMoreGamesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGAMoreGamesViewController.h; sourceTree = "<group>"; };
+		44EE61441225A8AE0046CECB /* MIGAMoreGamesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIGAMoreGamesViewController.m; sourceTree = "<group>"; };
+		44EE61451225A8AE0046CECB /* MIGAConf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGAConf.h; sourceTree = "<group>"; };
+		44EE61471225A8AE0046CECB /* MIGAApplicationInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGAApplicationInfo.h; sourceTree = "<group>"; };
+		44EE61481225A8AE0046CECB /* MIGAApplicationInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIGAApplicationInfo.m; sourceTree = "<group>"; };
+		44EE61491225A8AE0046CECB /* MIGAMoreGamesActivityReportManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGAMoreGamesActivityReportManager.h; sourceTree = "<group>"; };
+		44EE614A1225A8AE0046CECB /* MIGAMoreGamesActivityReportManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIGAMoreGamesActivityReportManager.m; sourceTree = "<group>"; };
+		44EE614B1225A8AE0046CECB /* MIGAMoreGamesContentValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGAMoreGamesContentValidation.h; sourceTree = "<group>"; };
+		44EE614C1225A8AE0046CECB /* MIGAMoreGamesContentValidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIGAMoreGamesContentValidation.m; sourceTree = "<group>"; };
+		44EE614D1225A8AE0046CECB /* MIGAMoreGamesDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGAMoreGamesDataStore.h; sourceTree = "<group>"; };
+		44EE614E1225A8AE0046CECB /* MIGAMoreGamesDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIGAMoreGamesDataStore.m; sourceTree = "<group>"; };
+		44EE61521225A8AE0046CECB /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		44EE61531225A8AE0046CECB /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		44EE61561225A8AE0046CECB /* MIGAAsyncHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGAAsyncHttpRequest.h; sourceTree = "<group>"; };
+		44EE61571225A8AE0046CECB /* MIGAAsyncHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIGAAsyncHttpRequest.m; sourceTree = "<group>"; };
+		44EE61581225A8AE0046CECB /* MIGAAsyncImageRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGAAsyncImageRequestManager.h; sourceTree = "<group>"; };
+		44EE61591225A8AE0046CECB /* MIGAAsyncImageRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIGAAsyncImageRequestManager.m; sourceTree = "<group>"; };
+		44EE615A1225A8AE0046CECB /* MIGAAsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGAAsyncImageView.h; sourceTree = "<group>"; };
+		44EE615B1225A8AE0046CECB /* MIGAAsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIGAAsyncImageView.m; sourceTree = "<group>"; };
+		44EE615C1225A8AE0046CECB /* MIGACloseButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGACloseButton.h; sourceTree = "<group>"; };
+		44EE615D1225A8AE0046CECB /* MIGACloseButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIGACloseButton.m; sourceTree = "<group>"; };
+		44EE615E1225A8AE0046CECB /* MIGAGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGAGradientView.h; sourceTree = "<group>"; };
+		44EE615F1225A8AE0046CECB /* MIGAGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIGAGradientView.m; sourceTree = "<group>"; };
+		44EE61601225A8AE0046CECB /* MIGAImpressionTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGAImpressionTimer.h; sourceTree = "<group>"; };
+		44EE61611225A8AE0046CECB /* MIGAImpressionTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIGAImpressionTimer.m; sourceTree = "<group>"; };
+		44EE61621225A8AE0046CECB /* MIGALogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGALogging.h; sourceTree = "<group>"; };
+		44EE61631225A8AE0046CECB /* MIGAPersistentCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGAPersistentCacheManager.h; sourceTree = "<group>"; };
+		44EE61641225A8AE0046CECB /* MIGAPersistentCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIGAPersistentCacheManager.m; sourceTree = "<group>"; };
+		44EE61651225A8AE0046CECB /* MIGAURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGAURL.h; sourceTree = "<group>"; };
+		44EE61661225A8AE0046CECB /* MIGAURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIGAURL.m; sourceTree = "<group>"; };
+		44EE61671225A8AE0046CECB /* NSString+migaURLEncodedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+migaURLEncodedString.h"; sourceTree = "<group>"; };
+		44EE61681225A8AE0046CECB /* NSString+migaURLEncodedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+migaURLEncodedString.m"; sourceTree = "<group>"; };
+		44EE61691225A8AE0046CECB /* NSString+migaUUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+migaUUID.h"; sourceTree = "<group>"; };
+		44EE616A1225A8AE0046CECB /* NSString+migaUUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+migaUUID.m"; sourceTree = "<group>"; };
+		44EE616B1225A8AE0046CECB /* UIColor+MIGAExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MIGAExtensions.h"; sourceTree = "<group>"; };
+		44EE616C1225A8AE0046CECB /* UIColor+MIGAExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MIGAExtensions.m"; sourceTree = "<group>"; };
+		44EE616F1225A8AE0046CECB /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		44EE61701225A8AE0046CECB /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		44EE61711225A8AE0046CECB /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		44EE61721225A8AE0046CECB /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		44EE61731225A8AE0046CECB /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		44EE61741225A8AE0046CECB /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
+		44EE61751225A8AE0046CECB /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
+		44EE61761225A8AE0046CECB /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		44EE61771225A8AE0046CECB /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		44EE61781225A8AE0046CECB /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		44EE61791225A8AE0046CECB /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		44EE617A1225A8AE0046CECB /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		44EE617B1225A8AE0046CECB /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		44EE617D1225A8AE0046CECB /* MIGAMoreGamesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGAMoreGamesView.h; sourceTree = "<group>"; };
+		44EE617E1225A8AE0046CECB /* MIGAMoreGamesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIGAMoreGamesView.m; sourceTree = "<group>"; };
+		44EE617F1225A8AE0046CECB /* MIGAMoreGamesViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGAMoreGamesViewCell.h; sourceTree = "<group>"; };
+		44EE61801225A8AE0046CECB /* MIGAMoreGamesViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIGAMoreGamesViewCell.m; sourceTree = "<group>"; };
+		44EE62071225AD7C0046CECB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		44EE62171225ADF00046CECB /* banner-landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "banner-landscape.png"; sourceTree = "<group>"; };
+		44EE62181225ADF00046CECB /* banner-landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "banner-landscape@2x.png"; sourceTree = "<group>"; };
+		44EE62191225ADF00046CECB /* banner-portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "banner-portrait.png"; sourceTree = "<group>"; };
+		44EE621A1225ADF00046CECB /* banner-portrait@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "banner-portrait@2x.png"; sourceTree = "<group>"; };
+		44EE621B1225ADF00046CECB /* MIGAAsyncImageViewMissingImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MIGAAsyncImageViewMissingImage.png; sourceTree = "<group>"; };
+		44EE621C1225ADF00046CECB /* MIGAAsyncImageViewMissingImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MIGAAsyncImageViewMissingImage@2x.png"; sourceTree = "<group>"; };
+		AA747D9E0F9514B9006C5449 /* MIGAMoreGames_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGAMoreGames_Prefix.pch; sourceTree = SOURCE_ROOT; };
+		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D2AAC07E0554694100DB518D /* libMIGAMoreGames.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMIGAMoreGames.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2AAC07C0554694100DB518D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+				44A5182012259EDC00415EB6 /* QuartzCore.framework in Frameworks */,
+				44A5182212259EF000415EB6 /* SystemConfiguration.framework in Frameworks */,
+				44A518431225A29200415EB6 /* UIKit.framework in Frameworks */,
+				44EE62081225AD7C0046CECB /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2AAC07E0554694100DB518D /* libMIGAMoreGames.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* MIGAMoreGames */ = {
+			isa = PBXGroup;
+			children = (
+				44EE61411225A8AE0046CECB /* Source */,
+				32C88DFF0371C24200C91783 /* Pre-Compiled Headers */,
+				44EE62161225ADF00046CECB /* Resources */,
+				0867D69AFE84028FC02AAC07 /* Frameworks */,
+				034768DFFF38A50411DB9C8B /* Products */,
+			);
+			name = MIGAMoreGames;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
+				44A518421225A29200415EB6 /* UIKit.framework */,
+				44A5181F12259EDC00415EB6 /* QuartzCore.framework */,
+				44A5182112259EF000415EB6 /* SystemConfiguration.framework */,
+				44EE62071225AD7C0046CECB /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Pre-Compiled Headers */ = {
+			isa = PBXGroup;
+			children = (
+				AA747D9E0F9514B9006C5449 /* MIGAMoreGames_Prefix.pch */,
+			);
+			name = "Pre-Compiled Headers";
+			sourceTree = "<group>";
+		};
+		44EE61411225A8AE0046CECB /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				44EE61451225A8AE0046CECB /* MIGAConf.h */,
+				44EE61421225A8AE0046CECB /* Controllers */,
+				44EE61461225A8AE0046CECB /* Models */,
+				44EE617C1225A8AE0046CECB /* Views */,
+				44EE614F1225A8AE0046CECB /* vendor */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		44EE61421225A8AE0046CECB /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				44EE61431225A8AE0046CECB /* MIGAMoreGamesViewController.h */,
+				44EE61441225A8AE0046CECB /* MIGAMoreGamesViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		44EE61461225A8AE0046CECB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				44EE61471225A8AE0046CECB /* MIGAApplicationInfo.h */,
+				44EE61481225A8AE0046CECB /* MIGAApplicationInfo.m */,
+				44EE61491225A8AE0046CECB /* MIGAMoreGamesActivityReportManager.h */,
+				44EE614A1225A8AE0046CECB /* MIGAMoreGamesActivityReportManager.m */,
+				44EE614B1225A8AE0046CECB /* MIGAMoreGamesContentValidation.h */,
+				44EE614C1225A8AE0046CECB /* MIGAMoreGamesContentValidation.m */,
+				44EE614D1225A8AE0046CECB /* MIGAMoreGamesDataStore.h */,
+				44EE614E1225A8AE0046CECB /* MIGAMoreGamesDataStore.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		44EE614F1225A8AE0046CECB /* vendor */ = {
+			isa = PBXGroup;
+			children = (
+				44EE61501225A8AE0046CECB /* apple */,
+				44EE61541225A8AE0046CECB /* miga */,
+				44EE616D1225A8AE0046CECB /* stig_brautaset */,
+			);
+			path = vendor;
+			sourceTree = "<group>";
+		};
+		44EE61501225A8AE0046CECB /* apple */ = {
+			isa = PBXGroup;
+			children = (
+				44EE61511225A8AE0046CECB /* Reachability */,
+			);
+			path = apple;
+			sourceTree = "<group>";
+		};
+		44EE61511225A8AE0046CECB /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				44EE61521225A8AE0046CECB /* Reachability.h */,
+				44EE61531225A8AE0046CECB /* Reachability.m */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
+		44EE61541225A8AE0046CECB /* miga */ = {
+			isa = PBXGroup;
+			children = (
+				44EE61551225A8AE0046CECB /* Utils */,
+			);
+			path = miga;
+			sourceTree = "<group>";
+		};
+		44EE61551225A8AE0046CECB /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				44550BC1122B2E35009CCB08 /* MIGAAvailability.h */,
+				44EE61561225A8AE0046CECB /* MIGAAsyncHttpRequest.h */,
+				44EE61571225A8AE0046CECB /* MIGAAsyncHttpRequest.m */,
+				44EE61581225A8AE0046CECB /* MIGAAsyncImageRequestManager.h */,
+				44EE61591225A8AE0046CECB /* MIGAAsyncImageRequestManager.m */,
+				44EE615A1225A8AE0046CECB /* MIGAAsyncImageView.h */,
+				44EE615B1225A8AE0046CECB /* MIGAAsyncImageView.m */,
+				44EE615C1225A8AE0046CECB /* MIGACloseButton.h */,
+				44EE615D1225A8AE0046CECB /* MIGACloseButton.m */,
+				44EE615E1225A8AE0046CECB /* MIGAGradientView.h */,
+				44EE615F1225A8AE0046CECB /* MIGAGradientView.m */,
+				44EE61601225A8AE0046CECB /* MIGAImpressionTimer.h */,
+				44EE61611225A8AE0046CECB /* MIGAImpressionTimer.m */,
+				44EE61621225A8AE0046CECB /* MIGALogging.h */,
+				44EE61631225A8AE0046CECB /* MIGAPersistentCacheManager.h */,
+				44EE61641225A8AE0046CECB /* MIGAPersistentCacheManager.m */,
+				44EE61651225A8AE0046CECB /* MIGAURL.h */,
+				44EE61661225A8AE0046CECB /* MIGAURL.m */,
+				44EE61671225A8AE0046CECB /* NSString+migaURLEncodedString.h */,
+				44EE61681225A8AE0046CECB /* NSString+migaURLEncodedString.m */,
+				44EE61691225A8AE0046CECB /* NSString+migaUUID.h */,
+				44EE616A1225A8AE0046CECB /* NSString+migaUUID.m */,
+				44EE616B1225A8AE0046CECB /* UIColor+MIGAExtensions.h */,
+				44EE616C1225A8AE0046CECB /* UIColor+MIGAExtensions.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		44EE616D1225A8AE0046CECB /* stig_brautaset */ = {
+			isa = PBXGroup;
+			children = (
+				44EE616E1225A8AE0046CECB /* JSON */,
+			);
+			path = stig_brautaset;
+			sourceTree = "<group>";
+		};
+		44EE616E1225A8AE0046CECB /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				44EE616F1225A8AE0046CECB /* JSON.h */,
+				44EE61701225A8AE0046CECB /* NSObject+SBJSON.h */,
+				44EE61711225A8AE0046CECB /* NSObject+SBJSON.m */,
+				44EE61721225A8AE0046CECB /* NSString+SBJSON.h */,
+				44EE61731225A8AE0046CECB /* NSString+SBJSON.m */,
+				44EE61741225A8AE0046CECB /* SBJSON.h */,
+				44EE61751225A8AE0046CECB /* SBJSON.m */,
+				44EE61761225A8AE0046CECB /* SBJsonBase.h */,
+				44EE61771225A8AE0046CECB /* SBJsonBase.m */,
+				44EE61781225A8AE0046CECB /* SBJsonParser.h */,
+				44EE61791225A8AE0046CECB /* SBJsonParser.m */,
+				44EE617A1225A8AE0046CECB /* SBJsonWriter.h */,
+				44EE617B1225A8AE0046CECB /* SBJsonWriter.m */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		44EE617C1225A8AE0046CECB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				44EE617D1225A8AE0046CECB /* MIGAMoreGamesView.h */,
+				44EE617E1225A8AE0046CECB /* MIGAMoreGamesView.m */,
+				44EE617F1225A8AE0046CECB /* MIGAMoreGamesViewCell.h */,
+				44EE61801225A8AE0046CECB /* MIGAMoreGamesViewCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		44EE62161225ADF00046CECB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				44EE62171225ADF00046CECB /* banner-landscape.png */,
+				44EE62181225ADF00046CECB /* banner-landscape@2x.png */,
+				44EE62191225ADF00046CECB /* banner-portrait.png */,
+				44EE621A1225ADF00046CECB /* banner-portrait@2x.png */,
+				44EE621B1225ADF00046CECB /* MIGAAsyncImageViewMissingImage.png */,
+				44EE621C1225ADF00046CECB /* MIGAAsyncImageViewMissingImage@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2AAC07A0554694100DB518D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA747D9F0F9514B9006C5449 /* MIGAMoreGames_Prefix.pch in Headers */,
+				44EE61811225A8AE0046CECB /* MIGAMoreGamesViewController.h in Headers */,
+				44EE61831225A8AE0046CECB /* MIGAConf.h in Headers */,
+				44EE61841225A8AE0046CECB /* MIGAApplicationInfo.h in Headers */,
+				44EE61861225A8AE0046CECB /* MIGAMoreGamesActivityReportManager.h in Headers */,
+				44EE61881225A8AE0046CECB /* MIGAMoreGamesContentValidation.h in Headers */,
+				44EE618A1225A8AE0046CECB /* MIGAMoreGamesDataStore.h in Headers */,
+				44EE618C1225A8AE0046CECB /* Reachability.h in Headers */,
+				44EE618E1225A8AE0046CECB /* MIGAAsyncHttpRequest.h in Headers */,
+				44EE61901225A8AE0046CECB /* MIGAAsyncImageRequestManager.h in Headers */,
+				44EE61921225A8AE0046CECB /* MIGAAsyncImageView.h in Headers */,
+				44EE61941225A8AE0046CECB /* MIGACloseButton.h in Headers */,
+				44EE61961225A8AE0046CECB /* MIGAGradientView.h in Headers */,
+				44EE61981225A8AE0046CECB /* MIGAImpressionTimer.h in Headers */,
+				44EE619A1225A8AE0046CECB /* MIGALogging.h in Headers */,
+				44EE619B1225A8AE0046CECB /* MIGAPersistentCacheManager.h in Headers */,
+				44EE619D1225A8AE0046CECB /* MIGAURL.h in Headers */,
+				44EE619F1225A8AE0046CECB /* NSString+migaURLEncodedString.h in Headers */,
+				44EE61A11225A8AE0046CECB /* NSString+migaUUID.h in Headers */,
+				44EE61A31225A8AE0046CECB /* UIColor+MIGAExtensions.h in Headers */,
+				44EE61A51225A8AE0046CECB /* JSON.h in Headers */,
+				44EE61A61225A8AE0046CECB /* NSObject+SBJSON.h in Headers */,
+				44EE61A81225A8AE0046CECB /* NSString+SBJSON.h in Headers */,
+				44EE61AA1225A8AE0046CECB /* SBJSON.h in Headers */,
+				44EE61AC1225A8AE0046CECB /* SBJsonBase.h in Headers */,
+				44EE61AE1225A8AE0046CECB /* SBJsonParser.h in Headers */,
+				44EE61B01225A8AE0046CECB /* SBJsonWriter.h in Headers */,
+				44EE61B21225A8AE0046CECB /* MIGAMoreGamesView.h in Headers */,
+				44EE61B41225A8AE0046CECB /* MIGAMoreGamesViewCell.h in Headers */,
+				44550BC2122B2E35009CCB08 /* MIGAAvailability.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D2AAC07D0554694100DB518D /* MIGAMoreGames */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "MIGAMoreGames" */;
+			buildPhases = (
+				D2AAC07A0554694100DB518D /* Headers */,
+				D2AAC07B0554694100DB518D /* Sources */,
+				D2AAC07C0554694100DB518D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MIGAMoreGames;
+			productName = MIGAMoreGames;
+			productReference = D2AAC07E0554694100DB518D /* libMIGAMoreGames.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Mobile Independent Gaming Alliance";
+			};
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "MIGAMoreGames" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 0867D691FE84028FC02AAC07 /* MIGAMoreGames */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2AAC07D0554694100DB518D /* MIGAMoreGames */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2AAC07B0554694100DB518D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44EE61821225A8AE0046CECB /* MIGAMoreGamesViewController.m in Sources */,
+				44EE61851225A8AE0046CECB /* MIGAApplicationInfo.m in Sources */,
+				44EE61871225A8AE0046CECB /* MIGAMoreGamesActivityReportManager.m in Sources */,
+				44EE61891225A8AE0046CECB /* MIGAMoreGamesContentValidation.m in Sources */,
+				44EE618B1225A8AE0046CECB /* MIGAMoreGamesDataStore.m in Sources */,
+				44EE618D1225A8AE0046CECB /* Reachability.m in Sources */,
+				44EE618F1225A8AE0046CECB /* MIGAAsyncHttpRequest.m in Sources */,
+				44EE61911225A8AE0046CECB /* MIGAAsyncImageRequestManager.m in Sources */,
+				44EE61931225A8AE0046CECB /* MIGAAsyncImageView.m in Sources */,
+				44EE61951225A8AE0046CECB /* MIGACloseButton.m in Sources */,
+				44EE61971225A8AE0046CECB /* MIGAGradientView.m in Sources */,
+				44EE61991225A8AE0046CECB /* MIGAImpressionTimer.m in Sources */,
+				44EE619C1225A8AE0046CECB /* MIGAPersistentCacheManager.m in Sources */,
+				44EE619E1225A8AE0046CECB /* MIGAURL.m in Sources */,
+				44EE61A01225A8AE0046CECB /* NSString+migaURLEncodedString.m in Sources */,
+				44EE61A21225A8AE0046CECB /* NSString+migaUUID.m in Sources */,
+				44EE61A41225A8AE0046CECB /* UIColor+MIGAExtensions.m in Sources */,
+				44EE61A71225A8AE0046CECB /* NSObject+SBJSON.m in Sources */,
+				44EE61A91225A8AE0046CECB /* NSString+SBJSON.m in Sources */,
+				44EE61AB1225A8AE0046CECB /* SBJSON.m in Sources */,
+				44EE61AD1225A8AE0046CECB /* SBJsonBase.m in Sources */,
+				44EE61AF1225A8AE0046CECB /* SBJsonParser.m in Sources */,
+				44EE61B11225A8AE0046CECB /* SBJsonWriter.m in Sources */,
+				44EE61B31225A8AE0046CECB /* MIGAMoreGamesView.m in Sources */,
+				44EE61B51225A8AE0046CECB /* MIGAMoreGamesViewCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB921F08733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/MIGAMoreGames.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = MIGAMoreGames_Prefix.pch;
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = MIGAMoreGames;
+			};
+			name = Debug;
+		};
+		1DEB922008733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DSTROOT = /tmp/MIGAMoreGames.dst;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = MIGAMoreGames_Prefix.pch;
+				INSTALL_PATH = /usr/local/lib;
+				PRODUCT_NAME = MIGAMoreGames;
+			};
+			name = Release;
+		};
+		1DEB922308733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PREBINDING = NO;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = iphoneos4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1DEB922408733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PREBINDING = NO;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = iphoneos4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "MIGAMoreGames" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB921F08733DC00010E9CD /* Debug */,
+				1DEB922008733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "MIGAMoreGames" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB922308733DC00010E9CD /* Debug */,
+				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}
