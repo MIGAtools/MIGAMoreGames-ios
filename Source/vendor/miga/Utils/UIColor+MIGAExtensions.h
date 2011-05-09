@@ -11,9 +11,9 @@
 
 @interface UIColor (MIGAExtensions)
 
-+(UIColor *)migaColorWithHexString: (NSString *)hexString;
-+(UIColor *)migaColorWithHexString: (NSString *)hexString ignoreAlphaComponent: (BOOL)ignoreAlpha;
++ (UIColor *)migaColorWithHexString:(NSString *)hexString;
++ (UIColor *)migaColorWithHexString:(NSString *)hexString ignoreAlphaComponent:(BOOL)ignoreAlpha;
 
--(NSString *)migaHexString;
+- (NSString *)migaHexString;
 
 @end

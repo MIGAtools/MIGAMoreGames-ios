@@ -11,13 +11,12 @@
 
 @implementation NSString (migaUUID)
 
-+(NSString *)migaUUIDString;
-{
-	CFUUIDRef uuid = CFUUIDCreate(NULL);
-	CFStringRef uuidString = CFUUIDCreateString(NULL, uuid);
-	CFRelease(uuid);
-	
-	return [(NSString *)uuidString autorelease];
++ (NSString *)migaUUIDString {
+    CFUUIDRef uuid = CFUUIDCreate(NULL);
+    CFStringRef uuidString = CFUUIDCreateString(NULL, uuid);
+    CFRelease(uuid);
+    
+    return [(NSString *)uuidString autorelease];
 }
 
 @end

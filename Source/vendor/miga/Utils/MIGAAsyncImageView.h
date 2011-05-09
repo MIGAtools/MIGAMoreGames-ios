@@ -11,20 +11,20 @@
 @class MIGAAsyncImageRequestManager;
 
 @interface MIGAAsyncImageView : UIView {
-	@private
-	NSURL *imageURL;
-	CGFloat imageContentScale;
-	CGSize nativeImageSize;
-	
-	MIGAAsyncImageRequestManager *requestManager;
-	
-	UIActivityIndicatorView *activityIndicatorView;
+    @private
+    NSURL *imageURL;
+    CGFloat imageContentScale;
+    CGSize nativeImageSize;
+    
+    MIGAAsyncImageRequestManager *requestManager;
+    
+    UIActivityIndicatorView *activityIndicatorView;
 }
 
 @property (nonatomic, retain) NSURL *imageURL;
 @property (nonatomic, assign) CGFloat imageContentScale;
 @property (nonatomic, assign) CGSize nativeImageSize;
 
--(id)initWithFrame:(CGRect)frame requestManager: (MIGAAsyncImageRequestManager *)requestManager;
+- (id)initWithFrame:(CGRect)frame requestManager:(MIGAAsyncImageRequestManager *)requestManager;
 
 @end

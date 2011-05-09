@@ -14,10 +14,10 @@
 @protocol MIGAAsyncHttpRequestDelegate <NSObject>
 
 @required
--(void)asyncHttpRequest: (MIGAAsyncHttpRequest *)request didFinishWithContent: (NSData *)responseContent;
+- (void)asyncHttpRequest:(MIGAAsyncHttpRequest *)request didFinishWithContent:(NSData *)responseContent;
 
 @optional
--(void)asyncHttpRequestDidFail: (MIGAAsyncHttpRequest *)request;
+- (void)asyncHttpRequestDidFail:(MIGAAsyncHttpRequest *)request;
 
 @end
     
@@ -36,20 +36,20 @@
 
 */
 @interface MIGAAsyncHttpRequest : NSObject {
-	@private
-	NSURL *requestedURL;
-	NSMutableData *receivedData;
-	NSString *receivedMIMEContentType;
-	NSStringEncoding receivedStringEncoding;
+    @private
+    NSURL *requestedURL;
+    NSMutableData *receivedData;
+    NSString *receivedMIMEContentType;
+    NSStringEncoding receivedStringEncoding;
 
-	NSURLConnection *connection;
-	NSTimeInterval timeoutInterval;
-	BOOL backgroundTaskSupported;
-	NSUInteger backgroundTaskIdentifier;
-	
-	NSDictionary *postDictionary;
+    NSURLConnection *connection;
+    NSTimeInterval timeoutInterval;
+    BOOL backgroundTaskSupported;
+    NSUInteger backgroundTaskIdentifier;
+    
+    NSDictionary *postDictionary;
 
-	id<MIGAAsyncHttpRequestDelegate> delegate;
+    id<MIGAAsyncHttpRequestDelegate> delegate;
 }
 
 @property (nonatomic, retain) id<MIGAAsyncHttpRequestDelegate> delegate;
@@ -59,12 +59,13 @@
 @property (nonatomic, assign, readonly) NSStringEncoding receivedStringEncoding;
 @property (nonatomic, copy) NSDictionary *postDictionary;
 
-+(MIGAAsyncHttpRequest *)requestWithURL: (NSURL *)url delegate: (id<MIGAAsyncHttpRequestDelegate>)delegate;
-+(MIGAAsyncHttpRequest *)requestWithURLString: (NSString *)URLString delegate: (id<MIGAAsyncHttpRequestDelegate>)delegate;
-+(MIGAAsyncHttpRequest *)requestWithURL: (NSURL *)url postDictionary: (NSDictionary *)postValuesAndNames delegate: (id<MIGAAsyncHttpRequestDelegate>)delegate;
++ (MIGAAsyncHttpRequest *)requestWithURL:(NSURL *)url delegate:(id<MIGAAsyncHttpRequestDelegate>)delegate;
++ (MIGAAsyncHttpRequest *)requestWithURLString:(NSString *)URLString delegate:(id<MIGAAsyncHttpRequestDelegate>)delegate;
++ (MIGAAsyncHttpRequest *)requestWithURL:(NSURL *)url postDictionary:(NSDictionary *)postValuesAndNames delegate:(id<MIGAAsyncHttpRequestDelegate>)delegate;
 
--(void)startRequestWithURL: (NSURL *)url;
--(void)startRequestWithURLString: (NSString *)URLString;
+- (void)startRequestWithURL:(NSURL *)url;
+- (void)startRequestWithURLString:(NSString *)URLString;
 
--(void)cancel;
+- (void)cancel;
+
 @end

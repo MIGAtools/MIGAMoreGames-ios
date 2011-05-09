@@ -11,6 +11,6 @@
 
 @interface NSString (migaUUID)
 
-+(NSString *)migaUUIDString;
++ (NSString *)migaUUIDString;
 
 @end

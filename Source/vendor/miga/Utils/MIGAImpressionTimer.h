@@ -10,31 +10,31 @@
 
 
 @interface MIGAImpressionTimer : NSObject {
-	@protected
-	BOOL running;
-	NSTimeInterval tickInterval;
-	NSTimeInterval elapsedTime;
-	
-	NSUInteger contentId;
-	
-	NSDate *lastResetDate;
-	NSDate *referenceDate;
-	NSTimer *timer;
+    @protected
+    BOOL running;
+    NSTimeInterval tickInterval;
+    NSTimeInterval elapsedTime;
+    
+    NSUInteger contentId;
+    
+    NSDate *lastResetDate;
+    NSDate *referenceDate;
+    NSTimer *timer;
 }
 
-@property (assign, readonly, getter=isRunning) BOOL running;
-@property (nonatomic, assign) NSTimeInterval tickInterval;
-@property (nonatomic, assign) NSTimeInterval elapsedTime;
-@property (nonatomic, assign) NSUInteger contentId;
-@property (nonatomic, retain, readonly) NSDate *lastResetDate;
+@property (assign,readonly,getter=isRunning) BOOL running;
+@property (nonatomic,assign) NSTimeInterval tickInterval;
+@property (nonatomic,assign) NSTimeInterval elapsedTime;
+@property (nonatomic,assign) NSUInteger contentId;
+@property (nonatomic,retain,readonly) NSDate *lastResetDate;
 
--(id)initWithElapsedTime: (NSTimeInterval)elapsedTime;
--(id)initWithElapsedTime: (NSTimeInterval)elapsedTime tickInterval: (NSTimeInterval)tickInterval;
+- (id)initWithElapsedTime:(NSTimeInterval)elapsedTime;
+- (id)initWithElapsedTime:(NSTimeInterval)elapsedTime tickInterval:(NSTimeInterval)tickInterval;
 
--(void)start;
--(void)stop;
--(void)reset;
+- (void)start;
+- (void)stop;
+- (void)reset;
 
--(NSNumber *)numberValue;
+- (NSNumber *)numberValue;
 
 @end

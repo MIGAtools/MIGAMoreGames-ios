@@ -10,9 +10,9 @@
 #import <QuartzCore/QuartzCore.h>
 
 @interface MIGACloseButton : UIControl {
-	@private
-	CAShapeLayer *borderLayer;
-	CAShapeLayer *glyphLayer;
+    @private
+    CAShapeLayer *borderLayer;
+    CAShapeLayer *glyphLayer;
 }
 
 @property (nonatomic, retain, readonly) CAShapeLayer *layer;

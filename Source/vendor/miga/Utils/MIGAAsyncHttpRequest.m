@@ -48,12 +48,12 @@
 @property (nonatomic, retain, readwrite) NSString *receivedMIMEContentType;
 @property (nonatomic, assign, readwrite) NSStringEncoding receivedStringEncoding;
 
--(void)handleFailure;
--(void)handleSuccess;
+- (void)handleFailure;
+- (void)handleSuccess;
 
--(void)cleanupConnection;
+- (void)cleanupConnection;
 
--(NSData *)encodePostDataFromPostDictionaryAsURLEncodedWWWForm;
+- (NSData *)encodePostDataFromPostDictionaryAsURLEncodedWWWForm;
 
 @end
 
@@ -69,257 +69,254 @@
 @synthesize receivedStringEncoding;
 @synthesize postDictionary;
 
--(NSMutableData *)receivedData;
-{
-	if (!receivedData) {
-		receivedData = [[NSMutableData alloc] init];
-	}
-	
-	return receivedData;
+- (NSMutableData *)receivedData {
+    if (!receivedData) {
+        receivedData = [[NSMutableData alloc] init];
+    }
+    
+    return receivedData;
 }
+
 
 #pragma mark -
 #pragma mark Class Methods
 
-+(MIGAAsyncHttpRequest *)requestWithURL: (NSURL *)url delegate: (id<MIGAAsyncHttpRequestDelegate>)aDelegate;
-{
-	MIGAAsyncHttpRequest *request = [[MIGAAsyncHttpRequest alloc] init];
-	request.delegate = aDelegate;
-	[request startRequestWithURL: url];
-	
-	return [request autorelease];
++ (MIGAAsyncHttpRequest *)requestWithURL:(NSURL *)url delegate:(id<MIGAAsyncHttpRequestDelegate>)aDelegate {
+    MIGAAsyncHttpRequest *request = [[MIGAAsyncHttpRequest alloc] init];
+    request.delegate = aDelegate;
+    [request startRequestWithURL:url];
+    
+    return [request autorelease];
 }
 
-+(MIGAAsyncHttpRequest *)requestWithURLString:(NSString*)URLString delegate:(id<MIGAAsyncHttpRequestDelegate>)aDelegate;
-{
-	MIGAAsyncHttpRequest *request = [[MIGAAsyncHttpRequest alloc] init];
-	request.delegate = aDelegate;
-	[request startRequestWithURLString: URLString];
-	
-	return [request autorelease];
+
++ (MIGAAsyncHttpRequest *)requestWithURLString:(NSString*)URLString delegate:(id<MIGAAsyncHttpRequestDelegate>)aDelegate {
+    MIGAAsyncHttpRequest *request = [[MIGAAsyncHttpRequest alloc] init];
+    request.delegate = aDelegate;
+    [request startRequestWithURLString:URLString];
+    
+    return [request autorelease];
 }
 
-+(MIGAAsyncHttpRequest *)requestWithURL: (NSURL *)url postDictionary: (NSDictionary *)postValuesAndNames delegate: (id<MIGAAsyncHttpRequestDelegate>)aDelegate;
-{
-	MIGAAsyncHttpRequest *request = [[MIGAAsyncHttpRequest alloc] init];
-	request.delegate = aDelegate;
-	request.postDictionary = postValuesAndNames;
-	
-	[request startRequestWithURL: url];
-	
-	return [request autorelease];
+
++ (MIGAAsyncHttpRequest *)requestWithURL:(NSURL *)url postDictionary:(NSDictionary *)postValuesAndNames delegate:(id<MIGAAsyncHttpRequestDelegate>)aDelegate {
+    MIGAAsyncHttpRequest *request = [[MIGAAsyncHttpRequest alloc] init];
+    request.delegate = aDelegate;
+    request.postDictionary = postValuesAndNames;
+    
+    [request startRequestWithURL:url];
+    
+    return [request autorelease];
 }
+
 
 #pragma mark -
 #pragma mark Instance Methods
 
--(id)init;
-{
-	if ((self = [super init])) {
-		self.timeoutInterval = ASYNC_HTTP_REQUEST_DEFAULT_TIMEOUT_INTERVAL;
-		backgroundTaskSupported = NO;
-		backgroundTaskIdentifier = 0;
-		
+- (id)init {
+    if ((self = [super init])) {
+        self.timeoutInterval = ASYNC_HTTP_REQUEST_DEFAULT_TIMEOUT_INTERVAL;
+        backgroundTaskSupported = NO;
+        backgroundTaskIdentifier = 0;
+        
 #if MIGA_ASYNC_HTTP_REQUEST_BLOCKS_USE_ALLOWED
-		backgroundTaskSupported = [[UIApplication sharedApplication] respondsToSelector: @selector(backgroundTimeRemaining)];
-		
-		if (backgroundTaskSupported) {
-			backgroundTaskSupported = [[UIApplication sharedApplication] respondsToSelector: @selector(beginBackgroundTaskWithExpirationHandler:)] && ((&UIBackgroundTaskInvalid != NULL));
-		}
-		
-		if (backgroundTaskSupported) {
-			backgroundTaskIdentifier = UIBackgroundTaskInvalid;
-		}
+        backgroundTaskSupported = [[UIApplication sharedApplication] respondsToSelector:@selector(backgroundTimeRemaining)];
+        
+        if (backgroundTaskSupported) {
+            backgroundTaskSupported = [[UIApplication sharedApplication] respondsToSelector:@selector(beginBackgroundTaskWithExpirationHandler:)] && ((&UIBackgroundTaskInvalid != NULL));
+        }
+        
+        if (backgroundTaskSupported) {
+            backgroundTaskIdentifier = UIBackgroundTaskInvalid;
+        }
 #endif
-	}
-	
-	return self;
+    }
+    
+    return self;
 }
 
--(void)dealloc;
-{
+
+- (void)dealloc {
 #if MIGA_ASYNC_HTTP_REQUEST_BLOCKS_USE_ALLOWED
-	if (backgroundTaskSupported && (backgroundTaskIdentifier != UIBackgroundTaskInvalid)) {
-		[[UIApplication sharedApplication] endBackgroundTask: backgroundTaskIdentifier];
-	}
+    if (backgroundTaskSupported && (backgroundTaskIdentifier != UIBackgroundTaskInvalid)) {
+        [[UIApplication sharedApplication] endBackgroundTask:backgroundTaskIdentifier];
+    }
 #endif
-	[receivedData release];
-	[receivedMIMEContentType release];
-	[requestedURL release];
-	[postDictionary release];
-	[delegate release];
-	
-	[super dealloc];
+    [receivedData release];
+    [receivedMIMEContentType release];
+    [requestedURL release];
+    [postDictionary release];
+    [delegate release];
+    
+    [super dealloc];
 }
 
--(void)handleFailure;
-{
-	if (delegate && [delegate respondsToSelector: @selector(asyncHttpRequestDidFail:)]) {
-		[delegate asyncHttpRequestDidFail: self];
-	}
-	
-	[self cleanupConnection];
+
+- (void)handleFailure {
+    if (delegate && [delegate respondsToSelector:@selector(asyncHttpRequestDidFail:)]) {
+        [delegate asyncHttpRequestDidFail:self];
+    }
+    
+    [self cleanupConnection];
 }
 
--(void)handleSuccess;
-{
-	if (delegate && [delegate respondsToSelector: @selector(asyncHttpRequest:didFinishWithContent:)]) {
-		[delegate asyncHttpRequest: self didFinishWithContent: (NSData *)self.receivedData];
-	}
 
-	[self cleanupConnection];
+- (void)handleSuccess {
+    if (delegate && [delegate respondsToSelector:@selector(asyncHttpRequest:didFinishWithContent:)]) {
+        [delegate asyncHttpRequest:self didFinishWithContent:(NSData *)self.receivedData];
+    }
+
+    [self cleanupConnection];
 }
 
--(void)cleanupConnection;
-{
-	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible: NO];
-	
-	if (connection != nil) {
-		[connection cancel];
-		[connection release];
-		connection = nil;
-	}
-	
-	if (receivedData != nil) {
-		[receivedData release];
-		receivedData = nil;
-	}
-	
-	self.delegate = nil;
+
+- (void)cleanupConnection {
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    
+    if (connection != nil) {
+        [connection cancel];
+        [connection release];
+        connection = nil;
+    }
+    
+    if (receivedData != nil) {
+        [receivedData release];
+        receivedData = nil;
+    }
+    
+    self.delegate = nil;
 
 #if MIGA_ASYNC_HTTP_REQUEST_BLOCKS_USE_ALLOWED
-	if (backgroundTaskSupported && (backgroundTaskIdentifier != UIBackgroundTaskInvalid)) {
-		[[UIApplication sharedApplication] endBackgroundTask: backgroundTaskIdentifier];
-		backgroundTaskIdentifier = UIBackgroundTaskInvalid;
-	}
+    if (backgroundTaskSupported && (backgroundTaskIdentifier != UIBackgroundTaskInvalid)) {
+        [[UIApplication sharedApplication] endBackgroundTask:backgroundTaskIdentifier];
+        backgroundTaskIdentifier = UIBackgroundTaskInvalid;
+    }
 #endif
 }
 
--(void)startRequestWithURL: (NSURL *)url;
-{
-	assert(connection == nil);
-	
-	self.requestedURL = url;
-	
+
+- (void)startRequestWithURL:(NSURL *)url {
+    assert(connection == nil);
+    
+    self.requestedURL = url;
+    
 #if MIGA_ASYNC_HTTP_REQUEST_BLOCKS_USE_ALLOWED
-	if (backgroundTaskSupported) {
-		NSThread *targetThread = [NSThread currentThread];
-		backgroundTaskIdentifier = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler: ^{
-			[self performSelector: @selector(handleFailure) onThread: targetThread withObject: nil waitUntilDone: YES];
-		}];
-	}
+    if (backgroundTaskSupported) {
+        NSThread *targetThread = [NSThread currentThread];
+        backgroundTaskIdentifier = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+            [self performSelector:@selector(handleFailure) onThread:targetThread withObject:nil waitUntilDone:YES];
+        }];
+    }
 #endif
 
-	Reachability *urlReachability = [Reachability reachabilityWithHostName: [url host]];
-	NetworkStatus status = [urlReachability currentReachabilityStatus];
-	if (status == NotReachable) {
-		[self handleFailure];
-		return;
-	}
-	
-	[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible: YES];
-	
-	
-	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL: url cachePolicy: NSURLRequestReloadIgnoringLocalCacheData timeoutInterval: self.timeoutInterval];
-	
-	if (postDictionary) {
-		[request setHTTPMethod: @"POST"];
-		
-		NSString *characterSet = (NSString *)CFStringConvertEncodingToIANACharSetName(CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));
+    Reachability *urlReachability = [Reachability reachabilityWithHostName:[url host]];
+    NetworkStatus status = [urlReachability currentReachabilityStatus];
+    if (status == NotReachable) {
+        [self handleFailure];
+        return;
+    }
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:self.timeoutInterval];
+    
+    if (postDictionary) {
+        [request setHTTPMethod:@"POST"];
+        
+        NSString *characterSet = (NSString *)CFStringConvertEncodingToIANACharSetName(CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));
 
-		[request setValue: [NSString stringWithFormat: @"application/x-www-form-urlencoded; charset=%@", characterSet] forHTTPHeaderField: @"Content-type"];
-		[request setHTTPBody: [self encodePostDataFromPostDictionaryAsURLEncodedWWWForm]];
-	}
-	
-	connection = [[NSURLConnection alloc] initWithRequest: request delegate: self];
-	if (!connection) {
-		[self handleFailure];
-	}
+        [request setValue:[NSString stringWithFormat:@"application/x-www-form-urlencoded; charset=%@", characterSet] forHTTPHeaderField:@"Content-type"];
+        [request setHTTPBody:[self encodePostDataFromPostDictionaryAsURLEncodedWWWForm]];
+    }
+    
+    connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    if (!connection) {
+        [self handleFailure];
+    }
 }
 
--(void)startRequestWithURLString:(NSString *)URLString;
-{
-	
-	NSString *escapedURLString = [URLString stringByAddingPercentEscapesUsingEncoding: NSASCIIStringEncoding];
-	NSURL *url = [NSURL URLWithString: escapedURLString];
-	
-	[self startRequestWithURL: url];
+
+- (void)startRequestWithURLString:(NSString *)URLString {
+    NSString *escapedURLString = [URLString stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+    NSURL *url = [NSURL URLWithString:escapedURLString];
+    
+    [self startRequestWithURL:url];
 }
 
--(void)cancel;
-{
-	[self cleanupConnection];
+
+- (void)cancel {
+    [self cleanupConnection];
 }
 
--(NSData *)encodePostDataFromPostDictionaryAsURLEncodedWWWForm;
-{
-	NSMutableData *result = [[NSMutableData alloc] initWithCapacity: 2048];
-	NSInteger i = 0;
-	NSInteger lastIndex = [self.postDictionary count] - 1;
-	for (NSString *key in [self.postDictionary allKeys]) {
-		NSString *urlEncodedName = [key migaURLEncodedString];
-		NSString *urlEncodedValue = [(NSString *)[self.postDictionary objectForKey: key] migaURLEncodedString];
-		NSData *nameValuePair = [[NSString stringWithFormat: @"%@=%@%@", urlEncodedName, urlEncodedValue, (i < lastIndex) ? @"&" : @""] dataUsingEncoding: NSUTF8StringEncoding];
-		
-		[result appendData: nameValuePair];
-		
-		i++;
-	}
-	
-	return [result autorelease];
+
+- (NSData *)encodePostDataFromPostDictionaryAsURLEncodedWWWForm {
+    NSMutableData *result = [[NSMutableData alloc] initWithCapacity:2048];
+    NSInteger i = 0;
+    NSInteger lastIndex = [self.postDictionary count] - 1;
+    for (NSString *key in [self.postDictionary allKeys]) {
+        NSString *urlEncodedName = [key migaURLEncodedString];
+        NSString *urlEncodedValue = [(NSString *)[self.postDictionary objectForKey:key] migaURLEncodedString];
+        NSData *nameValuePair = [[NSString stringWithFormat:@"%@=%@%@", urlEncodedName, urlEncodedValue, (i < lastIndex) ? @"&" : @""] dataUsingEncoding:NSUTF8StringEncoding];
+        
+        [result appendData:nameValuePair];
+        
+        i++;
+    }
+    
+    return [result autorelease];
 }
 
 
 #pragma mark -
 #pragma mark NSURLConnection Delegate Methods
 
--(void)connection:(NSURLConnection *)aConnection didReceiveResponse:(NSURLResponse *)response;
-{
-	assert(connection == aConnection);
-	
-	if ([response isKindOfClass: [NSHTTPURLResponse class]]) {
-		NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
-		if (statusCode >= 404) {
-			MIGADLog(@"Status code is %d.  Treating as failure.", statusCode);
-			[self handleFailure];
-			return;
-		}
-	}
-	
-	self.receivedMIMEContentType = [response MIMEType];
-	NSString *responseTextEncodingName = [response textEncodingName];
-	if (responseTextEncodingName) {
-		MIGADLog(@"Response text encoding is %@", responseTextEncodingName);
-		CFStringEncoding cfEncoding = CFStringConvertIANACharSetNameToEncoding((CFStringRef)responseTextEncodingName);
-		if (cfEncoding != kCFStringEncodingInvalidId) {
-			self.receivedStringEncoding = CFStringConvertEncodingToNSStringEncoding(cfEncoding);
-		}
-	} else {
-		self.receivedStringEncoding = NSUTF8StringEncoding;
-	}
-	
-	[self.receivedData setLength:0];
+- (void)connection:(NSURLConnection *)aConnection didReceiveResponse:(NSURLResponse *)response {
+    assert(connection == aConnection);
+    
+    if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
+        NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
+        if (statusCode >= 404) {
+            MIGADLog(@"Status code is %d.  Treating as failure.", statusCode);
+            [self handleFailure];
+            return;
+        }
+    }
+    
+    self.receivedMIMEContentType = [response MIMEType];
+    NSString *responseTextEncodingName = [response textEncodingName];
+    if (responseTextEncodingName) {
+        MIGADLog(@"Response text encoding is %@", responseTextEncodingName);
+        CFStringEncoding cfEncoding = CFStringConvertIANACharSetNameToEncoding((CFStringRef)responseTextEncodingName);
+        if (cfEncoding != kCFStringEncodingInvalidId) {
+            self.receivedStringEncoding = CFStringConvertEncodingToNSStringEncoding(cfEncoding);
+        }
+    } else {
+        self.receivedStringEncoding = NSUTF8StringEncoding;
+    }
+    
+    [self.receivedData setLength:0];
 }
 
--(void)connection:(NSURLConnection *)aConnection didReceiveData:(NSData *)data;
-{
-	assert(connection == aConnection);
-	
-	[self.receivedData appendData:data];
+
+- (void)connection:(NSURLConnection *)aConnection didReceiveData:(NSData *)data {
+    assert(connection == aConnection);
+    
+    [self.receivedData appendData:data];
 }
 
-- (void)connection:(NSURLConnection *)aConnection didFailWithError:(NSError *)error;
-{
-	assert(connection == aConnection);
 
-	[self handleFailure];
+- (void)connection:(NSURLConnection *)aConnection didFailWithError:(NSError *)error {
+    assert(connection == aConnection);
+
+    [self handleFailure];
 }
 
--(void)connectionDidFinishLoading:(NSURLConnection *)aConnection;
-{
-	assert(connection == aConnection);
 
-	[self handleSuccess];
+- (void)connectionDidFinishLoading:(NSURLConnection *)aConnection {
+    assert(connection == aConnection);
+
+    [self handleSuccess];
 }
 
 

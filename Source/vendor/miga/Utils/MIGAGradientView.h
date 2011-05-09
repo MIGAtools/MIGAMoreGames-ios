@@ -26,7 +26,7 @@
 
 }
 
-@property (nonatomic, retain, readonly) CAGradientLayer *layer;
+@property (nonatomic,retain,readonly) CAGradientLayer *layer;
 
 // Pass-through properties (proxied to CAGradientLayer)
 @property (copy) NSArray *colors;

@@ -10,17 +10,16 @@
 
 @implementation UIColor (MIGAExtensions)
 
-+(UIColor *)migaColorWithHexString: (NSString *)hexString;
-{
-	return [UIColor migaColorWithHexString: hexString ignoreAlphaComponent: NO];
++ (UIColor *)migaColorWithHexString:(NSString *)hexString {
+	return [UIColor migaColorWithHexString:hexString ignoreAlphaComponent:NO];
 }
 
-+(UIColor *)migaColorWithHexString: (NSString *)hexString ignoreAlphaComponent: (BOOL)ignoreAlpha;
-{
-	NSString *cleanedString = [[hexString stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
+
++ (UIColor *)migaColorWithHexString:(NSString *)hexString ignoreAlphaComponent:(BOOL)ignoreAlpha {
+	NSString *cleanedString = [[hexString stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
 	
-	if ([cleanedString hasPrefix: @"#"]) {
-		cleanedString = [cleanedString substringFromIndex: 1];
+	if ([cleanedString hasPrefix:@"#"]) {
+		cleanedString = [cleanedString substringFromIndex:1];
 	}
 	
 	NSInteger stringLength = [cleanedString length];
@@ -28,18 +27,18 @@
 		return nil;
 	
 	NSRange range = NSMakeRange(0, 2);
-	NSString *redString = [cleanedString substringWithRange: range];
+	NSString *redString = [cleanedString substringWithRange:range];
 	
 	range.location = 2;
-	NSString *greenString = [cleanedString substringWithRange: range];
+	NSString *greenString = [cleanedString substringWithRange:range];
 	
 	range.location = 4;
-	NSString *blueString = [cleanedString substringWithRange: range];
+	NSString *blueString = [cleanedString substringWithRange:range];
 	
 	NSString *alphaString;
 	if ([cleanedString length] >= 8) {
 		range.location = 6;
-		alphaString = [cleanedString substringWithRange: range];
+		alphaString = [cleanedString substringWithRange:range];
 	} else {
 		ignoreAlpha = YES;
 		alphaString = @"";
@@ -49,21 +48,21 @@
 	NSUInteger redInt, greenInt, blueInt, alphaInt;
 	CGFloat redFloat, greenFloat, blueFloat, alphaFloat;
 	
-	[[NSScanner scannerWithString: redString] scanHexInt: &redInt];
-	[[NSScanner scannerWithString: greenString] scanHexInt: &greenInt];
-	[[NSScanner scannerWithString: blueString] scanHexInt: &blueInt];
-	[[NSScanner scannerWithString: alphaString] scanHexInt: &alphaInt];
+	[[NSScanner scannerWithString: redString] scanHexInt:&redInt];
+	[[NSScanner scannerWithString: greenString] scanHexInt:&greenInt];
+	[[NSScanner scannerWithString: blueString] scanHexInt:&blueInt];
+	[[NSScanner scannerWithString: alphaString] scanHexInt:&alphaInt];
 
 	redFloat = ((CGFloat)redInt / 255.0f);
 	greenFloat = ((CGFloat)greenInt / 255.0f);
 	blueFloat = ((CGFloat)blueInt / 255.0f);
-	alphaFloat = ignoreAlpha ? 1.0 : ((CGFloat)alphaInt / 255.0f);
+	alphaFloat = ignoreAlpha ? 1.0f : ((CGFloat)alphaInt / 255.0f);
 	
-	return [UIColor colorWithRed: redFloat green: greenFloat blue: blueFloat alpha: alphaFloat];
+	return [UIColor colorWithRed:redFloat green:greenFloat blue:blueFloat alpha:alphaFloat];
 }
 
--(NSString *)migaHexString;
-{
+
+- (NSString *)migaHexString {
 	CGColorSpaceModel colorSpaceModel = CGColorSpaceGetModel(CGColorGetColorSpace(self.CGColor));
 	
 	if (!((colorSpaceModel == kCGColorSpaceModelRGB) || (colorSpaceModel == kCGColorSpaceModelMonochrome)))
@@ -82,9 +81,10 @@
 		alpha = (int)(components[3] * 255);
 	}
 	
-	NSString *result = [NSString stringWithFormat: @"#%02X%02X%02X%02X", red, green, blue, alpha];
+	NSString *result = [NSString stringWithFormat:@"#%02X%02X%02X%02X", red, green, blue, alpha];
 	
 	return result;
 }
+
 
 @end

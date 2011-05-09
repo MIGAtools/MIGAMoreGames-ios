@@ -11,7 +11,7 @@
 
 @interface NSString (migaURLEncodedString)
 
--(NSString *)migaURLEncodedString;
--(NSString *)migaURLEncodedStringWithStringEncoding: (NSStringEncoding)encoding;
+- (NSString *)migaURLEncodedString;
+- (NSString *)migaURLEncodedStringWithStringEncoding:(NSStringEncoding)encoding;
 
 @end

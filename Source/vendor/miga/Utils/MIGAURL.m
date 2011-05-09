@@ -11,15 +11,14 @@
 
 @implementation MIGAURL
 
--(id)initWithString:(NSString *)URLString relativeToURL:(NSURL *)baseURL;
-{
-	if ((self = [super initWithString: URLString relativeToURL: baseURL])) {
-		if ([[self scheme] isEqualToString: @"miga-bundle"]) {			
+- (id)initWithString:(NSString *)URLString relativeToURL:(NSURL *)baseURL {
+	if ((self = [super initWithString:URLString relativeToURL:baseURL])) {
+		if ([[self scheme] isEqualToString:@"miga-bundle"]) {			
 			NSBundle *bundle;
 			if ([self host] == nil) {
 				bundle = [NSBundle mainBundle];
 			} else {
-				bundle = [NSBundle bundleWithIdentifier: [self host]];
+				bundle = [NSBundle bundleWithIdentifier:[self host]];
 			}
 			
 			if (bundle == nil) {
@@ -27,10 +26,10 @@
 				return nil;
 			}
 			
-			NSString *filePath = [[bundle bundlePath] stringByAppendingPathComponent: [self path]];
+			NSString *filePath = [[bundle bundlePath] stringByAppendingPathComponent:[self path]];
 			
 			[self release];
-			self = [[MIGAURL alloc] initFileURLWithPath: filePath];
+			self = [[MIGAURL alloc] initFileURLWithPath:filePath];
 		}
 	}
 	

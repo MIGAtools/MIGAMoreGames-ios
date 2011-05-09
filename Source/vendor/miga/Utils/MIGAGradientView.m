@@ -12,59 +12,59 @@
 @implementation MIGAGradientView
 @dynamic layer;
 
-+(Class)layerClass;
-{
-	return [CAGradientLayer class];
++ (Class)layerClass {
+    return [CAGradientLayer class];
 }
 
--(void)setColors:(NSArray *)aColors;
-{
-	[self.layer setColors: aColors];
+
+- (void)setColors:(NSArray *)aColors {
+    [self.layer setColors:aColors];
 }
 
--(NSArray *)colors;
-{
-	return [self.layer colors];
+
+- (NSArray *)colors {
+    return [self.layer colors];
 }
 
--(void)setLocations:(NSArray *)aLocations;
-{
-	[self.layer setLocations: aLocations];
+
+- (void)setLocations:(NSArray *)aLocations {
+    [self.layer setLocations:aLocations];
 }
 
--(NSArray *)locations;
-{
-	return [self.layer locations];
+
+- (NSArray *)locations {
+    return [self.layer locations];
 }
 
--(void)setStartPoint:(CGPoint)aPoint;
-{
-	[self.layer setStartPoint: aPoint];
+
+- (void)setStartPoint:(CGPoint)aPoint {
+    [self.layer setStartPoint:aPoint];
 }
 
--(CGPoint)startPoint;
-{
-	return [self.layer startPoint];
+
+- (CGPoint)startPoint {
+    return [self.layer startPoint];
 }
 
--(void)setEndPoint:(CGPoint)aPoint;
-{
-	[self.layer setEndPoint: aPoint];
+
+- (void)setEndPoint:(CGPoint)aPoint {
+    [self.layer setEndPoint:aPoint];
 }
 
--(CGPoint)endPoint;
-{
-	return [self.layer endPoint];
+
+- (CGPoint)endPoint {
+    return [self.layer endPoint];
 }
 
--(void)setType:(NSString *)aType;
-{
-	[self.layer setType: aType];
+
+- (void)setType:(NSString *)aType {
+    [self.layer setType:aType];
 }
 
--(NSString *)type;
-{
-	return [self.layer type];
+
+- (NSString *)type {
+    return [self.layer type];
 }
+
 
 @end

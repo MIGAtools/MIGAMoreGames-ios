@@ -68,36 +68,36 @@ extern NSString * const kMIGAPersistentCacheManagerDefaultCacheDirectoryName;
  (Note that values less than or equal to 0 are treated as unset.)
  */
 @interface MIGAPersistentCacheManager : NSObject {
-	@private
-	NSMutableDictionary *cacheIndex;
-	NSString *cacheDirectory;
-	NSString *objectDirectory;
-	
-	NSTimeInterval expiryAge;
-	NSTimeInterval maximumAge;
-	
-	BOOL isDirty;
+    @private
+    NSMutableDictionary *cacheIndex;
+    NSString *cacheDirectory;
+    NSString *objectDirectory;
+    
+    NSTimeInterval expiryAge;
+    NSTimeInterval maximumAge;
+    
+    BOOL isDirty;
 }
 
-+(NSString *)defaultPersistentCacheDirectory;
++ (NSString *)defaultPersistentCacheDirectory;
 
-+(id)defaultManager;
-+(id)managerWithCacheDirectory: (NSString *) cacheDirectory;
++ (id)defaultManager;
++ (id)managerWithCacheDirectory:(NSString *)cacheDirectory;
 
-@property (nonatomic, retain, readonly) NSString * cacheDirectory;
-@property (nonatomic, assign) NSTimeInterval expiryAge;
-@property (nonatomic, assign) NSTimeInterval maximumAge;
+@property (nonatomic,retain,readonly) NSString *cacheDirectory;
+@property (nonatomic,assign) NSTimeInterval expiryAge;
+@property (nonatomic,assign) NSTimeInterval maximumAge;
 
--(id)initWithCacheDirectory: (NSString *) cacheDirectory;
+- (id)initWithCacheDirectory:(NSString *)cacheDirectory;
 
--(BOOL)cachedObjectExistsForURL: (NSURL *)url isExpired: (BOOL *)expired;
--(id<NSCoding>)objectForURL: (NSURL *)url;
--(void)setObject: (id<NSCoding>)item forURL: (NSURL *)url;
--(void)setObject: (id<NSCoding>)object forURL: (NSURL *)url expireAt: (NSTimeInterval)expireAtIntervalSince1970 purgeAt: (NSTimeInterval)purgeAtIntervalSince1970;
+- (BOOL)cachedObjectExistsForURL:(NSURL *)url isExpired:(BOOL *)expired;
+- (id<NSCoding>)objectForURL:(NSURL *)url;
+- (void)setObject:(id<NSCoding>)item forURL:(NSURL *)url;
+- (void)setObject:(id<NSCoding>)object forURL:(NSURL *)url expireAt:(NSTimeInterval)expireAtIntervalSince1970 purgeAt:(NSTimeInterval)purgeAtIntervalSince1970;
 
--(void)cleanUpStorage;
+- (void)cleanUpStorage;
 
--(BOOL)writeIndexToFile;
--(BOOL)writeIndexToFileIfNeeded;
+- (BOOL)writeIndexToFile;
+- (BOOL)writeIndexToFileIfNeeded;
 
 @end

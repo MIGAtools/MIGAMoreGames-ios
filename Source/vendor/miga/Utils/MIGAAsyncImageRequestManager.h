@@ -18,18 +18,18 @@ extern NSString * const MIGAAsyncImageRequestManagerImageUserInfoKey;
 @class MIGAPersistentCacheManager;
 
 @interface MIGAAsyncImageRequestManager : NSObject<MIGAAsyncHttpRequestDelegate> {
-	@protected
-	NSMutableDictionary *requests;
-	NSMutableDictionary *loadedImages;
-	MIGAPersistentCacheManager *cacheManager;
+    @protected
+    NSMutableDictionary *requests;
+    NSMutableDictionary *loadedImages;
+    MIGAPersistentCacheManager *cacheManager;
 }
 
-@property (nonatomic, retain, readonly) MIGAPersistentCacheManager *cacheManager;
+@property (nonatomic,retain,readonly) MIGAPersistentCacheManager *cacheManager;
 
-+(MIGAAsyncImageRequestManager *)defaultManager;
++ (MIGAAsyncImageRequestManager *)defaultManager;
 
--(id)initWithCacheManager: (MIGAPersistentCacheManager *)cacheManager;
+- (id)initWithCacheManager:(MIGAPersistentCacheManager *)cacheManager;
 
--(UIImage *)requestImageWithURL: (NSURL *)url;
+- (UIImage *)requestImageWithURL:(NSURL *)url;
 
 @end

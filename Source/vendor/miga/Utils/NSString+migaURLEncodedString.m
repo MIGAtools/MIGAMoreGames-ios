@@ -11,20 +11,20 @@
 
 @implementation NSString (migaURLEncodedString)
 
--(NSString *)migaURLEncodedString;
-{
-	return [self migaURLEncodedStringWithStringEncoding: NSUTF8StringEncoding];
+- (NSString *)migaURLEncodedString {
+    return [self migaURLEncodedStringWithStringEncoding:NSUTF8StringEncoding];
 }
 
--(NSString *)migaURLEncodedStringWithStringEncoding: (NSStringEncoding)encoding;
-{
-	NSString *result = [(NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)self, NULL, CFSTR(":/?#[]@!$ &'()*+,;=\"<>%{}|\\^~`"), CFStringConvertNSStringEncodingToEncoding(encoding)) autorelease];
-	
-	if (!result) {
-		return @"";
-	}
-	
-	return result;
+
+- (NSString *)migaURLEncodedStringWithStringEncoding:(NSStringEncoding)encoding {
+    NSString *result = [(NSString *)CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault, (CFStringRef)self, NULL, CFSTR(":/?#[]@!$ &'()*+,;=\"<>%{}|\\^~`"), CFStringConvertNSStringEncodingToEncoding(encoding)) autorelease];
+    
+    if (!result) {
+        return @"";
+    }
+    
+    return result;
 }
+
 
 @end
