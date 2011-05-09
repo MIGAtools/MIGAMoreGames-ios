@@ -13,7 +13,7 @@
 
 @protocol MIGAMoreGamesViewDelegate <NSObject>
 @optional
--(void)migaMoreGamesView: (MIGAMoreGamesView *)moreGamesView didScrollToPage: (NSUInteger)page;
+- (void)migaMoreGamesView:(MIGAMoreGamesView *)moreGamesView didScrollToPage:(NSUInteger)page;
 @end
 
 
@@ -21,8 +21,8 @@
 
 @required
 
--(NSUInteger)numberOfApplicationsInMoreGamesView: (MIGAMoreGamesView *)moreGamesView;
--(MIGAMoreGamesViewCell *)migaMoreGamesView: (MIGAMoreGamesView *)moreGamesView cellForApplicationAtIndex: (NSUInteger)index;
+- (NSUInteger)numberOfApplicationsInMoreGamesView:(MIGAMoreGamesView *)moreGamesView;
+- (MIGAMoreGamesViewCell *)migaMoreGamesView:(MIGAMoreGamesView *)moreGamesView cellForApplicationAtIndex:(NSUInteger)index;
 
 @optional
 
@@ -30,37 +30,37 @@
 
 
 @interface MIGAMoreGamesView : UIScrollView <UIScrollViewDelegate> {
-	@private
-	id<MIGAMoreGamesViewDataSource> dataSource;
-	id<MIGAMoreGamesViewDelegate> moreGamesViewDelegate;
-	id<MIGAMoreGamesViewCellLayoutManager> cellLayoutManager;
-	
-	NSUInteger applicationCount;
-	
-	BOOL layoutIsDirty;
-	UIInterfaceOrientation interfaceOrientation;
-	
-	NSUInteger currentPage;
-	BOOL explicitlySettingPage;
-	
-	NSRange usedCellsRange;
-	
-	NSMutableArray * usedCells;
-	NSMutableDictionary * reusableCells;
+    @private
+    id<MIGAMoreGamesViewDataSource> dataSource;
+    id<MIGAMoreGamesViewDelegate> moreGamesViewDelegate;
+    id<MIGAMoreGamesViewCellLayoutManager> cellLayoutManager;
+    
+    NSUInteger applicationCount;
+    
+    BOOL layoutIsDirty;
+    UIInterfaceOrientation interfaceOrientation;
+    
+    NSUInteger currentPage;
+    BOOL explicitlySettingPage;
+    
+    NSRange usedCellsRange;
+    
+    NSMutableArray *usedCells;
+    NSMutableDictionary *reusableCells;
 }
 
-@property (nonatomic, retain) IBOutlet id<MIGAMoreGamesViewDataSource> dataSource;
-@property (nonatomic, retain) IBOutlet id<MIGAMoreGamesViewDelegate> moreGamesViewDelegate;
-@property (nonatomic, retain) IBOutlet id<MIGAMoreGamesViewCellLayoutManager> cellLayoutManager;
+@property (nonatomic,retain) IBOutlet id<MIGAMoreGamesViewDataSource> dataSource;
+@property (nonatomic,retain) IBOutlet id<MIGAMoreGamesViewDelegate> moreGamesViewDelegate;
+@property (nonatomic,retain) IBOutlet id<MIGAMoreGamesViewCellLayoutManager> cellLayoutManager;
 
-@property (nonatomic, assign) UIInterfaceOrientation interfaceOrientation;
+@property (nonatomic,assign) UIInterfaceOrientation interfaceOrientation;
 
-@property (nonatomic, assign) NSUInteger currentPage;
+@property (nonatomic,assign) NSUInteger currentPage;
 
--(void)reloadData;
--(MIGAMoreGamesViewCell *)dequeueReusableCellWithIdentifier: (NSString *)identifier;
+- (void)reloadData;
+- (MIGAMoreGamesViewCell *)dequeueReusableCellWithIdentifier:(NSString *)identifier;
 
--(void)layoutCellsForInterfaceOrientation: (UIInterfaceOrientation)toInterfaceOrientation;
--(void)layoutCellsForInterfaceOrientation: (UIInterfaceOrientation)toInterfaceOrientation duration: (NSTimeInterval)duration;
+- (void)layoutCellsForInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation;
+- (void)layoutCellsForInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration;
 
 @end
