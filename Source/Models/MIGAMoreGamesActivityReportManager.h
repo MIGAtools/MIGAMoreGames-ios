@@ -10,24 +10,24 @@
 #import "MIGAAsyncHttpRequest.h"
 
 @interface MIGAMoreGamesActivityReportManager : NSObject<MIGAAsyncHttpRequestDelegate> {
-	@private
-	BOOL enabled;
-	BOOL initialized;
-	
-	NSMutableArray *actions;
-	NSArray *pendingSubmissionActions;
-	MIGAAsyncHttpRequest *request;
+    @private
+    BOOL enabled;
+    BOOL initialized;
+    
+    NSMutableArray *actions;
+    NSArray *pendingSubmissionActions;
+    MIGAAsyncHttpRequest *request;
 }
 
-@property (nonatomic, assign) BOOL enabled;
+@property (nonatomic,assign) BOOL enabled;
 
-+(MIGAMoreGamesActivityReportManager *)sharedManager;
++ (MIGAMoreGamesActivityReportManager *)sharedManager;
 
--(void)logSessionStartWithDate: (NSDate *)date;
--(void)logPresentationWithDate: (NSDate *)date;
--(void)logDismissalWithDate: (NSDate *)date;
--(void)logClickWithDate: (NSDate *)date contentId: (NSUInteger)contentId;
--(void)logImpressionWithDate: (NSDate *)date contentId: (NSUInteger)contentId duration: (NSTimeInterval)duration;
--(void)submitActivity;
+- (void)logSessionStartWithDate:(NSDate *)date;
+- (void)logPresentationWithDate:(NSDate *)date;
+- (void)logDismissalWithDate:(NSDate *)date;
+- (void)logClickWithDate:(NSDate *)date contentId:(NSUInteger)contentId;
+- (void)logImpressionWithDate:(NSDate *)date contentId:(NSUInteger)contentId duration:(NSTimeInterval)duration;
+- (void)submitActivity;
 
 @end

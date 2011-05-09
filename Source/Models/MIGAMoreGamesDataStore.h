@@ -56,20 +56,20 @@ extern NSString * const MIGAMoreGamesDataStoreDidUpdateNotification;
 	NSURL *requestedURL;
 }
 
-@property (nonatomic, assign, readonly) NSUInteger count;
+@property (nonatomic,assign,readonly) NSUInteger count;
 
--(id)initWithJSONString: (NSString *)json;
--(id)initWithContentsOfFile: (NSString *)filePath encoding: (NSStringEncoding)encoding error: (NSError **)error;
+- (id)initWithJSONString:(NSString *)json;
+- (id)initWithContentsOfFile:(NSString *)filePath encoding:(NSStringEncoding)encoding error:(NSError **)error;
 
--(id)initWithAsynchronousRequestToURL: (NSURL *)url;
--(id)initWithAsynchronousRequestToURL:(NSURL *)url cacheManager: (MIGAPersistentCacheManager *)cacheManager;
+- (id)initWithAsynchronousRequestToURL:(NSURL *)url;
+- (id)initWithAsynchronousRequestToURL:(NSURL *)url cacheManager:(MIGAPersistentCacheManager *)cacheManager;
 
--(id)initWithDefaultContent;
+- (id)initWithDefaultContent;
 
--(MIGAApplicationInfo *)applicationAtIndex: (NSUInteger)index;
+- (MIGAApplicationInfo *)applicationAtIndex:(NSUInteger)index;
 
--(BOOL)writeToFile: (NSString *)filePath encoding: (NSStringEncoding)encoding error: (NSError **)error;
+- (BOOL)writeToFile:(NSString *)filePath encoding:(NSStringEncoding)encoding error:(NSError **)error;
 
--(void)update;
+- (void)update;
 
 @end

@@ -22,34 +22,34 @@ extern NSString * const kMIGAApplicationInfoImagesKey;
 extern NSString * const kMIGAApplicationInfoBackgroundColorStringKey;
 
 @interface MIGAApplicationInfo : NSObject {
-	@private
-	NSUInteger contentId;
-	NSString *package;
-	NSString *title;
-	NSString *publisher;
-	NSString *clickURLString;
-	NSString *price;
-	NSString *detail;
-	UIColor *backgroundColor;
-	
-	NSDictionary *images;
+    @private
+    NSUInteger contentId;
+    NSString *package;
+    NSString *title;
+    NSString *publisher;
+    NSString *clickURLString;
+    NSString *price;
+    NSString *detail;
+    UIColor *backgroundColor;
+    
+    NSDictionary *images;
 }
 
-@property (nonatomic, assign) NSUInteger contentId;
-@property (nonatomic, retain) NSString *package;
-@property (nonatomic, retain) NSString *title;
-@property (nonatomic, retain) NSString *publisher;
-@property (nonatomic, retain) NSString *clickURLString;
-@property (nonatomic, retain) NSString *price;
-@property (nonatomic, retain) NSString *detail;
-@property (nonatomic, retain) UIColor *backgroundColor;
-@property (nonatomic, retain) NSDictionary *images;
+@property (nonatomic,assign) NSUInteger contentId;
+@property (nonatomic,retain) NSString *package;
+@property (nonatomic,retain) NSString *title;
+@property (nonatomic,retain) NSString *publisher;
+@property (nonatomic,retain) NSString *clickURLString;
+@property (nonatomic,retain) NSString *price;
+@property (nonatomic,retain) NSString *detail;
+@property (nonatomic,retain) UIColor *backgroundColor;
+@property (nonatomic,retain) NSDictionary *images;
 
--(id)initWithContentsOfDictionary: (NSDictionary *)dictionary;
+- (id)initWithContentsOfDictionary:(NSDictionary *)dictionary;
 
--(NSDictionary *)dictionaryValue;
+- (NSDictionary *)dictionaryValue;
 
--(NSURL *)imageURLForType: (NSString *)typeKey size: (CGSize)size contentScale: (CGFloat)contentScale actualScale: (CGFloat *)actualScale;
--(NSURL *)imageURLForType:(NSString *)typeKey size:(CGSize)size;
+- (NSURL *)imageURLForType:(NSString *)typeKey size:(CGSize)size contentScale:(CGFloat)contentScale actualScale:(CGFloat *)actualScale;
+- (NSURL *)imageURLForType:(NSString *)typeKey size:(CGSize)size;
 
 @end
