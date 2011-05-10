@@ -1,0 +1,920 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D3623260D0F684500981E51 /* MIGATestAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* MIGATestAppDelegate.m */; };
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
+		28AD73600D9D9599002E5188 /* MainWindow-iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow-iPhone.xib */; };
+		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
+		28F335F11007B36200424DE2 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F335F01007B36200424DE2 /* RootViewController.xib */; };
+		44017E2E122346D000F267BD /* Icon-Phone.png in Resources */ = {isa = PBXBuildFile; fileRef = 44017E2C122346D000F267BD /* Icon-Phone.png */; };
+		44017E2F122346D000F267BD /* Icon-Phone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44017E2D122346D000F267BD /* Icon-Phone@2x.png */; };
+		44017E31122346E300F267BD /* Icon-Pad.png in Resources */ = {isa = PBXBuildFile; fileRef = 44017E30122346E300F267BD /* Icon-Pad.png */; };
+		44017E341223470700F267BD /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 44017E321223470700F267BD /* iTunesArtwork */; };
+		44017E351223470700F267BD /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = 44017E331223470700F267BD /* iTunesArtwork@2x */; };
+		4401A4B9120C93BF00C00606 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4401A4B8120C93BF00C00606 /* QuartzCore.framework */; };
+		4401AEBA1216126100C00606 /* content.json in Copy MIGAMoreGamesDefaultContent */ = {isa = PBXBuildFile; fileRef = 4401AEB91216126100C00606 /* content.json */; };
+		4401AED41216B61900C00606 /* happy_fun_ball-240x160.png in Copy MIGAMoreGamesDefaultContent */ = {isa = PBXBuildFile; fileRef = 4401AECC1216B61900C00606 /* happy_fun_ball-240x160.png */; };
+		4401AED51216B61900C00606 /* happy_fun_ball-480x320.png in Copy MIGAMoreGamesDefaultContent */ = {isa = PBXBuildFile; fileRef = 4401AECD1216B61900C00606 /* happy_fun_ball-480x320.png */; };
+		4401AED61216B61900C00606 /* icon-happy_fun_ball-57x57.png in Copy MIGAMoreGamesDefaultContent */ = {isa = PBXBuildFile; fileRef = 4401AECE1216B61900C00606 /* icon-happy_fun_ball-57x57.png */; };
+		4401AED71216B61900C00606 /* icon-happy_fun_ball-114x114.png in Copy MIGAMoreGamesDefaultContent */ = {isa = PBXBuildFile; fileRef = 4401AECF1216B61900C00606 /* icon-happy_fun_ball-114x114.png */; };
+		440AC66C1209D3F4007BC45B /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 440AC66B1209D3F4007BC45B /* MainWindow-iPad.xib */; };
+		444CD97712271203002833CE /* MIGAMoreGamesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD93A12271203002833CE /* MIGAMoreGamesViewController.m */; };
+		444CD97812271203002833CE /* MIGAApplicationInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD93E12271203002833CE /* MIGAApplicationInfo.m */; };
+		444CD97912271203002833CE /* MIGAMoreGamesActivityReportManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD94012271203002833CE /* MIGAMoreGamesActivityReportManager.m */; };
+		444CD97A12271203002833CE /* MIGAMoreGamesContentValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD94212271203002833CE /* MIGAMoreGamesContentValidation.m */; };
+		444CD97B12271203002833CE /* MIGAMoreGamesDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD94412271203002833CE /* MIGAMoreGamesDataStore.m */; };
+		444CD97C12271203002833CE /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD94912271203002833CE /* Reachability.m */; };
+		444CD97D12271203002833CE /* MIGAAsyncHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD94D12271203002833CE /* MIGAAsyncHttpRequest.m */; };
+		444CD97E12271203002833CE /* MIGAAsyncImageRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD94F12271203002833CE /* MIGAAsyncImageRequestManager.m */; };
+		444CD97F12271203002833CE /* MIGAAsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD95112271203002833CE /* MIGAAsyncImageView.m */; };
+		444CD98012271203002833CE /* MIGACloseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD95312271203002833CE /* MIGACloseButton.m */; };
+		444CD98112271203002833CE /* MIGAGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD95512271203002833CE /* MIGAGradientView.m */; };
+		444CD98212271203002833CE /* MIGAImpressionTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD95712271203002833CE /* MIGAImpressionTimer.m */; };
+		444CD98312271203002833CE /* MIGAPersistentCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD95A12271203002833CE /* MIGAPersistentCacheManager.m */; };
+		444CD98412271203002833CE /* MIGAURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD95C12271203002833CE /* MIGAURL.m */; };
+		444CD98512271203002833CE /* NSString+migaURLEncodedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD95E12271203002833CE /* NSString+migaURLEncodedString.m */; };
+		444CD98612271203002833CE /* NSString+migaUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD96012271203002833CE /* NSString+migaUUID.m */; };
+		444CD98712271203002833CE /* UIColor+MIGAExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD96212271203002833CE /* UIColor+MIGAExtensions.m */; };
+		444CD98812271203002833CE /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD96712271203002833CE /* NSObject+SBJSON.m */; };
+		444CD98912271203002833CE /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD96912271203002833CE /* NSString+SBJSON.m */; };
+		444CD98A12271203002833CE /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD96B12271203002833CE /* SBJSON.m */; };
+		444CD98B12271203002833CE /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD96D12271203002833CE /* SBJsonBase.m */; };
+		444CD98C12271203002833CE /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD96F12271203002833CE /* SBJsonParser.m */; };
+		444CD98D12271203002833CE /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD97112271203002833CE /* SBJsonWriter.m */; };
+		444CD98E12271203002833CE /* MIGAMoreGamesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD97412271203002833CE /* MIGAMoreGamesView.m */; };
+		444CD98F12271203002833CE /* MIGAMoreGamesViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD97612271203002833CE /* MIGAMoreGamesViewCell.m */; };
+		44550AE5122B284D009CCB08 /* MainWindow-iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow-iPhone.xib */; };
+		44550AE6122B284D009CCB08 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F335F01007B36200424DE2 /* RootViewController.xib */; };
+		44550AE7122B284D009CCB08 /* CustomMIGAMoreGamesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44BF4EBA11FCC1A000BEC1D2 /* CustomMIGAMoreGamesViewController.xib */; };
+		44550AE8122B284D009CCB08 /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 440AC66B1209D3F4007BC45B /* MainWindow-iPad.xib */; };
+		44550AE9122B284D009CCB08 /* Icon-Phone.png in Resources */ = {isa = PBXBuildFile; fileRef = 44017E2C122346D000F267BD /* Icon-Phone.png */; };
+		44550AEA122B284D009CCB08 /* Icon-Phone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44017E2D122346D000F267BD /* Icon-Phone@2x.png */; };
+		44550AEB122B284D009CCB08 /* Icon-Pad.png in Resources */ = {isa = PBXBuildFile; fileRef = 44017E30122346E300F267BD /* Icon-Pad.png */; };
+		44550AEC122B284D009CCB08 /* iTunesArtwork in Resources */ = {isa = PBXBuildFile; fileRef = 44017E321223470700F267BD /* iTunesArtwork */; };
+		44550AED122B284D009CCB08 /* iTunesArtwork@2x in Resources */ = {isa = PBXBuildFile; fileRef = 44017E331223470700F267BD /* iTunesArtwork@2x */; };
+		44550AEF122B284D009CCB08 /* banner-landscape.png in Copy MIGAMoreGames Resources */ = {isa = PBXBuildFile; fileRef = 44EE63951225C63A0046CECB /* banner-landscape.png */; };
+		44550AF0122B284D009CCB08 /* banner-landscape@2x.png in Copy MIGAMoreGames Resources */ = {isa = PBXBuildFile; fileRef = 44EE63961225C63A0046CECB /* banner-landscape@2x.png */; };
+		44550AF1122B284D009CCB08 /* banner-portrait.png in Copy MIGAMoreGames Resources */ = {isa = PBXBuildFile; fileRef = 44EE63971225C63A0046CECB /* banner-portrait.png */; };
+		44550AF2122B284D009CCB08 /* banner-portrait@2x.png in Copy MIGAMoreGames Resources */ = {isa = PBXBuildFile; fileRef = 44EE63981225C63A0046CECB /* banner-portrait@2x.png */; };
+		44550AF3122B284D009CCB08 /* MIGAAsyncImageViewMissingImage.png in Copy MIGAMoreGames Resources */ = {isa = PBXBuildFile; fileRef = 44EE63991225C63A0046CECB /* MIGAAsyncImageViewMissingImage.png */; };
+		44550AF4122B284D009CCB08 /* MIGAAsyncImageViewMissingImage@2x.png in Copy MIGAMoreGames Resources */ = {isa = PBXBuildFile; fileRef = 44EE639A1225C63A0046CECB /* MIGAAsyncImageViewMissingImage@2x.png */; };
+		44550AF6122B284D009CCB08 /* happy_fun_ball-240x160.png in Copy MIGAMoreGamesDefaultContent */ = {isa = PBXBuildFile; fileRef = 4401AECC1216B61900C00606 /* happy_fun_ball-240x160.png */; };
+		44550AF7122B284D009CCB08 /* happy_fun_ball-480x320.png in Copy MIGAMoreGamesDefaultContent */ = {isa = PBXBuildFile; fileRef = 4401AECD1216B61900C00606 /* happy_fun_ball-480x320.png */; };
+		44550AF8122B284D009CCB08 /* icon-happy_fun_ball-57x57.png in Copy MIGAMoreGamesDefaultContent */ = {isa = PBXBuildFile; fileRef = 4401AECE1216B61900C00606 /* icon-happy_fun_ball-57x57.png */; };
+		44550AF9122B284D009CCB08 /* icon-happy_fun_ball-114x114.png in Copy MIGAMoreGamesDefaultContent */ = {isa = PBXBuildFile; fileRef = 4401AECF1216B61900C00606 /* icon-happy_fun_ball-114x114.png */; };
+		44550AFE122B284D009CCB08 /* content.json in Copy MIGAMoreGamesDefaultContent */ = {isa = PBXBuildFile; fileRef = 4401AEB91216126100C00606 /* content.json */; };
+		44550B00122B284D009CCB08 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		44550B01122B284D009CCB08 /* MIGATestAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* MIGATestAppDelegate.m */; };
+		44550B02122B284D009CCB08 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
+		44550B03122B284D009CCB08 /* MIGAMoreGamesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD93A12271203002833CE /* MIGAMoreGamesViewController.m */; };
+		44550B04122B284D009CCB08 /* MIGAApplicationInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD93E12271203002833CE /* MIGAApplicationInfo.m */; };
+		44550B05122B284D009CCB08 /* MIGAMoreGamesActivityReportManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD94012271203002833CE /* MIGAMoreGamesActivityReportManager.m */; };
+		44550B06122B284D009CCB08 /* MIGAMoreGamesContentValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD94212271203002833CE /* MIGAMoreGamesContentValidation.m */; };
+		44550B07122B284D009CCB08 /* MIGAMoreGamesDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD94412271203002833CE /* MIGAMoreGamesDataStore.m */; };
+		44550B08122B284D009CCB08 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD94912271203002833CE /* Reachability.m */; };
+		44550B09122B284D009CCB08 /* MIGAAsyncHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD94D12271203002833CE /* MIGAAsyncHttpRequest.m */; };
+		44550B0A122B284D009CCB08 /* MIGAAsyncImageRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD94F12271203002833CE /* MIGAAsyncImageRequestManager.m */; };
+		44550B0B122B284D009CCB08 /* MIGAAsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD95112271203002833CE /* MIGAAsyncImageView.m */; };
+		44550B0C122B284D009CCB08 /* MIGACloseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD95312271203002833CE /* MIGACloseButton.m */; };
+		44550B0D122B284D009CCB08 /* MIGAGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD95512271203002833CE /* MIGAGradientView.m */; };
+		44550B0E122B284D009CCB08 /* MIGAImpressionTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD95712271203002833CE /* MIGAImpressionTimer.m */; };
+		44550B0F122B284D009CCB08 /* MIGAPersistentCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD95A12271203002833CE /* MIGAPersistentCacheManager.m */; };
+		44550B10122B284D009CCB08 /* MIGAURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD95C12271203002833CE /* MIGAURL.m */; };
+		44550B11122B284D009CCB08 /* NSString+migaURLEncodedString.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD95E12271203002833CE /* NSString+migaURLEncodedString.m */; };
+		44550B12122B284D009CCB08 /* NSString+migaUUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD96012271203002833CE /* NSString+migaUUID.m */; };
+		44550B13122B284D009CCB08 /* UIColor+MIGAExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD96212271203002833CE /* UIColor+MIGAExtensions.m */; };
+		44550B14122B284D009CCB08 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD96712271203002833CE /* NSObject+SBJSON.m */; };
+		44550B15122B284D009CCB08 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD96912271203002833CE /* NSString+SBJSON.m */; };
+		44550B16122B284D009CCB08 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD96B12271203002833CE /* SBJSON.m */; };
+		44550B17122B284D009CCB08 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD96D12271203002833CE /* SBJsonBase.m */; };
+		44550B18122B284D009CCB08 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD96F12271203002833CE /* SBJsonParser.m */; };
+		44550B19122B284D009CCB08 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD97112271203002833CE /* SBJsonWriter.m */; };
+		44550B1A122B284D009CCB08 /* MIGAMoreGamesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD97412271203002833CE /* MIGAMoreGamesView.m */; };
+		44550B1B122B284D009CCB08 /* MIGAMoreGamesViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 444CD97612271203002833CE /* MIGAMoreGamesViewCell.m */; };
+		44550B1D122B284D009CCB08 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		44550B1E122B284D009CCB08 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		44550B1F122B284D009CCB08 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
+		44550B20122B284D009CCB08 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4401A4B8120C93BF00C00606 /* QuartzCore.framework */; };
+		44550B21122B284D009CCB08 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A5177D12245DAD00415EB6 /* SystemConfiguration.framework */; };
+		44A5177E12245DAD00415EB6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44A5177D12245DAD00415EB6 /* SystemConfiguration.framework */; };
+		44BF4EBB11FCC1A000BEC1D2 /* CustomMIGAMoreGamesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44BF4EBA11FCC1A000BEC1D2 /* CustomMIGAMoreGamesViewController.xib */; };
+		44EE639B1225C66A0046CECB /* banner-landscape.png in Copy MIGAMoreGames Resources */ = {isa = PBXBuildFile; fileRef = 44EE63951225C63A0046CECB /* banner-landscape.png */; };
+		44EE639C1225C66A0046CECB /* banner-landscape@2x.png in Copy MIGAMoreGames Resources */ = {isa = PBXBuildFile; fileRef = 44EE63961225C63A0046CECB /* banner-landscape@2x.png */; };
+		44EE639D1225C66A0046CECB /* banner-portrait.png in Copy MIGAMoreGames Resources */ = {isa = PBXBuildFile; fileRef = 44EE63971225C63A0046CECB /* banner-portrait.png */; };
+		44EE639E1225C66A0046CECB /* banner-portrait@2x.png in Copy MIGAMoreGames Resources */ = {isa = PBXBuildFile; fileRef = 44EE63981225C63A0046CECB /* banner-portrait@2x.png */; };
+		44EE639F1225C66A0046CECB /* MIGAAsyncImageViewMissingImage.png in Copy MIGAMoreGames Resources */ = {isa = PBXBuildFile; fileRef = 44EE63991225C63A0046CECB /* MIGAAsyncImageViewMissingImage.png */; };
+		44EE63A01225C66A0046CECB /* MIGAAsyncImageViewMissingImage@2x.png in Copy MIGAMoreGames Resources */ = {isa = PBXBuildFile; fileRef = 44EE639A1225C63A0046CECB /* MIGAAsyncImageViewMissingImage@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4401AEC31216137200C00606 /* Copy MIGAMoreGamesDefaultContent */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = MIGAMoreGamesDefaultContent;
+			dstSubfolderSpec = 7;
+			files = (
+				4401AED41216B61900C00606 /* happy_fun_ball-240x160.png in Copy MIGAMoreGamesDefaultContent */,
+				4401AED51216B61900C00606 /* happy_fun_ball-480x320.png in Copy MIGAMoreGamesDefaultContent */,
+				4401AED61216B61900C00606 /* icon-happy_fun_ball-57x57.png in Copy MIGAMoreGamesDefaultContent */,
+				4401AED71216B61900C00606 /* icon-happy_fun_ball-114x114.png in Copy MIGAMoreGamesDefaultContent */,
+				4401AEBA1216126100C00606 /* content.json in Copy MIGAMoreGamesDefaultContent */,
+			);
+			name = "Copy MIGAMoreGamesDefaultContent";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44550AEE122B284D009CCB08 /* Copy MIGAMoreGames Resources */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				44550AEF122B284D009CCB08 /* banner-landscape.png in Copy MIGAMoreGames Resources */,
+				44550AF0122B284D009CCB08 /* banner-landscape@2x.png in Copy MIGAMoreGames Resources */,
+				44550AF1122B284D009CCB08 /* banner-portrait.png in Copy MIGAMoreGames Resources */,
+				44550AF2122B284D009CCB08 /* banner-portrait@2x.png in Copy MIGAMoreGames Resources */,
+				44550AF3122B284D009CCB08 /* MIGAAsyncImageViewMissingImage.png in Copy MIGAMoreGames Resources */,
+				44550AF4122B284D009CCB08 /* MIGAAsyncImageViewMissingImage@2x.png in Copy MIGAMoreGames Resources */,
+			);
+			name = "Copy MIGAMoreGames Resources";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44550AF5122B284D009CCB08 /* Copy MIGAMoreGamesDefaultContent */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = MIGAMoreGamesDefaultContent;
+			dstSubfolderSpec = 7;
+			files = (
+				44550AF6122B284D009CCB08 /* happy_fun_ball-240x160.png in Copy MIGAMoreGamesDefaultContent */,
+				44550AF7122B284D009CCB08 /* happy_fun_ball-480x320.png in Copy MIGAMoreGamesDefaultContent */,
+				44550AF8122B284D009CCB08 /* icon-happy_fun_ball-57x57.png in Copy MIGAMoreGamesDefaultContent */,
+				44550AF9122B284D009CCB08 /* icon-happy_fun_ball-114x114.png in Copy MIGAMoreGamesDefaultContent */,
+				44550AFE122B284D009CCB08 /* content.json in Copy MIGAMoreGamesDefaultContent */,
+			);
+			name = "Copy MIGAMoreGamesDefaultContent";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44EE63831225C5DE0046CECB /* Copy MIGAMoreGames Resources */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				44EE639B1225C66A0046CECB /* banner-landscape.png in Copy MIGAMoreGames Resources */,
+				44EE639C1225C66A0046CECB /* banner-landscape@2x.png in Copy MIGAMoreGames Resources */,
+				44EE639D1225C66A0046CECB /* banner-portrait.png in Copy MIGAMoreGames Resources */,
+				44EE639E1225C66A0046CECB /* banner-portrait@2x.png in Copy MIGAMoreGames Resources */,
+				44EE639F1225C66A0046CECB /* MIGAAsyncImageViewMissingImage.png in Copy MIGAMoreGames Resources */,
+				44EE63A01225C66A0046CECB /* MIGAAsyncImageViewMissingImage@2x.png in Copy MIGAMoreGames Resources */,
+			);
+			name = "Copy MIGAMoreGames Resources";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D3623240D0F684500981E51 /* MIGATestAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGATestAppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* MIGATestAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIGATestAppDelegate.m; sourceTree = "<group>"; };
+		1D6058910D05DD3D006BFB54 /* MIGATest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MIGATest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		28A0AAE50D9B0CCF005BE974 /* MIGATest_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGATest_Prefix.pch; sourceTree = "<group>"; };
+		28AD735F0D9D9599002E5188 /* MainWindow-iPhone.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "MainWindow-iPhone.xib"; sourceTree = "<group>"; };
+		28C286DF0D94DF7D0034E888 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		28C286E00D94DF7D0034E888 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		28F335F01007B36200424DE2 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		44017E2C122346D000F267BD /* Icon-Phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Phone.png"; sourceTree = "<group>"; };
+		44017E2D122346D000F267BD /* Icon-Phone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Phone@2x.png"; sourceTree = "<group>"; };
+		44017E30122346E300F267BD /* Icon-Pad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Pad.png"; sourceTree = "<group>"; };
+		44017E321223470700F267BD /* iTunesArtwork */ = {isa = PBXFileReference; lastKnownFileType = file; path = iTunesArtwork; sourceTree = "<group>"; };
+		44017E331223470700F267BD /* iTunesArtwork@2x */ = {isa = PBXFileReference; lastKnownFileType = file; path = "iTunesArtwork@2x"; sourceTree = "<group>"; };
+		4401A4B8120C93BF00C00606 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		4401AEB91216126100C00606 /* content.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = content.json; sourceTree = "<group>"; };
+		4401AECC1216B61900C00606 /* happy_fun_ball-240x160.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "happy_fun_ball-240x160.png"; sourceTree = "<group>"; };
+		4401AECD1216B61900C00606 /* happy_fun_ball-480x320.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "happy_fun_ball-480x320.png"; sourceTree = "<group>"; };
+		4401AECE1216B61900C00606 /* icon-happy_fun_ball-57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-happy_fun_ball-57x57.png"; sourceTree = "<group>"; };
+		4401AECF1216B61900C00606 /* icon-happy_fun_ball-114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-happy_fun_ball-114x114.png"; sourceTree = "<group>"; };
+		440AC66B1209D3F4007BC45B /* MainWindow-iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "MainWindow-iPad.xib"; sourceTree = "<group>"; };
+		444CD93912271203002833CE /* MIGAMoreGamesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGAMoreGamesViewController.h; sourceTree = "<group>"; };
+		444CD93A12271203002833CE /* MIGAMoreGamesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIGAMoreGamesViewController.m; sourceTree = "<group>"; };
+		444CD93B12271203002833CE /* MIGAConf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGAConf.h; sourceTree = "<group>"; };
+		444CD93D12271203002833CE /* MIGAApplicationInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGAApplicationInfo.h; sourceTree = "<group>"; };
+		444CD93E12271203002833CE /* MIGAApplicationInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIGAApplicationInfo.m; sourceTree = "<group>"; };
+		444CD93F12271203002833CE /* MIGAMoreGamesActivityReportManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGAMoreGamesActivityReportManager.h; sourceTree = "<group>"; };
+		444CD94012271203002833CE /* MIGAMoreGamesActivityReportManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIGAMoreGamesActivityReportManager.m; sourceTree = "<group>"; };
+		444CD94112271203002833CE /* MIGAMoreGamesContentValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGAMoreGamesContentValidation.h; sourceTree = "<group>"; };
+		444CD94212271203002833CE /* MIGAMoreGamesContentValidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIGAMoreGamesContentValidation.m; sourceTree = "<group>"; };
+		444CD94312271203002833CE /* MIGAMoreGamesDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGAMoreGamesDataStore.h; sourceTree = "<group>"; };
+		444CD94412271203002833CE /* MIGAMoreGamesDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIGAMoreGamesDataStore.m; sourceTree = "<group>"; };
+		444CD94812271203002833CE /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		444CD94912271203002833CE /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		444CD94C12271203002833CE /* MIGAAsyncHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGAAsyncHttpRequest.h; sourceTree = "<group>"; };
+		444CD94D12271203002833CE /* MIGAAsyncHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIGAAsyncHttpRequest.m; sourceTree = "<group>"; };
+		444CD94E12271203002833CE /* MIGAAsyncImageRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGAAsyncImageRequestManager.h; sourceTree = "<group>"; };
+		444CD94F12271203002833CE /* MIGAAsyncImageRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIGAAsyncImageRequestManager.m; sourceTree = "<group>"; };
+		444CD95012271203002833CE /* MIGAAsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGAAsyncImageView.h; sourceTree = "<group>"; };
+		444CD95112271203002833CE /* MIGAAsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIGAAsyncImageView.m; sourceTree = "<group>"; };
+		444CD95212271203002833CE /* MIGACloseButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGACloseButton.h; sourceTree = "<group>"; };
+		444CD95312271203002833CE /* MIGACloseButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIGACloseButton.m; sourceTree = "<group>"; };
+		444CD95412271203002833CE /* MIGAGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGAGradientView.h; sourceTree = "<group>"; };
+		444CD95512271203002833CE /* MIGAGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIGAGradientView.m; sourceTree = "<group>"; };
+		444CD95612271203002833CE /* MIGAImpressionTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGAImpressionTimer.h; sourceTree = "<group>"; };
+		444CD95712271203002833CE /* MIGAImpressionTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIGAImpressionTimer.m; sourceTree = "<group>"; };
+		444CD95812271203002833CE /* MIGALogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGALogging.h; sourceTree = "<group>"; };
+		444CD95912271203002833CE /* MIGAPersistentCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGAPersistentCacheManager.h; sourceTree = "<group>"; };
+		444CD95A12271203002833CE /* MIGAPersistentCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIGAPersistentCacheManager.m; sourceTree = "<group>"; };
+		444CD95B12271203002833CE /* MIGAURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGAURL.h; sourceTree = "<group>"; };
+		444CD95C12271203002833CE /* MIGAURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIGAURL.m; sourceTree = "<group>"; };
+		444CD95D12271203002833CE /* NSString+migaURLEncodedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+migaURLEncodedString.h"; sourceTree = "<group>"; };
+		444CD95E12271203002833CE /* NSString+migaURLEncodedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+migaURLEncodedString.m"; sourceTree = "<group>"; };
+		444CD95F12271203002833CE /* NSString+migaUUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+migaUUID.h"; sourceTree = "<group>"; };
+		444CD96012271203002833CE /* NSString+migaUUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+migaUUID.m"; sourceTree = "<group>"; };
+		444CD96112271203002833CE /* UIColor+MIGAExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MIGAExtensions.h"; sourceTree = "<group>"; };
+		444CD96212271203002833CE /* UIColor+MIGAExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MIGAExtensions.m"; sourceTree = "<group>"; };
+		444CD96512271203002833CE /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		444CD96612271203002833CE /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		444CD96712271203002833CE /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		444CD96812271203002833CE /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		444CD96912271203002833CE /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		444CD96A12271203002833CE /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
+		444CD96B12271203002833CE /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
+		444CD96C12271203002833CE /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		444CD96D12271203002833CE /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		444CD96E12271203002833CE /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		444CD96F12271203002833CE /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		444CD97012271203002833CE /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		444CD97112271203002833CE /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		444CD97312271203002833CE /* MIGAMoreGamesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGAMoreGamesView.h; sourceTree = "<group>"; };
+		444CD97412271203002833CE /* MIGAMoreGamesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIGAMoreGamesView.m; sourceTree = "<group>"; };
+		444CD97512271203002833CE /* MIGAMoreGamesViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGAMoreGamesViewCell.h; sourceTree = "<group>"; };
+		444CD97612271203002833CE /* MIGAMoreGamesViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIGAMoreGamesViewCell.m; sourceTree = "<group>"; };
+		44550A03122B07FA009CCB08 /* MIGAAvailability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIGAAvailability.h; sourceTree = "<group>"; };
+		44550B25122B284D009CCB08 /* MIGATest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MIGATest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		44550B27122B284D009CCB08 /* MIGATest-Info-pre-4.0.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MIGATest-Info-pre-4.0.plist"; sourceTree = "<group>"; };
+		44A5177D12245DAD00415EB6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		44BF4EBA11FCC1A000BEC1D2 /* CustomMIGAMoreGamesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomMIGAMoreGamesViewController.xib; sourceTree = "<group>"; };
+		44EE63951225C63A0046CECB /* banner-landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "banner-landscape.png"; sourceTree = "<group>"; };
+		44EE63961225C63A0046CECB /* banner-landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "banner-landscape@2x.png"; sourceTree = "<group>"; };
+		44EE63971225C63A0046CECB /* banner-portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "banner-portrait.png"; sourceTree = "<group>"; };
+		44EE63981225C63A0046CECB /* banner-portrait@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "banner-portrait@2x.png"; sourceTree = "<group>"; };
+		44EE63991225C63A0046CECB /* MIGAAsyncImageViewMissingImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MIGAAsyncImageViewMissingImage.png; sourceTree = "<group>"; };
+		44EE639A1225C63A0046CECB /* MIGAAsyncImageViewMissingImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MIGAAsyncImageViewMissingImage@2x.png"; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* MIGATest-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MIGATest-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
+				4401A4B9120C93BF00C00606 /* QuartzCore.framework in Frameworks */,
+				44A5177E12245DAD00415EB6 /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44550B1C122B284D009CCB08 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44550B1D122B284D009CCB08 /* Foundation.framework in Frameworks */,
+				44550B1E122B284D009CCB08 /* UIKit.framework in Frameworks */,
+				44550B1F122B284D009CCB08 /* CoreGraphics.framework in Frameworks */,
+				44550B20122B284D009CCB08 /* QuartzCore.framework in Frameworks */,
+				44550B21122B284D009CCB08 /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				28C286DF0D94DF7D0034E888 /* RootViewController.h */,
+				28C286E00D94DF7D0034E888 /* RootViewController.m */,
+				1D3623240D0F684500981E51 /* MIGATestAppDelegate.h */,
+				1D3623250D0F684500981E51 /* MIGATestAppDelegate.m */,
+			);
+			path = Classes;
+			sourceTree = SOURCE_ROOT;
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* MIGATest.app */,
+				44550B25122B284D009CCB08 /* MIGATest.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				444CD936122711C3002833CE /* MIGAMoreGames */,
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				440AC6991209E246007BC45B /* Resources-iPhone */,
+				440AC66A1209D3F3007BC45B /* Resources-iPad */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				28A0AAE50D9B0CCF005BE974 /* MIGATest_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4401AEB81216126100C00606 /* MIGAMoreGamesDefaultContent */,
+				8D1107310486CEB800E47090 /* MIGATest-Info.plist */,
+				28F335F01007B36200424DE2 /* RootViewController.xib */,
+				44BF4EBA11FCC1A000BEC1D2 /* CustomMIGAMoreGamesViewController.xib */,
+				44017E321223470700F267BD /* iTunesArtwork */,
+				44017E331223470700F267BD /* iTunesArtwork@2x */,
+				44550B27122B284D009CCB08 /* MIGATest-Info-pre-4.0.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
+				4401A4B8120C93BF00C00606 /* QuartzCore.framework */,
+				44A5177D12245DAD00415EB6 /* SystemConfiguration.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4401AEB81216126100C00606 /* MIGAMoreGamesDefaultContent */ = {
+			isa = PBXGroup;
+			children = (
+				4401AECC1216B61900C00606 /* happy_fun_ball-240x160.png */,
+				4401AECD1216B61900C00606 /* happy_fun_ball-480x320.png */,
+				4401AECE1216B61900C00606 /* icon-happy_fun_ball-57x57.png */,
+				4401AECF1216B61900C00606 /* icon-happy_fun_ball-114x114.png */,
+				4401AEB91216126100C00606 /* content.json */,
+			);
+			path = MIGAMoreGamesDefaultContent;
+			sourceTree = "<group>";
+		};
+		440AC66A1209D3F3007BC45B /* Resources-iPad */ = {
+			isa = PBXGroup;
+			children = (
+				44017E30122346E300F267BD /* Icon-Pad.png */,
+				440AC66B1209D3F4007BC45B /* MainWindow-iPad.xib */,
+			);
+			path = "Resources-iPad";
+			sourceTree = "<group>";
+		};
+		440AC6991209E246007BC45B /* Resources-iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				28AD735F0D9D9599002E5188 /* MainWindow-iPhone.xib */,
+				44017E2C122346D000F267BD /* Icon-Phone.png */,
+				44017E2D122346D000F267BD /* Icon-Phone@2x.png */,
+			);
+			path = "Resources-iPhone";
+			sourceTree = "<group>";
+		};
+		444CD936122711C3002833CE /* MIGAMoreGames */ = {
+			isa = PBXGroup;
+			children = (
+				444CD93712271203002833CE /* Source */,
+				44EE63941225C63A0046CECB /* Resources */,
+			);
+			name = MIGAMoreGames;
+			path = ../..;
+			sourceTree = SOURCE_ROOT;
+		};
+		444CD93712271203002833CE /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				444CD93812271203002833CE /* Controllers */,
+				444CD93B12271203002833CE /* MIGAConf.h */,
+				444CD93C12271203002833CE /* Models */,
+				444CD94512271203002833CE /* vendor */,
+				444CD97212271203002833CE /* Views */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		444CD93812271203002833CE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				444CD93912271203002833CE /* MIGAMoreGamesViewController.h */,
+				444CD93A12271203002833CE /* MIGAMoreGamesViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		444CD93C12271203002833CE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				444CD93D12271203002833CE /* MIGAApplicationInfo.h */,
+				444CD93E12271203002833CE /* MIGAApplicationInfo.m */,
+				444CD93F12271203002833CE /* MIGAMoreGamesActivityReportManager.h */,
+				444CD94012271203002833CE /* MIGAMoreGamesActivityReportManager.m */,
+				444CD94112271203002833CE /* MIGAMoreGamesContentValidation.h */,
+				444CD94212271203002833CE /* MIGAMoreGamesContentValidation.m */,
+				444CD94312271203002833CE /* MIGAMoreGamesDataStore.h */,
+				444CD94412271203002833CE /* MIGAMoreGamesDataStore.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		444CD94512271203002833CE /* vendor */ = {
+			isa = PBXGroup;
+			children = (
+				444CD94612271203002833CE /* apple */,
+				444CD94A12271203002833CE /* miga */,
+				444CD96312271203002833CE /* stig_brautaset */,
+			);
+			path = vendor;
+			sourceTree = "<group>";
+		};
+		444CD94612271203002833CE /* apple */ = {
+			isa = PBXGroup;
+			children = (
+				444CD94712271203002833CE /* Reachability */,
+			);
+			path = apple;
+			sourceTree = "<group>";
+		};
+		444CD94712271203002833CE /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				444CD94812271203002833CE /* Reachability.h */,
+				444CD94912271203002833CE /* Reachability.m */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
+		444CD94A12271203002833CE /* miga */ = {
+			isa = PBXGroup;
+			children = (
+				444CD94B12271203002833CE /* Utils */,
+			);
+			path = miga;
+			sourceTree = "<group>";
+		};
+		444CD94B12271203002833CE /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				44550A03122B07FA009CCB08 /* MIGAAvailability.h */,
+				444CD94C12271203002833CE /* MIGAAsyncHttpRequest.h */,
+				444CD94D12271203002833CE /* MIGAAsyncHttpRequest.m */,
+				444CD94E12271203002833CE /* MIGAAsyncImageRequestManager.h */,
+				444CD94F12271203002833CE /* MIGAAsyncImageRequestManager.m */,
+				444CD95012271203002833CE /* MIGAAsyncImageView.h */,
+				444CD95112271203002833CE /* MIGAAsyncImageView.m */,
+				444CD95212271203002833CE /* MIGACloseButton.h */,
+				444CD95312271203002833CE /* MIGACloseButton.m */,
+				444CD95412271203002833CE /* MIGAGradientView.h */,
+				444CD95512271203002833CE /* MIGAGradientView.m */,
+				444CD95612271203002833CE /* MIGAImpressionTimer.h */,
+				444CD95712271203002833CE /* MIGAImpressionTimer.m */,
+				444CD95812271203002833CE /* MIGALogging.h */,
+				444CD95912271203002833CE /* MIGAPersistentCacheManager.h */,
+				444CD95A12271203002833CE /* MIGAPersistentCacheManager.m */,
+				444CD95B12271203002833CE /* MIGAURL.h */,
+				444CD95C12271203002833CE /* MIGAURL.m */,
+				444CD95D12271203002833CE /* NSString+migaURLEncodedString.h */,
+				444CD95E12271203002833CE /* NSString+migaURLEncodedString.m */,
+				444CD95F12271203002833CE /* NSString+migaUUID.h */,
+				444CD96012271203002833CE /* NSString+migaUUID.m */,
+				444CD96112271203002833CE /* UIColor+MIGAExtensions.h */,
+				444CD96212271203002833CE /* UIColor+MIGAExtensions.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		444CD96312271203002833CE /* stig_brautaset */ = {
+			isa = PBXGroup;
+			children = (
+				444CD96412271203002833CE /* JSON */,
+			);
+			path = stig_brautaset;
+			sourceTree = "<group>";
+		};
+		444CD96412271203002833CE /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				444CD96512271203002833CE /* JSON.h */,
+				444CD96612271203002833CE /* NSObject+SBJSON.h */,
+				444CD96712271203002833CE /* NSObject+SBJSON.m */,
+				444CD96812271203002833CE /* NSString+SBJSON.h */,
+				444CD96912271203002833CE /* NSString+SBJSON.m */,
+				444CD96A12271203002833CE /* SBJSON.h */,
+				444CD96B12271203002833CE /* SBJSON.m */,
+				444CD96C12271203002833CE /* SBJsonBase.h */,
+				444CD96D12271203002833CE /* SBJsonBase.m */,
+				444CD96E12271203002833CE /* SBJsonParser.h */,
+				444CD96F12271203002833CE /* SBJsonParser.m */,
+				444CD97012271203002833CE /* SBJsonWriter.h */,
+				444CD97112271203002833CE /* SBJsonWriter.m */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
+		444CD97212271203002833CE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				444CD97312271203002833CE /* MIGAMoreGamesView.h */,
+				444CD97412271203002833CE /* MIGAMoreGamesView.m */,
+				444CD97512271203002833CE /* MIGAMoreGamesViewCell.h */,
+				444CD97612271203002833CE /* MIGAMoreGamesViewCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		44EE63941225C63A0046CECB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				44EE63951225C63A0046CECB /* banner-landscape.png */,
+				44EE63961225C63A0046CECB /* banner-landscape@2x.png */,
+				44EE63971225C63A0046CECB /* banner-portrait.png */,
+				44EE63981225C63A0046CECB /* banner-portrait@2x.png */,
+				44EE63991225C63A0046CECB /* MIGAAsyncImageViewMissingImage.png */,
+				44EE639A1225C63A0046CECB /* MIGAAsyncImageViewMissingImage@2x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* MIGATest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "MIGATest" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				44EE63831225C5DE0046CECB /* Copy MIGAMoreGames Resources */,
+				4401AEC31216137200C00606 /* Copy MIGAMoreGamesDefaultContent */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MIGATest;
+			productName = MIGATest;
+			productReference = 1D6058910D05DD3D006BFB54 /* MIGATest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		44550AE3122B284D009CCB08 /* MIGATest pre-4.0 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 44550B22122B284D009CCB08 /* Build configuration list for PBXNativeTarget "MIGATest pre-4.0" */;
+			buildPhases = (
+				44550AE4122B284D009CCB08 /* Resources */,
+				44550AEE122B284D009CCB08 /* Copy MIGAMoreGames Resources */,
+				44550AF5122B284D009CCB08 /* Copy MIGAMoreGamesDefaultContent */,
+				44550AFF122B284D009CCB08 /* Sources */,
+				44550B1C122B284D009CCB08 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MIGATest pre-4.0";
+			productName = MIGATest;
+			productReference = 44550B25122B284D009CCB08 /* MIGATest.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = "Mobile Independent Gaming Alliance";
+			};
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "MIGATest" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				en,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* MIGATest */,
+				44550AE3122B284D009CCB08 /* MIGATest pre-4.0 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28AD73600D9D9599002E5188 /* MainWindow-iPhone.xib in Resources */,
+				28F335F11007B36200424DE2 /* RootViewController.xib in Resources */,
+				44BF4EBB11FCC1A000BEC1D2 /* CustomMIGAMoreGamesViewController.xib in Resources */,
+				440AC66C1209D3F4007BC45B /* MainWindow-iPad.xib in Resources */,
+				44017E2E122346D000F267BD /* Icon-Phone.png in Resources */,
+				44017E2F122346D000F267BD /* Icon-Phone@2x.png in Resources */,
+				44017E31122346E300F267BD /* Icon-Pad.png in Resources */,
+				44017E341223470700F267BD /* iTunesArtwork in Resources */,
+				44017E351223470700F267BD /* iTunesArtwork@2x in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44550AE4122B284D009CCB08 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44550AE5122B284D009CCB08 /* MainWindow-iPhone.xib in Resources */,
+				44550AE6122B284D009CCB08 /* RootViewController.xib in Resources */,
+				44550AE7122B284D009CCB08 /* CustomMIGAMoreGamesViewController.xib in Resources */,
+				44550AE8122B284D009CCB08 /* MainWindow-iPad.xib in Resources */,
+				44550AE9122B284D009CCB08 /* Icon-Phone.png in Resources */,
+				44550AEA122B284D009CCB08 /* Icon-Phone@2x.png in Resources */,
+				44550AEB122B284D009CCB08 /* Icon-Pad.png in Resources */,
+				44550AEC122B284D009CCB08 /* iTunesArtwork in Resources */,
+				44550AED122B284D009CCB08 /* iTunesArtwork@2x in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				1D3623260D0F684500981E51 /* MIGATestAppDelegate.m in Sources */,
+				28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */,
+				444CD97712271203002833CE /* MIGAMoreGamesViewController.m in Sources */,
+				444CD97812271203002833CE /* MIGAApplicationInfo.m in Sources */,
+				444CD97912271203002833CE /* MIGAMoreGamesActivityReportManager.m in Sources */,
+				444CD97A12271203002833CE /* MIGAMoreGamesContentValidation.m in Sources */,
+				444CD97B12271203002833CE /* MIGAMoreGamesDataStore.m in Sources */,
+				444CD97C12271203002833CE /* Reachability.m in Sources */,
+				444CD97D12271203002833CE /* MIGAAsyncHttpRequest.m in Sources */,
+				444CD97E12271203002833CE /* MIGAAsyncImageRequestManager.m in Sources */,
+				444CD97F12271203002833CE /* MIGAAsyncImageView.m in Sources */,
+				444CD98012271203002833CE /* MIGACloseButton.m in Sources */,
+				444CD98112271203002833CE /* MIGAGradientView.m in Sources */,
+				444CD98212271203002833CE /* MIGAImpressionTimer.m in Sources */,
+				444CD98312271203002833CE /* MIGAPersistentCacheManager.m in Sources */,
+				444CD98412271203002833CE /* MIGAURL.m in Sources */,
+				444CD98512271203002833CE /* NSString+migaURLEncodedString.m in Sources */,
+				444CD98612271203002833CE /* NSString+migaUUID.m in Sources */,
+				444CD98712271203002833CE /* UIColor+MIGAExtensions.m in Sources */,
+				444CD98812271203002833CE /* NSObject+SBJSON.m in Sources */,
+				444CD98912271203002833CE /* NSString+SBJSON.m in Sources */,
+				444CD98A12271203002833CE /* SBJSON.m in Sources */,
+				444CD98B12271203002833CE /* SBJsonBase.m in Sources */,
+				444CD98C12271203002833CE /* SBJsonParser.m in Sources */,
+				444CD98D12271203002833CE /* SBJsonWriter.m in Sources */,
+				444CD98E12271203002833CE /* MIGAMoreGamesView.m in Sources */,
+				444CD98F12271203002833CE /* MIGAMoreGamesViewCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44550AFF122B284D009CCB08 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44550B00122B284D009CCB08 /* main.m in Sources */,
+				44550B01122B284D009CCB08 /* MIGATestAppDelegate.m in Sources */,
+				44550B02122B284D009CCB08 /* RootViewController.m in Sources */,
+				44550B03122B284D009CCB08 /* MIGAMoreGamesViewController.m in Sources */,
+				44550B04122B284D009CCB08 /* MIGAApplicationInfo.m in Sources */,
+				44550B05122B284D009CCB08 /* MIGAMoreGamesActivityReportManager.m in Sources */,
+				44550B06122B284D009CCB08 /* MIGAMoreGamesContentValidation.m in Sources */,
+				44550B07122B284D009CCB08 /* MIGAMoreGamesDataStore.m in Sources */,
+				44550B08122B284D009CCB08 /* Reachability.m in Sources */,
+				44550B09122B284D009CCB08 /* MIGAAsyncHttpRequest.m in Sources */,
+				44550B0A122B284D009CCB08 /* MIGAAsyncImageRequestManager.m in Sources */,
+				44550B0B122B284D009CCB08 /* MIGAAsyncImageView.m in Sources */,
+				44550B0C122B284D009CCB08 /* MIGACloseButton.m in Sources */,
+				44550B0D122B284D009CCB08 /* MIGAGradientView.m in Sources */,
+				44550B0E122B284D009CCB08 /* MIGAImpressionTimer.m in Sources */,
+				44550B0F122B284D009CCB08 /* MIGAPersistentCacheManager.m in Sources */,
+				44550B10122B284D009CCB08 /* MIGAURL.m in Sources */,
+				44550B11122B284D009CCB08 /* NSString+migaURLEncodedString.m in Sources */,
+				44550B12122B284D009CCB08 /* NSString+migaUUID.m in Sources */,
+				44550B13122B284D009CCB08 /* UIColor+MIGAExtensions.m in Sources */,
+				44550B14122B284D009CCB08 /* NSObject+SBJSON.m in Sources */,
+				44550B15122B284D009CCB08 /* NSString+SBJSON.m in Sources */,
+				44550B16122B284D009CCB08 /* SBJSON.m in Sources */,
+				44550B17122B284D009CCB08 /* SBJsonBase.m in Sources */,
+				44550B18122B284D009CCB08 /* SBJsonParser.m in Sources */,
+				44550B19122B284D009CCB08 /* SBJsonWriter.m in Sources */,
+				44550B1A122B284D009CCB08 /* MIGAMoreGamesView.m in Sources */,
+				44550B1B122B284D009CCB08 /* MIGAMoreGamesViewCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = MIGATest_Prefix.pch;
+				INFOPLIST_FILE = "MIGATest-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				PRODUCT_NAME = MIGATest;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = MIGATest_Prefix.pch;
+				INFOPLIST_FILE = "MIGATest-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				PRODUCT_NAME = MIGATest;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		44550B23122B284D009CCB08 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = MIGATest_Prefix.pch;
+				INFOPLIST_FILE = "MIGATest-Info-pre-4.0.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\\\"$(SRCROOT)\\\"",
+				);
+				PRODUCT_NAME = MIGATest;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		44550B24122B284D009CCB08 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = MIGATest_Prefix.pch;
+				INFOPLIST_FILE = "MIGATest-Info-pre-4.0.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\\\"$(SRCROOT)\\\"",
+				);
+				PRODUCT_NAME = MIGATest;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					MIGA_ASYNC_HTTP_REQUEST_USE_BLOCKS,
+					DEBUG,
+				);
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_LDFLAGS = (
+					"-weak_library",
+					/usr/lib/libSystem.B.dylib,
+				);
+				PREBINDING = NO;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_PREPROCESSOR_DEFINITIONS = MIGA_ASYNC_HTTP_REQUEST_USE_BLOCKS;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = (
+					"-weak_library",
+					/usr/lib/libSystem.B.dylib,
+				);
+				PREBINDING = NO;
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "MIGATest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		44550B22122B284D009CCB08 /* Build configuration list for PBXNativeTarget "MIGATest pre-4.0" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				44550B23122B284D009CCB08 /* Debug */,
+				44550B24122B284D009CCB08 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "MIGATest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}

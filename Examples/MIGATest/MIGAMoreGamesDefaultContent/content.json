@@ -1,0 +1,31 @@
+{
+    "version": 1,
+    "apps": [
+        {
+            "content_id": 1,
+            "package": "com.globalchemicalunlimited.HappyFunBall",
+            "title": "Happy Fun Ball",
+            "publisher": "Wacky Products Incorporated",
+            "click_url": "itms-apps://itunes.apple.com/us/app/mystique-chapter-1-foetus/id315948631?mt=8",
+            "price": "Free",
+            "detail": "If Happy Fun Ball begins to smoke, get away immediately. Seek shelter and cover head. Happy Fun Ball may stick to certain types of skin. Do not taunt Happy Fun Ball.",
+            "images": {
+                    "screenshot-240x160": "miga-bundle:///MIGAMoreGamesDefaultContent/happy_fun_ball-240x160.png",
+                    "screenshot-480x320": "miga-bundle:///MIGAMoreGamesDefaultContent/happy_fun_ball-480x320.png",
+                    "icon-57x57": "miga-bundle:///MIGAMoreGamesDefaultContent/icon-happy_fun_ball-57x57.png",
+                    "icon-114x114": "miga-bundle:///MIGAMoreGamesDefaultContent/icon-happy_fun_ball-114x114.png" 
+            },
+            "background_color": "#ff0000"
+        },
+        {
+            "content_id": 3,
+            "package": "org.example.BuggyGame",
+            "publisher": "Useless Software, Inc.",
+            "title": "The Buggy Game",
+            "click_url": "file:///var/mobile/Applications/bad_file.txt",
+            "detail": "The buggiest buggy game there is.  This game is so buggy, we don't even have screenshots or a valid click_url!",
+            "images": {},
+            "background_color": "#ffffff"
+        }
+    ]
+}
