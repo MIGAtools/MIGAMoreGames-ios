@@ -45,45 +45,58 @@
 #pragma mark -
 #pragma mark Properties
 
-@synthesize pageControl, delegate;
-@synthesize moreGamesView;
-@synthesize closeButton;
-@synthesize headerView, titleLabel, instructionsLabel;
-@synthesize loadingView, impressionTimer;
+@synthesize delegate=_delegate;
+@synthesize pageControl=_pageControl;
+@synthesize moreGamesView=_moreGamesView;
+@synthesize closeButton=_closeButton;
+@synthesize headerView=_headerView;
+@synthesize titleLabel=_titleLabel;
+@synthesize instructionsLabel=_instructionsLabel;
+@synthesize loadingView=_loadingView;
+@synthesize impressionTimer=_impressionTimer;
 
-- (void)setDataStore:(MIGAMoreGamesDataStore *)aDataStore {
-    if (dataStore == aDataStore)
+- (void)setDelegate:(id<MIGAMoreGamesViewControllerDelegate>)delegate {
+    if (delegate == _delegate)
+        return;
+    
+    _delegate = delegate;
+    _delegateRespondsTo.shouldAutorotate = [_delegate respondsToSelector:@selector(migaMoreGamesViewController:shouldAutorotateToInterfaceOrientation:)];
+    _delegateRespondsTo.didCancel = [_delegate respondsToSelector:@selector(migaMoreGamesViewControllerDidCancel:)];
+}
+
+- (void)setDataStore:(MIGAMoreGamesDataStore *)dataStore {
+    if (_dataStore == dataStore)
         return;
     
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     
-    [center removeObserver:self name:MIGAMoreGamesDataStoreDidUpdateNotification object:dataStore];
-    [aDataStore retain];
-    [dataStore release];
-    dataStore = aDataStore;
+    [center removeObserver:self name:MIGAMoreGamesDataStoreDidUpdateNotification object:_dataStore];
+    [dataStore retain];
+    [_dataStore release];
+    _dataStore = dataStore;
     
-    [center addObserver:self selector:@selector(handleMIGAMoreGamesDataStoreDidUpdateNotification:) name:MIGAMoreGamesDataStoreDidUpdateNotification object:dataStore];
+    [center addObserver:self selector:@selector(handleMIGAMoreGamesDataStoreDidUpdateNotification:) name:MIGAMoreGamesDataStoreDidUpdateNotification object:_dataStore];
 }
 
 
 - (MIGAMoreGamesDataStore *)dataStore {
-    if (!dataStore) {
+    if (!_dataStore) {
         self.dataStore = [[[MIGAMoreGamesDataStore alloc] initWithDefaultContent] autorelease];
     }
     
-    return dataStore;
+    return _dataStore;
 }
 
 
-- (void)setTitle:(NSString *)aTitle {
-    [super setTitle:aTitle];
+- (void)setTitle:(NSString *)title {
+    [super setTitle:title];
     
-    self.titleLabel.text = aTitle;
+    self.titleLabel.text = title;
 }
 
 
 - (UIView *)loadingView {
-    if (!loadingView) {
+    if (!_loadingView) {
         CGRect tmpRect = CGRectMake(0, self.headerView.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height - self.headerView.bounds.size.height);
         UILabel *tmpLabel = nil;
         MIGAGradientView *tmpView = [[MIGAGradientView alloc] initWithFrame:tmpRect];
@@ -132,19 +145,19 @@
         [tmpLabel release];
         
         
-        loadingView = tmpView;
+        _loadingView = tmpView;
     }
     
-    return loadingView;
+    return _loadingView;
 }
 
 
 - (MIGAImpressionTimer *)impressionTimer {
-    if (!impressionTimer) {
-        impressionTimer = [[MIGAImpressionTimer alloc] init];
+    if (!_impressionTimer) {
+        _impressionTimer = [[MIGAImpressionTimer alloc] init];
     }
     
-    return impressionTimer;
+    return _impressionTimer;
 }
 
 
@@ -218,49 +231,49 @@ static MIGAMoreGamesViewController *defaultMIGAMoreGamesViewController = nil;
 
     [self.view addSubview:self.pageControl];
 
-    headerView = [[MIGAGradientView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 48.0f)];
-    ((MIGAGradientView *)headerView).colors = [NSArray arrayWithObjects:
+    _headerView = [[MIGAGradientView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 48.0f)];
+    ((MIGAGradientView *)_headerView).colors = [NSArray arrayWithObjects:
                                                (id)[[UIColor whiteColor] CGColor],
                                                (id)[[UIColor darkGrayColor] CGColor],
                                                nil];
-    headerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
+    _headerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
     
-    closeButton = [[MIGACloseButton alloc] initWithFrame:CGRectMake(6.0f, 6.0f, 24.0f, 24.0f)];
-    closeButton.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
-    [closeButton addTarget:self action:@selector(doDone:) forControlEvents:UIControlEventTouchUpInside];
-    [headerView addSubview:closeButton];
+    _closeButton = [[MIGACloseButton alloc] initWithFrame:CGRectMake(6.0f, 6.0f, 24.0f, 24.0f)];
+    _closeButton.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
+    [_closeButton addTarget:self action:@selector(doDone:) forControlEvents:UIControlEventTouchUpInside];
+    [_headerView addSubview:_closeButton];
     
-    titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(36.0f, 6.0f, headerView.bounds.size.width - 42.0f, 12.0f)];
-    titleLabel.font = [UIFont boldSystemFontOfSize:12.0f];
-    titleLabel.numberOfLines = 1;
-    titleLabel.textColor = [UIColor blackColor];
-    titleLabel.backgroundColor = [UIColor clearColor];
-    titleLabel.opaque = NO;
-    titleLabel.adjustsFontSizeToFitWidth = YES;
-    titleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
+    _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(36.0f, 6.0f, _headerView.bounds.size.width - 42.0f, 12.0f)];
+    _titleLabel.font = [UIFont boldSystemFontOfSize:12.0f];
+    _titleLabel.numberOfLines = 1;
+    _titleLabel.textColor = [UIColor blackColor];
+    _titleLabel.backgroundColor = [UIColor clearColor];
+    _titleLabel.opaque = NO;
+    _titleLabel.adjustsFontSizeToFitWidth = YES;
+    _titleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
     
-    [headerView addSubview:titleLabel];
+    [_headerView addSubview:_titleLabel];
     
-    instructionsLabel = [[UILabel alloc] initWithFrame:CGRectMake(36.0f, 22.0f, headerView.bounds.size.width - 42.0f, headerView.bounds.size.height - 26.0f)];
-    instructionsLabel.font = [UIFont systemFontOfSize:9.0f];
-    instructionsLabel.numberOfLines = 2;
-    instructionsLabel.lineBreakMode = UILineBreakModeWordWrap;
-    instructionsLabel.textColor = [UIColor blackColor];
-    instructionsLabel.backgroundColor = [UIColor clearColor];
-    instructionsLabel.opaque = NO;
-    instructionsLabel.adjustsFontSizeToFitWidth = YES;
-    instructionsLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin;
+    _instructionsLabel = [[UILabel alloc] initWithFrame:CGRectMake(36.0f, 22.0f, _headerView.bounds.size.width - 42.0f, _headerView.bounds.size.height - 26.0f)];
+    _instructionsLabel.font = [UIFont systemFontOfSize:9.0f];
+    _instructionsLabel.numberOfLines = 2;
+    _instructionsLabel.lineBreakMode = UILineBreakModeWordWrap;
+    _instructionsLabel.textColor = [UIColor blackColor];
+    _instructionsLabel.backgroundColor = [UIColor clearColor];
+    _instructionsLabel.opaque = NO;
+    _instructionsLabel.adjustsFontSizeToFitWidth = YES;
+    _instructionsLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleTopMargin;
     
-    [headerView addSubview:instructionsLabel];
+    [_headerView addSubview:_instructionsLabel];
     
-    [self.view addSubview:headerView];
+    [self.view addSubview:_headerView];
 }
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    activityReportManager = [MIGAMoreGamesActivityReportManager sharedManager];
+    _activityReportManager = [MIGAMoreGamesActivityReportManager sharedManager];
 
     if (!self.moreGamesView.moreGamesViewDelegate) {
         self.moreGamesView.moreGamesViewDelegate = self;
@@ -288,20 +301,20 @@ static MIGAMoreGamesViewController *defaultMIGAMoreGamesViewController = nil;
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [moreGamesView release];
-    [dataStore release];
+    [_moreGamesView release];
+    [_dataStore release];
         
-    [pageControl release];
+    [_pageControl release];
     
-    [closeButton release];
-    [titleLabel release];
-    [instructionsLabel release];
-    [headerView release];
-    [loadingView release];
+    [_closeButton release];
+    [_titleLabel release];
+    [_instructionsLabel release];
+    [_headerView release];
+    [_loadingView release];
 
     
-    [impressionTimer stop];
-    [impressionTimer release];
+    [_impressionTimer stop];
+    [_impressionTimer release];
     
     [super dealloc];
 }
@@ -320,7 +333,7 @@ static MIGAMoreGamesViewController *defaultMIGAMoreGamesViewController = nil;
     self.instructionsLabel = nil;
     self.headerView = nil;
     
-    [impressionTimer stop];
+    [_impressionTimer stop];
     self.impressionTimer = nil;
 }
 
@@ -345,7 +358,7 @@ static MIGAMoreGamesViewController *defaultMIGAMoreGamesViewController = nil;
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [activityReportManager logPresentationWithDate:[NSDate date]];	
+    [_activityReportManager logPresentationWithDate:[NSDate date]];	
 }
 
 
@@ -353,20 +366,20 @@ static MIGAMoreGamesViewController *defaultMIGAMoreGamesViewController = nil;
     [super viewWillDisappear:animated];
     
     [self endImpression];
-    [activityReportManager logDismissalWithDate:[NSDate date]];
+    [_activityReportManager logDismissalWithDate:[NSDate date]];
 }
 
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     
-    [activityReportManager submitActivity];
+    [_activityReportManager submitActivity];
 }
 
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
-    if (delegate && [delegate respondsToSelector:@selector(migaMoreGamesViewController:shouldAutorotateToInterfaceOrientation:)]) {
-        return [delegate migaMoreGamesViewController:self shouldAutorotateToInterfaceOrientation:toInterfaceOrientation];
+    if (_delegate && _delegateRespondsTo.shouldAutorotate) {
+        return [_delegate migaMoreGamesViewController:self shouldAutorotateToInterfaceOrientation:toInterfaceOrientation];
     }
     
     return UIInterfaceOrientationIsPortrait(toInterfaceOrientation);
@@ -394,7 +407,7 @@ static MIGAMoreGamesViewController *defaultMIGAMoreGamesViewController = nil;
 
 
 - (void)dismissLoadingView {
-    if (loadingView) {
+    if (_loadingView) {
         [UIView beginAnimations:@"loadingViewFadeOut" context:NULL];
         [UIView setAnimationDuration:0.33f];
         self.loadingView.alpha = 0.0f;
@@ -414,10 +427,10 @@ static MIGAMoreGamesViewController *defaultMIGAMoreGamesViewController = nil;
 
 
 - (void)removeLoadingView {
-    if (loadingView) {
-        [loadingView removeFromSuperview];
-        [loadingView release];
-        loadingView = nil;
+    if (_loadingView) {
+        [_loadingView removeFromSuperview];
+        [_loadingView release];
+        _loadingView = nil;
     }	
 }
 
@@ -434,24 +447,24 @@ static MIGAMoreGamesViewController *defaultMIGAMoreGamesViewController = nil;
     if (self.impressionTimer.contentId == 0)
         return;
     
-    [activityReportManager logImpressionWithDate:self.impressionTimer.lastResetDate contentId:self.impressionTimer.contentId duration:self.impressionTimer.elapsedTime];
+    [_activityReportManager logImpressionWithDate:self.impressionTimer.lastResetDate contentId:self.impressionTimer.contentId duration:self.impressionTimer.elapsedTime];
 }
 
 #pragma mark -
 #pragma mark Actions
 
 - (IBAction)doChangePage:(id)sender {
-    pageControlIsChangingPage = YES;
+    _pageControlIsChangingPage = YES;
     [self endImpression];
-    self.moreGamesView.currentPage = pageControl.currentPage;
-    [self beginImpression:[[self.dataStore applicationAtIndex:pageControl.currentPage] contentId]];
-    pageControlIsChangingPage = NO;
+    self.moreGamesView.currentPage = self.pageControl.currentPage;
+    [self beginImpression:[[self.dataStore applicationAtIndex:self.pageControl.currentPage] contentId]];
+    _pageControlIsChangingPage = NO;
 }
 
 
 - (IBAction)doDone:(id)sender {
-    if (delegate && [delegate respondsToSelector:@selector(migaMoreGamesViewControllerDidCancel:)]) {
-        [delegate migaMoreGamesViewControllerDidCancel:self];
+    if (_delegate && _delegateRespondsTo.didCancel) {
+        [_delegate migaMoreGamesViewControllerDidCancel:self];
     } else {
         if ((self.parentViewController) && (self.parentViewController.modalViewController == self)) {
             [self retain];
@@ -478,7 +491,7 @@ static MIGAMoreGamesViewController *defaultMIGAMoreGamesViewController = nil;
         return;
     }
     
-    [activityReportManager logClickWithDate:[NSDate date] contentId:info.contentId];
+    [_activityReportManager logClickWithDate:[NSDate date] contentId:info.contentId];
     
     NSURL *appURL = [NSURL URLWithString:info.clickURLString];
     if (!appURL || [appURL isFileURL]) {
@@ -511,7 +524,7 @@ static MIGAMoreGamesViewController *defaultMIGAMoreGamesViewController = nil;
     
     assert(index < [self.dataStore count]);
     
-    MIGAMoreGamesViewCell *result = [moreGamesView dequeueReusableCellWithIdentifier:identifier];
+    MIGAMoreGamesViewCell *result = [self.moreGamesView dequeueReusableCellWithIdentifier:identifier];
     if (!result) {
         result = [[[MIGAMoreGamesViewCell alloc] initWithReuseIdentifier:identifier] autorelease];
         result.tapTarget = self;

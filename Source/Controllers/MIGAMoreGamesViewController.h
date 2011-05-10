@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MIGAAsyncHttpRequest.h"
 #import "MIGAConf.h"
 #import "MIGAMoreGamesView.h"
 #import "MIGAMoreGamesDataStore.h"
@@ -29,24 +28,29 @@
 @interface MIGAMoreGamesViewController : UIViewController <MIGAMoreGamesViewDataSource, MIGAMoreGamesViewDelegate, MIGAMoreGamesViewCellLayoutManager> {
     @private
 
-    UIPageControl *pageControl;
-    MIGAMoreGamesView *moreGamesView;
-    UIControl *closeButton;
+    UIPageControl *_pageControl;
+    MIGAMoreGamesView *_moreGamesView;
+    UIControl *_closeButton;
     
-    UIView *headerView;
-    UILabel *titleLabel;
-    UILabel *instructionsLabel;
+    UIView *_headerView;
+    UILabel *_titleLabel;
+    UILabel *_instructionsLabel;
     
     
-    bool pageControlIsChangingPage;
+    bool _pageControlIsChangingPage;
     
-    id<MIGAMoreGamesViewControllerDelegate> delegate;
-    MIGAMoreGamesDataStore *dataStore;
+    id<MIGAMoreGamesViewControllerDelegate> _delegate;
+    struct {
+        BOOL shouldAutorotate : 1;
+        BOOL didCancel : 1;
+    } _delegateRespondsTo;
     
-    UIView *loadingView;
+    MIGAMoreGamesDataStore *_dataStore;
     
-    MIGAImpressionTimer *impressionTimer;
-    MIGAMoreGamesActivityReportManager *activityReportManager;
+    UIView *_loadingView;
+    
+    MIGAImpressionTimer *_impressionTimer;
+    MIGAMoreGamesActivityReportManager *_activityReportManager;
 }
 
 @property (nonatomic,retain) NSString *instructions;
