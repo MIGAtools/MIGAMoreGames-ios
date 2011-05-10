@@ -18,8 +18,11 @@
 
 - (id)initWithFrame:(CGRect)aFrame {
     if ((self = [super initWithFrame:aFrame])) {
-        borderLayer = [CAShapeLayer layer];
-        borderLayer.frame = self.layer.bounds;
+        self.accessibilityTraits = UIAccessibilityTraitButton;
+        self.accessibilityLabel = NSLocalizedString(@"Done", @"");
+        
+        _borderLayer = [CAShapeLayer layer];
+        _borderLayer.frame = self.layer.bounds;
         
         BOOL layersSupportShadowProperties = [self.layer respondsToSelector:@selector(setShadowPath:)];
         
@@ -85,6 +88,10 @@
 
 - (void)dealloc {
     [super dealloc];
+}
+
+- (BOOL)isAccessibilityElement {
+    return YES;
 }
 
 
