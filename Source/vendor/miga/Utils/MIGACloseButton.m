@@ -7,6 +7,7 @@
 //
 
 #import "MIGACloseButton.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation MIGACloseButton
 @dynamic layer;
@@ -34,24 +35,24 @@
             self.layer.shadowPath = path;
         }
         
-        borderLayer.path = path;
+        _borderLayer.path = path;
         CGPathRelease(path);
         
         self.layer.fillColor = [[UIColor darkGrayColor] CGColor];
-        borderLayer.strokeColor = [[UIColor whiteColor] CGColor];
-        borderLayer.lineWidth = 2.0f;
+        _borderLayer.strokeColor = [[UIColor whiteColor] CGColor];
+        _borderLayer.lineWidth = 2.0f;
 
         if (layersSupportShadowProperties) {
-            borderLayer.shadowColor = [[UIColor blackColor] CGColor];
-            borderLayer.shadowOpacity = 1.0f;
-            borderLayer.shadowOffset = CGSizeMake(0.0, 2.0f);
-            borderLayer.shadowRadius = 2.0f;
+            _borderLayer.shadowColor = [[UIColor blackColor] CGColor];
+            _borderLayer.shadowOpacity = 1.0f;
+            _borderLayer.shadowOffset = CGSizeMake(0.0, 2.0f);
+            _borderLayer.shadowRadius = 2.0f;
         }
         
-        borderLayer.fillColor = nil;
+        _borderLayer.fillColor = nil;
         
 
-        glyphLayer = [CAShapeLayer layer];
+        _glyphLayer = [CAShapeLayer layer];
         CGRect glyphRect = CGRectInset(self.layer.bounds, 4.0f, 4.0f);
         path = CGPathCreateMutable();
         
@@ -59,27 +60,27 @@
         CGPathAddLineToPoint(path, NULL, CGRectGetMidX(glyphRect), CGRectGetMaxY(glyphRect));
         CGPathMoveToPoint(path, NULL, CGRectGetMinX(glyphRect), CGRectGetMidY(glyphRect));
         CGPathAddLineToPoint(path, NULL, CGRectGetMaxX(glyphRect), CGRectGetMidY(glyphRect));
-        glyphLayer.frame = self.layer.bounds;
-        glyphLayer.path = path;
+        _glyphLayer.frame = self.layer.bounds;
+        _glyphLayer.path = path;
         CGPathRelease(path);
         
-        glyphLayer.strokeColor = [[UIColor whiteColor] CGColor];
-        glyphLayer.fillColor = nil;
-        glyphLayer.lineWidth = 2.0f;
+        _glyphLayer.strokeColor = [[UIColor whiteColor] CGColor];
+        _glyphLayer.fillColor = nil;
+        _glyphLayer.lineWidth = 2.0f;
 
         if (layersSupportShadowProperties) {
-            glyphLayer.shadowOpacity = 1.0f;
-            glyphLayer.shadowColor = [[UIColor blackColor] CGColor];
-            glyphLayer.shadowOffset = CGSizeMake(0.0, 2.0f);
-            glyphLayer.shadowRadius = 2.0f;
+            _glyphLayer.shadowOpacity = 1.0f;
+            _glyphLayer.shadowColor = [[UIColor blackColor] CGColor];
+            _glyphLayer.shadowOffset = CGSizeMake(0.0, 2.0f);
+            _glyphLayer.shadowRadius = 2.0f;
         }
         
-        glyphLayer.transform = CATransform3DMakeRotation(M_PI / 4.0f, 0, 0, 1.0f);
+        _glyphLayer.transform = CATransform3DMakeRotation(M_PI / 4.0f, 0, 0, 1.0f);
 
 
         [self.layer addSublayer:[CALayer layer]];
-        [self.layer addSublayer:borderLayer];
-        [self.layer addSublayer:glyphLayer];
+        [self.layer addSublayer:_borderLayer];
+        [self.layer addSublayer:_glyphLayer];
     }
     
     return self;
