@@ -119,7 +119,7 @@
 }
 
 
--(IBAction)doCustomNibSwitchChanged:(id)sender {
+- (IBAction)doCustomNibSwitchChanged:(id)sender {
     self.appIdTextField.enabled = self.customNibSwitch.on;
     self.persistentCacheSwitch.enabled = self.customNibSwitch.on;
 }
