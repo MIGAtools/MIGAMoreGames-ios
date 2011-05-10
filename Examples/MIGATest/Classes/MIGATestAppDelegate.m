@@ -23,13 +23,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
-	[[MIGAMoreGamesActivityReportManager sharedManager] setEnabled: YES];
-	[[[MIGAMoreGamesViewController defaultController] dataStore] update];
-	
+    [[MIGAMoreGamesActivityReportManager sharedManager] setEnabled:YES];
+    [[[MIGAMoreGamesViewController defaultController] dataStore] update];
+    
     // Override point for customization after application launch.
     
     // Add the navigation controller's view to the window and display.
-    [window addSubview: self.navController.view];
+    [window addSubview:self.navController.view];
     [window makeKeyAndVisible];
 
     return YES;
@@ -41,7 +41,7 @@
      Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
      Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
      */
-	[[MIGAMoreGamesActivityReportManager sharedManager] submitActivity];
+    [[MIGAMoreGamesActivityReportManager sharedManager] submitActivity];
 }
 
 
@@ -72,7 +72,7 @@
      Called when the application is about to terminate.
      See also applicationDidEnterBackground:.
      */
-	[[MIGAMoreGamesActivityReportManager sharedManager] submitActivity];
+    [[MIGAMoreGamesActivityReportManager sharedManager] submitActivity];
 }
 
 
@@ -87,11 +87,10 @@
 
 
 - (void)dealloc {
-	[navController release];
-	[window release];
-	[super dealloc];
+    [navController release];
+    [window release];
+    [super dealloc];
 }
 
 
 @end
-

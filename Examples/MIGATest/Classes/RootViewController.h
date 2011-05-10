@@ -10,32 +10,32 @@
 #import "MIGAMoreGamesViewController.h"
 
 @interface RootViewController : UIViewController <UITextFieldDelegate, MIGAMoreGamesViewControllerDelegate> {
-	UIScrollView *optionsScrollView;
-	
-	UISwitch *customNibSwitch;
-	UISwitch *persistentCacheSwitch;
-	UISwitch *modalPresentationSwitch;
-	UISwitch *portraitOnlySwitch;
-	UITextField *appIdTextField;
+    @private
+    UIScrollView *optionsScrollView;
+    
+    UISwitch *customNibSwitch;
+    UISwitch *persistentCacheSwitch;
+    UISwitch *modalPresentationSwitch;
+    UISwitch *portraitOnlySwitch;
+    UITextField *appIdTextField;
 
-	UIButton *moreGamesButton;
-	
-	@private
-	MIGAMoreGamesViewController * moreGamesViewController;
+    UIButton *moreGamesButton;
+    
+    MIGAMoreGamesViewController *moreGamesViewController;
 }
 
-@property (nonatomic, retain) IBOutlet UIScrollView *optionsScrollView;
+@property (nonatomic,retain) IBOutlet UIScrollView *optionsScrollView;
 
-@property (nonatomic, retain) IBOutlet UISwitch *customNibSwitch;
-@property (nonatomic, retain) IBOutlet UISwitch *persistentCacheSwitch;
-@property (nonatomic, retain) IBOutlet UISwitch *modalPresentationSwitch;
-@property (nonatomic, retain) IBOutlet UISwitch *portraitOnlySwitch;
-@property (nonatomic, retain) IBOutlet UITextField *appIdTextField;
+@property (nonatomic,retain) IBOutlet UISwitch *customNibSwitch;
+@property (nonatomic,retain) IBOutlet UISwitch *persistentCacheSwitch;
+@property (nonatomic,retain) IBOutlet UISwitch *modalPresentationSwitch;
+@property (nonatomic,retain) IBOutlet UISwitch *portraitOnlySwitch;
+@property (nonatomic,retain) IBOutlet UITextField *appIdTextField;
 
-@property (nonatomic, retain) IBOutlet UIButton *moreGamesButton;
+@property (nonatomic,retain) IBOutlet UIButton *moreGamesButton;
 
-- (IBAction) showMore;
+- (IBAction)showMore;
 
--(IBAction)doCustomNibSwitchChanged: (id)sender;
+- (IBAction)doCustomNibSwitchChanged:(id)sender;
 
 @end

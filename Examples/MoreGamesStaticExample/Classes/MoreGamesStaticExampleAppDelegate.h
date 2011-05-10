@@ -11,12 +11,13 @@
 @class MoreGamesStaticExampleViewController;
 
 @interface MoreGamesStaticExampleAppDelegate : NSObject <UIApplicationDelegate> {
+    @private
     UIWindow *window;
     MoreGamesStaticExampleViewController *viewController;
 }
 
-@property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) IBOutlet MoreGamesStaticExampleViewController *viewController;
+@property (nonatomic,retain) IBOutlet UIWindow *window;
+@property (nonatomic,retain) IBOutlet MoreGamesStaticExampleViewController *viewController;
 
 @end
 

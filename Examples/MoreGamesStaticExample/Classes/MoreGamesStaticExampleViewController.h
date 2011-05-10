@@ -12,7 +12,7 @@
 
 }
 
--(IBAction)doMoreGamesButtonTap: (id)sender;
+- (IBAction)doMoreGamesButtonTap:(id)sender;
 
 @end
 
