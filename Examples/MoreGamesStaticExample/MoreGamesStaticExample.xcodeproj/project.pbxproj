@@ -23,7 +23,31 @@
 		44E2F2D61227047500AE5F5A /* banner-portrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44E2F2D01227047500AE5F5A /* banner-portrait@2x.png */; };
 		44E2F2D71227047500AE5F5A /* MIGAAsyncImageViewMissingImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 44E2F2D11227047500AE5F5A /* MIGAAsyncImageViewMissingImage.png */; };
 		44E2F2D81227047500AE5F5A /* MIGAAsyncImageViewMissingImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 44E2F2D21227047500AE5F5A /* MIGAAsyncImageViewMissingImage@2x.png */; };
+		44EA8C7B1378F36B00E60556 /* libMIGAMoreGames.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 44EA8C7A1378F36B00E60556 /* libMIGAMoreGames.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		449BB5741378F278008A375E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+		};
+		44EA8C751378F2D800E60556 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+		};
+		44EA8C781378F35E00E60556 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+		};
+		44EA8C7C1378F37700E60556 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -47,6 +71,7 @@
 		44E2F2D01227047500AE5F5A /* banner-portrait@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "banner-portrait@2x.png"; sourceTree = "<group>"; };
 		44E2F2D11227047500AE5F5A /* MIGAAsyncImageViewMissingImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MIGAAsyncImageViewMissingImage.png; sourceTree = "<group>"; };
 		44E2F2D21227047500AE5F5A /* MIGAAsyncImageViewMissingImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MIGAAsyncImageViewMissingImage@2x.png"; sourceTree = "<group>"; };
+		44EA8C7A1378F36B00E60556 /* libMIGAMoreGames.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libMIGAMoreGames.a; sourceTree = SOURCE_ROOT; };
 		8D1107310486CEB800E47090 /* MoreGamesStaticExample-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "MoreGamesStaticExample-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -55,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44EA8C7B1378F36B00E60556 /* libMIGAMoreGames.a in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */,
@@ -88,6 +114,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				44EA8C7A1378F36B00E60556 /* libMIGAMoreGames.a */,
 				44E2F2D91227049300AE5F5A /* MIGAMoreGames */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -167,6 +194,10 @@
 			buildRules = (
 			);
 			dependencies = (
+				44EA8C7D1378F37700E60556 /* PBXTargetDependency */,
+				44EA8C791378F35E00E60556 /* PBXTargetDependency */,
+				44EA8C761378F2D800E60556 /* PBXTargetDependency */,
+				449BB5751378F278008A375E /* PBXTargetDependency */,
 			);
 			name = MoreGamesStaticExample;
 			productName = MoreGamesStaticExample;
@@ -229,6 +260,25 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		449BB5751378F278008A375E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			targetProxy = 449BB5741378F278008A375E /* PBXContainerItemProxy */;
+		};
+		44EA8C761378F2D800E60556 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			targetProxy = 44EA8C751378F2D800E60556 /* PBXContainerItemProxy */;
+		};
+		44EA8C791378F35E00E60556 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			targetProxy = 44EA8C781378F35E00E60556 /* PBXContainerItemProxy */;
+		};
+		44EA8C7D1378F37700E60556 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			targetProxy = 44EA8C7C1378F37700E60556 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -240,6 +290,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MoreGamesStaticExample_Prefix.pch;
 				INFOPLIST_FILE = "MoreGamesStaticExample-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = MoreGamesStaticExample;
 			};
 			name = Debug;
@@ -252,6 +306,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = MoreGamesStaticExample_Prefix.pch;
 				INFOPLIST_FILE = "MoreGamesStaticExample-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = MoreGamesStaticExample;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -265,7 +323,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "../../MIGAMoreGames/Source/**";
+				HEADER_SEARCH_PATHS = "../../Source/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				OTHER_LDFLAGS = "-all_load";
 				PREBINDING = NO;
@@ -281,7 +339,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = "../../MIGAMoreGames/Source/**";
+				HEADER_SEARCH_PATHS = "../../Source/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "-all_load";
