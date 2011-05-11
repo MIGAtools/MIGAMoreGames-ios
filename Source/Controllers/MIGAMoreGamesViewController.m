@@ -64,6 +64,7 @@
     _delegateRespondsTo.didCancel = [_delegate respondsToSelector:@selector(migaMoreGamesViewControllerDidCancel:)];
 }
 
+
 - (void)setDataStore:(MIGAMoreGamesDataStore *)dataStore {
     if (_dataStore == dataStore)
         return;
@@ -126,6 +127,8 @@
         tmpLabel.opaque = YES;
         tmpLabel.textColor = [UIColor whiteColor];
         tmpLabel.backgroundColor = [UIColor clearColor];
+        tmpLabel.shadowColor = [UIColor blackColor];
+        tmpLabel.shadowOffset = CGSizeMake(0.0f, 1.0f);
         [tmpView addSubview:tmpLabel];
         [tmpLabel release];
         
@@ -141,6 +144,8 @@
         tmpLabel.opaque = YES;
         tmpLabel.textColor = [UIColor whiteColor];
         tmpLabel.backgroundColor = [UIColor clearColor];
+        tmpLabel.shadowColor = [UIColor blackColor];
+        tmpLabel.shadowOffset = CGSizeMake(0.0f, 1.0f);
         [tmpView addSubview:tmpLabel];
         [tmpLabel release];
         
@@ -248,6 +253,8 @@ static MIGAMoreGamesViewController *defaultMIGAMoreGamesViewController = nil;
     _titleLabel.numberOfLines = 1;
     _titleLabel.textColor = [UIColor blackColor];
     _titleLabel.backgroundColor = [UIColor clearColor];
+    _titleLabel.shadowColor = [UIColor whiteColor];
+    _titleLabel.shadowOffset = CGSizeMake(0.0f, 1.0f);
     _titleLabel.opaque = NO;
     _titleLabel.adjustsFontSizeToFitWidth = YES;
     _titleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
