@@ -123,7 +123,7 @@
         tmpLabel.numberOfLines = 1;
         tmpLabel.adjustsFontSizeToFitWidth = YES;
         tmpLabel.textAlignment = UITextAlignmentCenter;
-        tmpLabel.text = NSLocalizedString(@"Updating Games List...", @"Updating Games List...");
+        tmpLabel.text = NSLocalizedString(@"Updating Games List…", nil);
         tmpLabel.opaque = YES;
         tmpLabel.textColor = [UIColor whiteColor];
         tmpLabel.backgroundColor = [UIColor clearColor];
@@ -140,7 +140,7 @@
         tmpLabel.adjustsFontSizeToFitWidth = YES;
         tmpLabel.textAlignment = UITextAlignmentCenter;
         tmpLabel.lineBreakMode = UILineBreakModeWordWrap;
-        tmpLabel.text = NSLocalizedString(@"This won't take long.  We'll have a list of fun games produced by independent studios for you in just a moment.", @"This won't take long.  We'll have a list of fun games produced by independent studios for you in just a moment.");
+        tmpLabel.text = NSLocalizedString(@"This won't take long.  We'll have a list of fun games produced by independent studios for you in just a moment.", nil);
         tmpLabel.opaque = YES;
         tmpLabel.textColor = [UIColor whiteColor];
         tmpLabel.backgroundColor = [UIColor clearColor];
@@ -297,11 +297,11 @@ static MIGAMoreGamesViewController *defaultMIGAMoreGamesViewController = nil;
     self.pageControl.defersCurrentPageDisplay = NO;
     
     if (!self.title) {
-        self.title = NSLocalizedString(@"Discover More Games!", @"Discover More Games!");
+        self.title = NSLocalizedString(@"Discover More Games!", nil);
     }
 
     if (!self.instructions) {
-        self.instructions = NSLocalizedString(@"If you've enjoyed this game, you may also enjoy the following titles. Tap on any game to learn more on the App Store™.", @"If you've enjoyed this game, you may also enjoy the following titles. Tap on any game to learn more on the App Store™.");
+        self.instructions = NSLocalizedString(@"If you've enjoyed this game, you may also enjoy the following titles. Tap on any game to learn more on the App Store™.", nil);
     }
 }
 
@@ -502,12 +502,12 @@ static MIGAMoreGamesViewController *defaultMIGAMoreGamesViewController = nil;
     
     NSURL *appURL = [NSURL URLWithString:info.clickURLString];
     if (!appURL || [appURL isFileURL]) {
-        [[[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Unable to Show Application.", @"Unable to Show Application.") message:NSLocalizedString(@"Sorry for the inconvenience.  We're unable to display more information about this game at this time.", @"Sorry for the inconvenience.  We're unable to display more information about this game at this time.") delegate:nil cancelButtonTitle:NSLocalizedString(@"Cancel", @"Cancel") otherButtonTitles:nil, nil] autorelease] show];
+        [[[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Unable to Show Application.", nil) message:NSLocalizedString(@"Sorry for the inconvenience.  We're unable to display more information about this game at this time.", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"Cancel", nil) otherButtonTitles:nil, nil] autorelease] show];
         return;
     }
     
 #if TARGET_IPHONE_SIMULATOR
-    [[[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"iOS Device Required", @"iOS Device Required") message:NSLocalizedString(@"This functionality does not work on the iOS Simulator.  To test App Store links, please install this app on a device.", @"This functionality does not work on the iOS Simulator.  To test App Store links, please install this app on a device.") delegate:nil cancelButtonTitle:NSLocalizedString(@"Cancel", @"Cancel") otherButtonTitles:nil, nil] autorelease] show];
+    [[[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"iOS Device Required", nil) message:NSLocalizedString(@"This functionality does not work on the iOS Simulator.  To test App Store links, please install this app on a device.", nil) delegate:nil cancelButtonTitle:NSLocalizedString(@"Cancel", @"Cancel") otherButtonTitles:nil, nil] autorelease] show];
 #else
     [[UIApplication sharedApplication] openURL:appURL];
 #endif
