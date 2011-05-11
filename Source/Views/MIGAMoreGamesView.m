@@ -34,38 +34,40 @@
 #pragma mark -
 #pragma mark Properties
 
-@synthesize usedCells, reusableCells;
-@synthesize dataSource, moreGamesViewDelegate;
-@synthesize cellLayoutManager;
-@synthesize interfaceOrientation;
+@synthesize usedCells=_usedCells;
+@synthesize reusableCells=_reusableCells;
+@synthesize dataSource=_dataSource;
+@synthesize moreGamesViewDelegate=_moreGamesViewDelegate;
+@synthesize cellLayoutManager=_cellLayoutManager;
+@synthesize interfaceOrientation=_interfaceOrientation;
 
 - (void)setCurrentPage:(NSUInteger)page {
-    explicitlySettingPage = YES;
-    currentPage = page % applicationCount;
-    [self scrollRectToVisible:[self cellRectAtIndex:currentPage] animated:YES];
+    _explicitlySettingPage = YES;
+    _currentPage = page % _applicationCount;
+    [self scrollRectToVisible:[self cellRectAtIndex:_currentPage] animated:YES];
 }
 
 
 - (NSUInteger)currentPage {
-    return currentPage;
+    return _currentPage;
 }
 
 
 - (NSMutableArray *)usedCells {
-    if (!usedCells) {
-        usedCells = [[NSMutableArray alloc] initWithCapacity:applicationCount];
+    if (!_usedCells) {
+        _usedCells = [[NSMutableArray alloc] initWithCapacity:_applicationCount];
     }
     
-    return usedCells;
+    return _usedCells;
 }
 
 
 - (NSMutableDictionary *)reusableCells {
-    if (!reusableCells) {
-        reusableCells = [[NSMutableDictionary alloc] init];
+    if (!_reusableCells) {
+        _reusableCells = [[NSMutableDictionary alloc] init];
     }
     
-    return reusableCells;
+    return _reusableCells;
 }
 
 
@@ -76,17 +78,17 @@
     [super setFrame:aFrame];
     
     self.contentSize = [self requiredContentSize];
-    layoutIsDirty = YES;
+    _layoutIsDirty = YES;
 
     [self setNeedsLayout];
 }
 
 
 - (void)setInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
-    if (toInterfaceOrientation == interfaceOrientation)
+    if (toInterfaceOrientation == _interfaceOrientation)
         return;
     
-    interfaceOrientation = toInterfaceOrientation;
+    _interfaceOrientation = toInterfaceOrientation;
     [self setNeedsLayout];
     [self setNeedsDisplay];
     [self.reusableCells removeAllObjects];
@@ -122,16 +124,16 @@
     self.showsHorizontalScrollIndicator = NO;
     
     self.backgroundColor = [UIColor blackColor];
-    usedCellsRange = NSMakeRange(0, 0);
-    currentPage = 0;
+    _usedCellsRange = NSMakeRange(0, 0);
+    _currentPage = 0;
     self.pagingEnabled = YES;
 }
 
 
 - (void)dealloc {
-    [usedCells release];
-    [reusableCells release];
-    [cellLayoutManager release];
+    [_usedCells release];
+    [_reusableCells release];
+    [_cellLayoutManager release];
     
     [super dealloc];
 }
@@ -201,7 +203,7 @@
 - (NSIndexSet *)indicesOfCellsInRect:(CGRect)rect {
     NSMutableIndexSet *result = [[NSMutableIndexSet alloc] init];
     
-    for (NSUInteger i = 0; i < applicationCount; i++) {
+    for (NSUInteger i = 0; i < _applicationCount; i++) {
         CGRect cellRect = [self cellRectAtIndex:i];
         
         if (CGRectIntersectsRect(cellRect, rect)) {
@@ -231,32 +233,32 @@
 
 
 - (void)reloadData {
-    applicationCount = [self.dataSource numberOfApplicationsInMoreGamesView:self];
+    _applicationCount = [self.dataSource numberOfApplicationsInMoreGamesView:self];
     self.contentSize = [self requiredContentSize];
     
-    currentPage = 0;
+    _currentPage = 0;
     
     [self.usedCells makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [self enqueueReusableCells:self.usedCells];
     [self.usedCells removeAllObjects];
-    usedCellsRange = NSMakeRange(0, 0);
+    _usedCellsRange = NSMakeRange(0, 0);
     
-    if (applicationCount > 0) {
+    if (_applicationCount > 0) {
         [self updateVisibleCells];
     }
     
     [self setNeedsLayout];
     [self scrollRectToVisible:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height) animated:NO];
     
-    if (moreGamesViewDelegate && [moreGamesViewDelegate respondsToSelector:@selector(migaMoreGamesView:didScrollToPage:)]) {
-        [moreGamesViewDelegate migaMoreGamesView:self didScrollToPage:currentPage];
+    if (_moreGamesViewDelegate && [_moreGamesViewDelegate respondsToSelector:@selector(migaMoreGamesView:didScrollToPage:)]) {
+        [_moreGamesViewDelegate migaMoreGamesView:self didScrollToPage:_currentPage];
     }
 }
 
 
 - (CGSize)requiredContentSize {
     CGSize result = self.bounds.size;
-    result.width *= applicationCount;
+    result.width *= _applicationCount;
     
     return result;
 }
@@ -265,28 +267,28 @@
 - (void)updateVisibleCells {
     NSIndexSet *newVisibleIndices = [self indicesOfCellsInRect:[self visibleContentBounds]];
     
-    NSUInteger beforeTest = (usedCellsRange.location == 0 ? NSNotFound : usedCellsRange.location - 1);
-    NSUInteger afterTest = MIN(usedCellsRange.location + usedCellsRange.length, applicationCount);
+    NSUInteger beforeTest = (_usedCellsRange.location == 0 ? NSNotFound : _usedCellsRange.location - 1);
+    NSUInteger afterTest = MIN(_usedCellsRange.location + _usedCellsRange.length, _applicationCount);
     
-    if ([newVisibleIndices countOfIndexesInRange:usedCellsRange] < usedCellsRange.length) {
-        NSMutableIndexSet *indicesToRemove = [[NSMutableIndexSet alloc] initWithIndexesInRange:usedCellsRange];
+    if ([newVisibleIndices countOfIndexesInRange:_usedCellsRange] < _usedCellsRange.length) {
+        NSMutableIndexSet *indicesToRemove = [[NSMutableIndexSet alloc] initWithIndexesInRange:_usedCellsRange];
         [indicesToRemove removeIndexes:newVisibleIndices];
         
         BOOL contiguous = (([indicesToRemove lastIndex] - [indicesToRemove firstIndex] - 1) == [indicesToRemove count]);
         
         if (contiguous) {
-            BOOL removeFromFront = [indicesToRemove containsIndex:usedCellsRange.location];
+            BOOL removeFromFront = [indicesToRemove containsIndex:_usedCellsRange.location];
             
             NSUInteger toRemoveCount = [indicesToRemove count];
-            NSRange removalRange = removeFromFront ? NSMakeRange(0, toRemoveCount) : NSMakeRange([usedCells count] - toRemoveCount, toRemoveCount);
+            NSRange removalRange = removeFromFront ? NSMakeRange(0, toRemoveCount) : NSMakeRange([_usedCells count] - toRemoveCount, toRemoveCount);
             
-            NSMutableArray *removedCells = [[usedCells subarrayWithRange:removalRange] mutableCopy];
+            NSMutableArray *removedCells = [[_usedCells subarrayWithRange:removalRange] mutableCopy];
             
-            [usedCells removeObjectsInRange:removalRange];
-            usedCellsRange.length -= toRemoveCount;
+            [_usedCells removeObjectsInRange:removalRange];
+            _usedCellsRange.length -= toRemoveCount;
             
             if (removeFromFront) {
-                usedCellsRange.location += toRemoveCount;
+                _usedCellsRange.location += toRemoveCount;
             }
             
             [removedCells makeObjectsPerformSelector:@selector(removeFromSuperview)];
@@ -294,25 +296,25 @@
             [removedCells release];
         } else {
             
-            NSMutableArray *removedCells = [usedCells mutableCopy];
+            NSMutableArray *removedCells = [_usedCells mutableCopy];
             
-            [usedCells removeObjectsInArray:removedCells];
+            [_usedCells removeObjectsInArray:removedCells];
             [removedCells makeObjectsPerformSelector:@selector(removeFromSuperview)];
             
             [self enqueueReusableCells:removedCells];
             
-            usedCellsRange.location = [newVisibleIndices firstIndex];
-            usedCellsRange.length = [newVisibleIndices count];
+            _usedCellsRange.location = [newVisibleIndices firstIndex];
+            _usedCellsRange.length = [newVisibleIndices count];
             
             NSUInteger i = [newVisibleIndices firstIndex];
             while (i != NSNotFound) {
                 MIGAMoreGamesViewCell *cell = [self addCellForIndex:i];
-                [usedCells addObject:cell];
+                [_usedCells addObject:cell];
                 
                 i = [newVisibleIndices indexGreaterThanIndex:i];
             }
             
-            [self layoutCellsInVisibleRange:NSMakeRange(0, [usedCells count])];
+            [self layoutCellsInVisibleRange:NSMakeRange(0, [_usedCells count])];
             
             [removedCells release];
         }
@@ -325,51 +327,51 @@
     
     if ((beforeTest != NSNotFound) && ([newVisibleIndices containsIndex:beforeTest])) {
         NSMutableIndexSet *newIndices = [newVisibleIndices mutableCopy];
-        [newIndices removeIndexesInRange:usedCellsRange];
+        [newIndices removeIndexesInRange:_usedCellsRange];
         
         NSUInteger i = [newIndices lastIndex];
         while (i != NSNotFound) {
             MIGAMoreGamesViewCell *cell = [self addCellForIndex:i];
-            [usedCells insertObject:cell atIndex:0];
+            [_usedCells insertObject:cell atIndex:0];
             
             i = [newIndices indexLessThanIndex:i];
         }
         
-        usedCellsRange.length += [newIndices count];
-        usedCellsRange.location = [newVisibleIndices firstIndex];
+        _usedCellsRange.length += [newIndices count];
+        _usedCellsRange.location = [newVisibleIndices firstIndex];
         
         NSRange newCellRange = NSMakeRange([newIndices firstIndex],  ([newIndices lastIndex] - [newIndices firstIndex]) + 1);
-        newCellRange.location = MIN(0, newCellRange.location - usedCellsRange.location);
+        newCellRange.location = MIN(0, newCellRange.location - _usedCellsRange.location);
         
         [self layoutCellsInVisibleRange:newCellRange];
         
         [newIndices release];
         
-    } else if ((NSLocationInRange(afterTest, usedCellsRange) == NO) && ([newVisibleIndices containsIndex:afterTest])) {
+    } else if ((NSLocationInRange(afterTest, _usedCellsRange) == NO) && ([newVisibleIndices containsIndex:afterTest])) {
         
         NSMutableIndexSet *newIndices = [newVisibleIndices mutableCopy];
-        [newIndices removeIndexesInRange:usedCellsRange];
+        [newIndices removeIndexesInRange:_usedCellsRange];
         
         NSUInteger i = [newIndices firstIndex];
         while (i != NSNotFound) {
             MIGAMoreGamesViewCell *cell = [self addCellForIndex:i];
-            [usedCells addObject:cell];
+            [_usedCells addObject:cell];
             
             i = [newIndices indexGreaterThanIndex:i];
         }
         
-        usedCellsRange.length += [newIndices count];
-        usedCellsRange.location = [newVisibleIndices firstIndex];
+        _usedCellsRange.length += [newIndices count];
+        _usedCellsRange.location = [newVisibleIndices firstIndex];
         
         NSRange newCellRange = NSMakeRange([newIndices firstIndex],  ([newIndices lastIndex] - [newIndices firstIndex]) + 1);
-        newCellRange.location -= usedCellsRange.location;
+        newCellRange.location -= _usedCellsRange.location;
         
         [self layoutCellsInVisibleRange:newCellRange];
         
         [newIndices release];
     }
 
-    [self layoutCellsInVisibleRange:usedCellsRange];
+    [self layoutCellsInVisibleRange:_usedCellsRange];
     if (wereAnimationsEnabled) {
         [UIView setAnimationsEnabled:YES];
     }
@@ -377,10 +379,10 @@
 
 
 - (void)layoutCellUsingCellManager:(MIGAMoreGamesViewCell *)cell withInterfaceOrientation:(UIInterfaceOrientation)orientation {
-    if (!cellLayoutManager)
+    if (!_cellLayoutManager)
         return;
 
-    [cellLayoutManager performLayoutForCell:cell withInterfaceOrientation:orientation];
+    [_cellLayoutManager performLayoutForCell:cell withInterfaceOrientation:orientation];
 }
 
 
@@ -403,7 +405,7 @@
 #pragma mark UIScrollViewDelegate Methods
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if (explicitlySettingPage) {
+    if (_explicitlySettingPage) {
         return;
     }
     
@@ -412,22 +414,22 @@
     
     NSUInteger newPage = (NSUInteger)(floor((self.contentOffset.x - pageWidth / 2.0) / pageWidth) + 1);
 
-    if (newPage != currentPage) {
-        currentPage = newPage;
-        if (moreGamesViewDelegate && [moreGamesViewDelegate respondsToSelector:@selector(migaMoreGamesView:didScrollToPage:)]) {
-            [moreGamesViewDelegate migaMoreGamesView:self didScrollToPage:currentPage];
+    if (newPage != _currentPage) {
+        _currentPage = newPage;
+        if (_moreGamesViewDelegate && [_moreGamesViewDelegate respondsToSelector:@selector(migaMoreGamesView:didScrollToPage:)]) {
+            [_moreGamesViewDelegate migaMoreGamesView:self didScrollToPage:_currentPage];
         }
     }
 }
 
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    explicitlySettingPage = NO;
+    _explicitlySettingPage = NO;
 }
 
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView {
-    explicitlySettingPage = NO;
+    _explicitlySettingPage = NO;
 }
 
 

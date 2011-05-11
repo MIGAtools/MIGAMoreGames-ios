@@ -31,22 +31,22 @@
 
 @interface MIGAMoreGamesView : UIScrollView <UIScrollViewDelegate> {
     @private
-    id<MIGAMoreGamesViewDataSource> dataSource;
-    id<MIGAMoreGamesViewDelegate> moreGamesViewDelegate;
-    id<MIGAMoreGamesViewCellLayoutManager> cellLayoutManager;
+    id<MIGAMoreGamesViewDataSource> _dataSource;
+    id<MIGAMoreGamesViewDelegate> _moreGamesViewDelegate;
+    id<MIGAMoreGamesViewCellLayoutManager> _cellLayoutManager;
     
-    NSUInteger applicationCount;
+    NSUInteger _applicationCount;
     
-    BOOL layoutIsDirty;
-    UIInterfaceOrientation interfaceOrientation;
+    BOOL _layoutIsDirty;
+    UIInterfaceOrientation _interfaceOrientation;
     
-    NSUInteger currentPage;
-    BOOL explicitlySettingPage;
+    NSUInteger _currentPage;
+    BOOL _explicitlySettingPage;
     
-    NSRange usedCellsRange;
+    NSRange _usedCellsRange;
     
-    NSMutableArray *usedCells;
-    NSMutableDictionary *reusableCells;
+    NSMutableArray *_usedCells;
+    NSMutableDictionary *_reusableCells;
 }
 
 @property (nonatomic,retain) IBOutlet id<MIGAMoreGamesViewDataSource> dataSource;
