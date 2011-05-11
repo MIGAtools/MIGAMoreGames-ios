@@ -39,7 +39,11 @@
 @synthesize dataSource=_dataSource;
 @synthesize moreGamesViewDelegate=_moreGamesViewDelegate;
 @synthesize cellLayoutManager=_cellLayoutManager;
-@synthesize interfaceOrientation=_interfaceOrientation;
+
+- (void)setMoreGamesViewDelegate:(id<MIGAMoreGamesViewDelegate>)moreGamesViewDelegate {
+    _moreGamesViewDelegate = moreGamesViewDelegate;
+    _delegateRespondsTo.didScrollToPage = [_moreGamesViewDelegate respondsToSelector:@selector(migaMoreGamesView:didScrollToPage:)];
+}
 
 - (void)setCurrentPage:(NSUInteger)page {
     _explicitlySettingPage = YES;
@@ -75,24 +79,13 @@
     if (CGRectEqualToRect(self.frame, aFrame))
         return;
     
+    _explicitlySettingPage = YES;
     [super setFrame:aFrame];
     
     self.contentSize = [self requiredContentSize];
-    _layoutIsDirty = YES;
-
+    [self scrollRectToVisible:[self cellRectAtIndex:_currentPage] animated:NO];
+    _explicitlySettingPage = NO;
     [self setNeedsLayout];
-}
-
-
-- (void)setInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
-    if (toInterfaceOrientation == _interfaceOrientation)
-        return;
-    
-    _interfaceOrientation = toInterfaceOrientation;
-    [self setNeedsLayout];
-    [self setNeedsDisplay];
-    [self.reusableCells removeAllObjects];
-    //[self layoutCellsForInterfaceOrientation: interfaceOrientation];
 }
 
 
@@ -229,6 +222,18 @@
 
 
 - (void)layoutCellsInVisibleRange:(NSRange)range {
+    UIInterfaceOrientation orientation = UIInterfaceOrientationPortrait;
+    UIDeviceOrientation deviceOrientation = [[UIDevice currentDevice] orientation];
+    if (UIDeviceOrientationIsValidInterfaceOrientation(deviceOrientation)) {
+        orientation = (UIInterfaceOrientation)deviceOrientation;
+    }
+    
+    for (NSUInteger i = 0; i < [self.usedCells count]; i++) {
+        MIGAMoreGamesViewCell *cell = [self.usedCells objectAtIndex:i];
+
+        cell.frame = [self cellRectAtIndex: i + _usedCellsRange.location];
+        [self layoutCellUsingCellManager:cell withInterfaceOrientation:orientation];
+    }
 }
 
 
@@ -250,7 +255,7 @@
     [self setNeedsLayout];
     [self scrollRectToVisible:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height) animated:NO];
     
-    if (_moreGamesViewDelegate && [_moreGamesViewDelegate respondsToSelector:@selector(migaMoreGamesView:didScrollToPage:)]) {
+    if (_moreGamesViewDelegate && _delegateRespondsTo.didScrollToPage) {
         [_moreGamesViewDelegate migaMoreGamesView:self didScrollToPage:_currentPage];
     }
 }
@@ -266,7 +271,7 @@
 
 - (void)updateVisibleCells {
     NSIndexSet *newVisibleIndices = [self indicesOfCellsInRect:[self visibleContentBounds]];
-    
+
     NSUInteger beforeTest = (_usedCellsRange.location == 0 ? NSNotFound : _usedCellsRange.location - 1);
     NSUInteger afterTest = MIN(_usedCellsRange.location + _usedCellsRange.length, _applicationCount);
     
@@ -386,21 +391,6 @@
 }
 
 
-- (void)layoutCellsForInterfaceOrientation:(UIInterfaceOrientation)orientation {
-    [self layoutCellsForInterfaceOrientation:orientation duration:0];
-}
-
-
-- (void)layoutCellsForInterfaceOrientation:(UIInterfaceOrientation)orientation duration:(NSTimeInterval)duration {
-    [UIView beginAnimations:@"MIGAMoreGamesViewOrientationChange" context:NULL];
-    [UIView setAnimationDuration:duration];
-    for (MIGAMoreGamesViewCell *cell in self.usedCells) {
-        [self layoutCellUsingCellManager:cell withInterfaceOrientation:orientation];
-    }
-    [UIView commitAnimations];
-}
-
-
 #pragma mark -
 #pragma mark UIScrollViewDelegate Methods
 
@@ -416,7 +406,7 @@
 
     if (newPage != _currentPage) {
         _currentPage = newPage;
-        if (_moreGamesViewDelegate && [_moreGamesViewDelegate respondsToSelector:@selector(migaMoreGamesView:didScrollToPage:)]) {
+        if (_moreGamesViewDelegate && _delegateRespondsTo.didScrollToPage) {
             [_moreGamesViewDelegate migaMoreGamesView:self didScrollToPage:_currentPage];
         }
     }

@@ -355,7 +355,6 @@ static MIGAMoreGamesViewController *defaultMIGAMoreGamesViewController = nil;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
-    self.moreGamesView.interfaceOrientation = self.interfaceOrientation;
     [self.dataStore update];
     [self.moreGamesView reloadData];
     if ([self.dataStore count] < 1) {
@@ -392,18 +391,6 @@ static MIGAMoreGamesViewController *defaultMIGAMoreGamesViewController = nil;
     }
     
     return UIInterfaceOrientationIsPortrait(toInterfaceOrientation);
-}
-
-
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
-    
-    [self.moreGamesView layoutCellsForInterfaceOrientation:toInterfaceOrientation duration:duration];
-}
-
-
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation {
-    self.moreGamesView.interfaceOrientation = self.interfaceOrientation;
 }
 
 
@@ -603,8 +590,6 @@ static MIGAMoreGamesViewController *defaultMIGAMoreGamesViewController = nil;
     result.screenshotImageView.nativeImageSize = imageSize;
     result.screenshotImageView.imageContentScale = actualScale;
     result.screenshotImageView.imageURL = url;
-
-    [self performLayoutForCell:result withInterfaceOrientation:self.moreGamesView.interfaceOrientation];
 
     [CATransaction commit];
     return result;

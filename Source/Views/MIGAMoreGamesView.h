@@ -37,9 +37,6 @@
     
     NSUInteger _applicationCount;
     
-    BOOL _layoutIsDirty;
-    UIInterfaceOrientation _interfaceOrientation;
-    
     NSUInteger _currentPage;
     BOOL _explicitlySettingPage;
     
@@ -47,20 +44,19 @@
     
     NSMutableArray *_usedCells;
     NSMutableDictionary *_reusableCells;
+    
+    struct {
+        BOOL didScrollToPage : 1;
+    } _delegateRespondsTo;
 }
 
 @property (nonatomic,retain) IBOutlet id<MIGAMoreGamesViewDataSource> dataSource;
 @property (nonatomic,retain) IBOutlet id<MIGAMoreGamesViewDelegate> moreGamesViewDelegate;
 @property (nonatomic,retain) IBOutlet id<MIGAMoreGamesViewCellLayoutManager> cellLayoutManager;
 
-@property (nonatomic,assign) UIInterfaceOrientation interfaceOrientation;
-
 @property (nonatomic,assign) NSUInteger currentPage;
 
 - (void)reloadData;
 - (MIGAMoreGamesViewCell *)dequeueReusableCellWithIdentifier:(NSString *)identifier;
-
-- (void)layoutCellsForInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation;
-- (void)layoutCellsForInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration;
 
 @end
