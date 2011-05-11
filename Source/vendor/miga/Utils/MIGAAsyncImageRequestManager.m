@@ -155,8 +155,6 @@ static MIGAAsyncImageRequestManager *defaultManager = nil;
                 MIGADLog(@"File miss.");
             }
         }
-    } else {
-        MIGADLog(@"Loaded image hit for URL: %@", url);
     }
     
     return result;
