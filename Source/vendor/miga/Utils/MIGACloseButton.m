@@ -8,6 +8,7 @@
 
 #import "MIGACloseButton.h"
 #import <QuartzCore/QuartzCore.h>
+#import "MIGAAvailability.h"
 
 @implementation MIGACloseButton
 @dynamic layer;
@@ -77,7 +78,15 @@
         
         _glyphLayer.transform = CATransform3DMakeRotation(M_PI / 4.0f, 0, 0, 1.0f);
 
-
+#if MIGA_IOS_4_0_SUPPORTED
+        if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]) {
+            CGFloat screenScale = [[UIScreen mainScreen] scale];
+            self.layer.contentsScale = screenScale;
+            _borderLayer.contentsScale = screenScale;
+            _glyphLayer.contentsScale = screenScale;
+        }
+#endif
+        
         [self.layer addSublayer:[CALayer layer]];
         [self.layer addSublayer:_borderLayer];
         [self.layer addSublayer:_glyphLayer];
