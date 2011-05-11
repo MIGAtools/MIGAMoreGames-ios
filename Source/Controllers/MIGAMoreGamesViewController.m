@@ -243,12 +243,14 @@ static MIGAMoreGamesViewController *defaultMIGAMoreGamesViewController = nil;
                                                nil];
     _headerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
     
-    _closeButton = [[MIGACloseButton alloc] initWithFrame:CGRectMake(6.0f, 6.0f, 24.0f, 24.0f)];
-    _closeButton.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
+    subviewFrame = CGRectMake(12.0f, 12.0f, 24.0f, 24.0f);
+    
+    _closeButton = [[MIGACloseButton alloc] initWithFrame:subviewFrame];
+    _closeButton.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
     [_closeButton addTarget:self action:@selector(doDone:) forControlEvents:UIControlEventTouchUpInside];
     [_headerView addSubview:_closeButton];
     
-    _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(36.0f, 6.0f, _headerView.bounds.size.width - 42.0f, 12.0f)];
+    _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(48.0f, 6.0f, _headerView.bounds.size.width - 60.0f, 12.0f)];
     _titleLabel.font = [UIFont boldSystemFontOfSize:12.0f];
     _titleLabel.numberOfLines = 1;
     _titleLabel.textColor = [UIColor blackColor];
@@ -261,7 +263,7 @@ static MIGAMoreGamesViewController *defaultMIGAMoreGamesViewController = nil;
     
     [_headerView addSubview:_titleLabel];
     
-    _instructionsLabel = [[UILabel alloc] initWithFrame:CGRectMake(36.0f, 22.0f, _headerView.bounds.size.width - 42.0f, _headerView.bounds.size.height - 26.0f)];
+    _instructionsLabel = [[UILabel alloc] initWithFrame:CGRectMake(48.0f, 18.0f, _headerView.bounds.size.width - 60.0f, _headerView.bounds.size.height - 26.0f)];
     _instructionsLabel.font = [UIFont systemFontOfSize:9.0f];
     _instructionsLabel.numberOfLines = 2;
     _instructionsLabel.lineBreakMode = UILineBreakModeWordWrap;
