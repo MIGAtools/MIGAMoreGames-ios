@@ -246,6 +246,9 @@
                       nil];
     
     contentView.colors = gradientColors;
+	
+	headerView.layer.borderColor = contentView.layer.borderColor = [[UIColor blackColor] CGColor];
+	headerView.layer.borderWidth = contentView.layer.borderWidth = 1.0f;
 }
 
 
