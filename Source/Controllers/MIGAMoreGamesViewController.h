@@ -48,6 +48,7 @@
     MIGAMoreGamesDataStore *_dataStore;
     
     UIView *_loadingView;
+    UIView *_errorView;
     
     MIGAImpressionTimer *_impressionTimer;
     MIGAMoreGamesActivityReportManager *_activityReportManager;

@@ -23,6 +23,7 @@
 @interface MIGAMoreGamesViewController ()
 
 @property (nonatomic, retain) UIView *loadingView;
+@property (nonatomic, retain) UIView *errorView;
 @property (nonatomic, retain) MIGAImpressionTimer *impressionTimer;
 
 - (void)layoutCellForPortaitOrientation:(MIGAMoreGamesViewCell *)cell;
@@ -32,6 +33,11 @@
 - (void)dismissLoadingView;
 - (void)loadingViewFadeOutAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context;
 - (void)removeLoadingView;
+
+- (void)presentErrorView;
+- (void)dismissErrorView;
+- (void)errorViewFadeOutAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context;
+- (void)removeErrorView;
 
 - (void)beginImpression:(NSUInteger)contentId;
 - (void)endImpression;
@@ -54,6 +60,7 @@
 @synthesize titleLabel=_titleLabel;
 @synthesize instructionsLabel=_instructionsLabel;
 @synthesize loadingView=_loadingView;
+@synthesize errorView=_errorView;
 @synthesize impressionTimer=_impressionTimer;
 
 - (void)setDelegate:(id<MIGAMoreGamesViewControllerDelegate>)delegate {
@@ -157,6 +164,58 @@
     }
     
     return _loadingView;
+}
+
+
+- (UIView *)errorView {
+    if (!_errorView) {
+        CGRect tmpRect = CGRectMake(0, self.headerView.bounds.size.height, self.view.bounds.size.width, self.view.bounds.size.height - self.headerView.bounds.size.height);
+        UILabel *tmpLabel = nil;
+        MIGAGradientView *tmpView = [[MIGAGradientView alloc] initWithFrame:tmpRect];
+        tmpView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        tmpView.colors = [NSArray arrayWithObjects:
+                             (id)[[UIColor darkGrayColor] CGColor],
+                             (id)[[UIColor blackColor] CGColor],
+                             nil];
+
+        tmpRect = CGRectMake(20.0f, 20.0f, self.view.bounds.size.width - 40.0f, 44.0f);
+        tmpLabel = [[UILabel alloc] initWithFrame:tmpRect];
+        tmpLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+        tmpLabel.font = [UIFont systemFontOfSize:36.0f];
+        tmpLabel.numberOfLines = 1;
+        tmpLabel.adjustsFontSizeToFitWidth = YES;
+        tmpLabel.textAlignment = UITextAlignmentCenter;
+        tmpLabel.text = NSLocalizedString(@"Unable to find more games.", nil);
+        tmpLabel.opaque = YES;
+        tmpLabel.textColor = [UIColor whiteColor];
+        tmpLabel.backgroundColor = [UIColor clearColor];
+        tmpLabel.shadowColor = [UIColor blackColor];
+        tmpLabel.shadowOffset = CGSizeMake(0.0f, 1.0f);
+        [tmpView addSubview:tmpLabel];
+        [tmpLabel release];
+        
+        tmpRect = CGRectMake(20.0f, floorf(self.view.bounds.size.height / 2.0f), self.view.bounds.size.width - 40.0f, floorf((self.view.bounds.size.height / 3.0f)));
+        tmpLabel = [[UILabel alloc] initWithFrame:tmpRect];
+        tmpLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleBottomMargin;
+        tmpLabel.font = [UIFont systemFontOfSize:18.0f];
+        tmpLabel.numberOfLines = 0;
+        tmpLabel.adjustsFontSizeToFitWidth = YES;
+        tmpLabel.textAlignment = UITextAlignmentCenter;
+        tmpLabel.lineBreakMode = UILineBreakModeWordWrap;
+        tmpLabel.text = NSLocalizedString(@"We tried really hard, but we couldn't get a list of games for you right now. Please make sure you have a network connection and try again later.", nil);
+        tmpLabel.opaque = YES;
+        tmpLabel.textColor = [UIColor whiteColor];
+        tmpLabel.backgroundColor = [UIColor clearColor];
+        tmpLabel.shadowColor = [UIColor blackColor];
+        tmpLabel.shadowOffset = CGSizeMake(0.0f, 1.0f);
+        [tmpView addSubview:tmpLabel];
+        [tmpLabel release];
+
+        
+        _errorView = tmpView;
+    }
+    
+    return _errorView;
 }
 
 
@@ -323,6 +382,7 @@ static MIGAMoreGamesViewController *defaultMIGAMoreGamesViewController = nil;
     [_instructionsLabel release];
     [_headerView release];
     [_loadingView release];
+    [_errorView release];
 
     
     [_impressionTimer stop];
@@ -336,6 +396,7 @@ static MIGAMoreGamesViewController *defaultMIGAMoreGamesViewController = nil;
     [super viewDidUnload];
     
     [self removeLoadingView];
+    [self removeErrorView];
     
     self.moreGamesView = nil;
     self.pageControl = nil;
@@ -360,8 +421,10 @@ static MIGAMoreGamesViewController *defaultMIGAMoreGamesViewController = nil;
 
     [self.dataStore update];
     [self.moreGamesView reloadData];
-    if ([self.dataStore count] < 1) {
+    if (self.dataStore.requesting) {
         [self presentLoadingView];
+    } else if (self.dataStore.failed) {
+        [self presentErrorView];
     }
 }
 
@@ -430,6 +493,46 @@ static MIGAMoreGamesViewController *defaultMIGAMoreGamesViewController = nil;
         [_loadingView removeFromSuperview];
         [_loadingView release];
         _loadingView = nil;
+    }	
+}
+
+
+- (void)presentErrorView {
+    self.errorView.alpha = 1.0f;
+    if (_loadingView && _loadingView.superview) {
+        [self.view insertSubview:self.errorView belowSubview:_loadingView];
+        [self dismissLoadingView];
+    } else {
+        [self.view addSubview:self.errorView];
+    }
+}
+
+
+- (void)dismissErrorView {
+    if (_errorView) {
+        [UIView beginAnimations:@"errorViewFadeOut" context:NULL];
+        [UIView setAnimationDuration:0.33f];
+        self.errorView.alpha = 0.0f;
+        [UIView setAnimationDelegate:self];
+        [UIView setAnimationDidStopSelector:@selector(errorViewFadeOutAnimationDidStop:finished:context:)];
+        [UIView commitAnimations];
+    }
+}
+
+
+- (void)errorViewFadeOutAnimationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context {
+    if (![animationID isEqualToString:@"errorViewFadeOut"])
+        return;
+    
+    [self removeErrorView];
+}
+
+
+- (void)removeErrorView {
+    if (_errorView) {
+        [_errorView removeFromSuperview];
+        [_errorView release];
+        _errorView = nil;
     }	
 }
 
@@ -528,6 +631,7 @@ static MIGAMoreGamesViewController *defaultMIGAMoreGamesViewController = nil;
         result = [[[MIGAMoreGamesViewCell alloc] initWithReuseIdentifier:identifier] autorelease];
         result.tapTarget = self;
         result.tapSelector = @selector(doCellTap:);
+        [self performLayoutForCell:result withInterfaceOrientation:self.interfaceOrientation];
     }
             
     MIGAApplicationInfo *info = [self.dataStore applicationAtIndex:index];
@@ -679,12 +783,14 @@ static MIGAMoreGamesViewController *defaultMIGAMoreGamesViewController = nil;
     [self.moreGamesView reloadData];
     self.pageControl.currentPage = 0;
 
+    [self removeErrorView];
     [self performSelector:@selector(dismissLoadingView) withObject:nil afterDelay:1.0];
 }
 
 
 - (void)handleMIGAMoreGamesDataStoreDidFailLoadingNotification:(NSNotification *)notification {
-    [self performSelector:@selector(dismissLoadingView) withObject:nil afterDelay:1.0];
+    if ([self isViewLoaded])
+        [self presentErrorView];
 }
 
 
