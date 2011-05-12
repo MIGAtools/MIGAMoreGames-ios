@@ -37,6 +37,7 @@
 - (void)endImpression;
 
 - (void)handleMIGAMoreGamesDataStoreDidUpdateNotification:(NSNotification *)notification;
+- (void)handleMIGAMoreGamesDataStoreDidFailLoadingNotification:(NSNotification *)notification;
 
 @end
 
@@ -72,11 +73,13 @@
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     
     [center removeObserver:self name:MIGAMoreGamesDataStoreDidUpdateNotification object:_dataStore];
+    [center removeObserver:self name:MIGAMoreGamesDataStoreDidFailLoadingNotification object:_dataStore];
     [dataStore retain];
     [_dataStore release];
     _dataStore = dataStore;
     
     [center addObserver:self selector:@selector(handleMIGAMoreGamesDataStoreDidUpdateNotification:) name:MIGAMoreGamesDataStoreDidUpdateNotification object:_dataStore];
+    [center addObserver:self selector:@selector(handleMIGAMoreGamesDataStoreDidFailLoadingNotification:) name:MIGAMoreGamesDataStoreDidFailLoadingNotification object:_dataStore];
 }
 
 
@@ -676,6 +679,11 @@ static MIGAMoreGamesViewController *defaultMIGAMoreGamesViewController = nil;
     [self.moreGamesView reloadData];
     self.pageControl.currentPage = 0;
 
+    [self performSelector:@selector(dismissLoadingView) withObject:nil afterDelay:1.0];
+}
+
+
+- (void)handleMIGAMoreGamesDataStoreDidFailLoadingNotification:(NSNotification *)notification {
     [self performSelector:@selector(dismissLoadingView) withObject:nil afterDelay:1.0];
 }
 
