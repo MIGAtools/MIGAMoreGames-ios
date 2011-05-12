@@ -23,24 +23,24 @@
 
 @interface MIGAMoreGamesViewCell : UIView {
     @protected
-    NSString *reuseIdentifier;
+    NSString *_reuseIdentifier;
 
-    id<NSObject> tapTarget;
-    SEL tapSelector;
+    id<NSObject> _tapTarget;
+    SEL _tapSelector;
     
-    MIGAGradientView *headerView;
-    MIGAGradientView *contentView;
-    UIView *headerSeparatorView;
+    MIGAGradientView *_headerView;
+    MIGAGradientView *_contentView;
+    UIView *_headerSeparatorView;
     
-    UIView *gameInfoView;
+    UIView *_gameInfoView;
     
-    UILabel *titleLabel;
-    UILabel *publisherLabel;
-    UILabel *detailLabel;
-    MIGAAsyncImageView *iconImageView;
-    MIGAAsyncImageView *screenshotImageView;
+    UILabel *_titleLabel;
+    UILabel *_publisherLabel;
+    UILabel *_detailLabel;
+    MIGAAsyncImageView *_iconImageView;
+    MIGAAsyncImageView *_screenshotImageView;
     
-    UIActivityIndicatorView *activityIndicatorView;
+    UIActivityIndicatorView *_activityIndicatorView;
 }
 
 @property (nonatomic,retain,readonly) NSString *reuseIdentifier;
