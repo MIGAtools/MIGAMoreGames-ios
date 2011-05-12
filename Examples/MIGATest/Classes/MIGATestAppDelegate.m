@@ -26,6 +26,7 @@
     [[MIGAMoreGamesActivityReportManager sharedManager] setEnabled:YES];
     [[[MIGAMoreGamesViewController defaultController] dataStore] update];
     
+    window.backgroundColor = [UIColor blackColor];
     // Override point for customization after application launch.
     
     // Add the navigation controller's view to the window and display.
