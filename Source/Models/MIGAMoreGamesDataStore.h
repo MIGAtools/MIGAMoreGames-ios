@@ -23,6 +23,13 @@
 extern NSString * const MIGAMoreGamesDataStoreDidUpdateNotification;
 
 /*!
+ A MIGAMoreGamesDataStoreDidFailLoadingNotification is posted once all
+ content loading options have been exhausted and no content has been loaded.
+
+*/
+extern NSString * const MIGAMoreGamesDataStoreDidFailLoadingNotification;
+
+/*!
  @class MIGAMoreGamesDataStore
  
  @abstract A MIGAMoreGamesDataStore maintains a collection of MIGAApplicationInfo

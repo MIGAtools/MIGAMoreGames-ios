@@ -18,6 +18,7 @@
 #define MIGA_MORE_GAMES_DATA_STORE_CONTENT_VERSION 1
 
 NSString * const MIGAMoreGamesDataStoreDidUpdateNotification = @"MIGAMoreGamesDataStoreDidUpdate";
+NSString * const MIGAMoreGamesDataStoreDidFailLoadingNotification = @"MIGAMoreGamesDataStoreDidFailLoading";
 
 @interface MIGAMoreGamesCacheBackedDataStore : MIGAMoreGamesDataStore
 {
@@ -201,13 +202,19 @@ NSString * const MIGAMoreGamesDataStoreDidUpdateNotification = @"MIGAMoreGamesDa
 - (BOOL)setApplicationsWithDefaultContent {
     MIGAURL *url = [MIGAURL URLWithString:@"miga-bundle:///MIGAMoreGamesDefaultContent/content.json"];
     
-    if (![[NSFileManager defaultManager] fileExistsAtPath:[url path]]) {
-        MIGADLog(@"Unable to set applications with default content.  No content feed file found at path: %@", [url path]);
-        return NO;
+    BOOL result = [[NSFileManager defaultManager] fileExistsAtPath:[url path]];
+
+    if (result) {
+        MIGADLog(@"Using default content feed file found at path: %@", [url path]);
     }
     
-    MIGADLog(@"Using default content feed file found at path: %@", [url path]);
-    return [self setApplicationsWithContentsOfURL:url encoding:NSUTF8StringEncoding error:NULL];
+    result = result && [self setApplicationsWithContentsOfURL:url encoding:NSUTF8StringEncoding error:NULL];
+    
+    if (!result) {
+        MIGADLog(@"Setting applications with default content failed.");
+        [[NSNotificationCenter defaultCenter] postNotificationName:MIGAMoreGamesDataStoreDidFailLoadingNotification object: self];
+    }
+    return result;
 }
 
 
