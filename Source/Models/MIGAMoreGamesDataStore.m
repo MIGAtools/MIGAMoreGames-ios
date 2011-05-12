@@ -46,6 +46,7 @@ NSString * const MIGAMoreGamesDataStoreDidFailLoadingNotification = @"MIGAMoreGa
 #pragma mark Properties
 
 @synthesize applications=_applications;
+@synthesize failed=_failed;
 
 - (NSMutableArray *)applications {
     if (!_applications) {
@@ -60,6 +61,9 @@ NSString * const MIGAMoreGamesDataStoreDidFailLoadingNotification = @"MIGAMoreGa
     return [self.applications count];
 }
 
+- (BOOL)isRequesting {
+    return (_request != nil);
+}
 
 #pragma mark -
 #pragma mark Instance Methods
@@ -212,6 +216,7 @@ NSString * const MIGAMoreGamesDataStoreDidFailLoadingNotification = @"MIGAMoreGa
     
     if (!result) {
         MIGADLog(@"Setting applications with default content failed.");
+        _failed = YES;
         [[NSNotificationCenter defaultCenter] postNotificationName:MIGAMoreGamesDataStoreDidFailLoadingNotification object: self];
     }
     return result;
@@ -249,6 +254,7 @@ NSString * const MIGAMoreGamesDataStoreDidFailLoadingNotification = @"MIGAMoreGa
 
 - (void)update {
     if ((_request == nil) && (_requestedURL != nil)) {
+        _failed = NO;
         [self setApplicationsWithAsynchronousRequestToURL:_requestedURL];
     }
 }
@@ -344,7 +350,7 @@ NSString * const MIGAMoreGamesDataStoreDidFailLoadingNotification = @"MIGAMoreGa
 }
 
 
-- (void)asyncHttpRequestDidFail:(MIGAAsyncHttpRequest *)request {		
+- (void)asyncHttpRequestDidFail:(MIGAAsyncHttpRequest *)request {
     MIGADLog(@"Asynchronous application JSON request failed.  Attempting to obtain stale object from cache.");
 
     NSURL *url = request.requestedURL;

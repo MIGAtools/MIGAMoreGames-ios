@@ -61,9 +61,12 @@ extern NSString * const MIGAMoreGamesDataStoreDidFailLoadingNotification;
 	MIGAAsyncHttpRequest *_request;
 	
 	NSURL *_requestedURL;
+    BOOL _failed;
 }
 
 @property (nonatomic,assign,readonly) NSUInteger count;
+@property (nonatomic,assign,readonly, getter=isRequesting) BOOL requesting;
+@property (nonatomic,assign,readonly, getter=isFailed) BOOL failed;
 
 - (id)initWithJSONString:(NSString *)json;
 - (id)initWithContentsOfFile:(NSString *)filePath encoding:(NSStringEncoding)encoding error:(NSError **)error;
