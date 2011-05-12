@@ -49,11 +49,11 @@ extern NSString * const MIGAMoreGamesDataStoreDidUpdateNotification;
 */
 @interface MIGAMoreGamesDataStore : NSObject <MIGAAsyncHttpRequestDelegate> {
 	@protected
-	NSMutableArray *applications;
-	MIGAPersistentCacheManager *cacheManager;
-	MIGAAsyncHttpRequest *request;
+	NSMutableArray *_applications;
+	MIGAPersistentCacheManager *_cacheManager;
+	MIGAAsyncHttpRequest *_request;
 	
-	NSURL *requestedURL;
+	NSURL *_requestedURL;
 }
 
 @property (nonatomic,assign,readonly) NSUInteger count;

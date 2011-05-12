@@ -44,14 +44,14 @@ NSString * const MIGAMoreGamesDataStoreDidUpdateNotification = @"MIGAMoreGamesDa
 #pragma mark -
 #pragma mark Properties
 
-@synthesize applications;
+@synthesize applications=_applications;
 
 - (NSMutableArray *)applications {
-    if (!applications) {
-        applications = [[NSMutableArray alloc] initWithCapacity:3];
+    if (!_applications) {
+        _applications = [[NSMutableArray alloc] initWithCapacity:3];
     }
     
-    return applications;
+    return _applications;
 }
 
 
@@ -86,13 +86,13 @@ NSString * const MIGAMoreGamesDataStoreDidUpdateNotification = @"MIGAMoreGamesDa
 }
 
 
-- (id)initWithAsynchronousRequestToURL:(NSURL *)url cacheManager:(MIGAPersistentCacheManager *)aCacheManager {
+- (id)initWithAsynchronousRequestToURL:(NSURL *)url cacheManager:(MIGAPersistentCacheManager *)cacheManager {
     if ((self = [self init])) {
-        cacheManager = [aCacheManager retain];
-        if (cacheManager) {
+        _cacheManager = [cacheManager retain];
+        if (_cacheManager) {
             isa = [MIGAMoreGamesCacheBackedDataStore class];
         }
-        requestedURL = [url retain];
+        _requestedURL = [url retain];
         [self setApplicationsWithAsynchronousRequestToURL:url];
     }
     
@@ -110,10 +110,10 @@ NSString * const MIGAMoreGamesDataStoreDidUpdateNotification = @"MIGAMoreGamesDa
 
 
 - (void)dealloc {
-    [applications release];
-    [cacheManager release];
-    [request release];
-    [requestedURL release];
+    [_applications release];
+    [_cacheManager release];
+    [_request release];
+    [_requestedURL release];
 
     [super dealloc];
 }
@@ -166,7 +166,7 @@ NSString * const MIGAMoreGamesDataStoreDidUpdateNotification = @"MIGAMoreGamesDa
 
 - (void)setApplicationsWithAsynchronousRequestToURL:(NSURL *)url {
     MIGADLog(@"Sending request for %@ ...", [url description]);
-    [request release];
+    [_request release];
     
     NSString *platformName = @"IPHONE";
 #if MIGA_IOS_3_2_SUPPORTED
@@ -188,12 +188,12 @@ NSString * const MIGAMoreGamesDataStoreDidUpdateNotification = @"MIGAMoreGamesDa
     NSString *json = [requestDictionary JSONRepresentation];
     NSDictionary *postDictionary = [NSDictionary dictionaryWithObject:json forKey:@"request"];
     
-    request = [[MIGAAsyncHttpRequest requestWithURL:url postDictionary:postDictionary delegate:self] retain];
-    // If the delegate was unset during instantiation, we know there
+    _request = [[MIGAAsyncHttpRequest requestWithURL:url postDictionary:postDictionary delegate:self] retain];
+    // If the delegate was unset during instantiation, we know there was
     // a failure in the interim.
-    if (request.delegate == nil) {
-        [request release];
-        request = nil;
+    if (_request.delegate == nil) {
+        [_request release];
+        _request = nil;
     }
 }
 
@@ -241,8 +241,8 @@ NSString * const MIGAMoreGamesDataStoreDidUpdateNotification = @"MIGAMoreGamesDa
 
 
 - (void)update {
-    if ((request == nil) && (requestedURL != nil)) {
-        [self setApplicationsWithAsynchronousRequestToURL:requestedURL];
+    if ((_request == nil) && (_requestedURL != nil)) {
+        [self setApplicationsWithAsynchronousRequestToURL:_requestedURL];
     }
 }
 
@@ -250,21 +250,21 @@ NSString * const MIGAMoreGamesDataStoreDidUpdateNotification = @"MIGAMoreGamesDa
 #pragma mark -
 #pragma mark AsyncHttpRequestDelegate Methods
 
-- (void)asyncHttpRequest:(MIGAAsyncHttpRequest *)aRequest didFinishWithContent:(NSData *)responseContent {
-    if (aRequest != request)
+- (void)asyncHttpRequest:(MIGAAsyncHttpRequest *)request didFinishWithContent:(NSData *)responseContent {
+    if (request != _request)
         return;
     
-    NSString *responseString = [[NSString alloc] initWithData:responseContent encoding:request.receivedStringEncoding];
+    NSString *responseString = [[NSString alloc] initWithData:responseContent encoding:_request.receivedStringEncoding];
     [self setApplicationsWithJSONString:responseString];
     [responseString release];
-    [request release];
-    request = nil;
+    [_request release];
+    _request = nil;
 }
 
 
-- (void)asyncHttpRequestDidFail:(MIGAAsyncHttpRequest *)aRequest {
-    [request release];
-    request = nil;
+- (void)asyncHttpRequestDidFail:(MIGAAsyncHttpRequest *)request {
+    [_request release];
+    _request = nil;
     
     MIGADLog(@"MIGAMoreGamesDataStore: Asynchronous application JSON request failed. Will attempt to fall back to default content.");
     
@@ -293,11 +293,11 @@ NSString * const MIGAMoreGamesDataStoreDidUpdateNotification = @"MIGAMoreGamesDa
     MIGADLog(@"Attempting to obtain object for %@ from cache...", [url description]);
     
     BOOL objectIsExpired = NO;
-    if ([cacheManager cachedObjectExistsForURL:url isExpired:&objectIsExpired]) {
+    if ([_cacheManager cachedObjectExistsForURL:url isExpired:&objectIsExpired]) {
     
         if (!objectIsExpired) {
             MIGADLog(@"Cache hit for %@.", [url description]);
-            NSDictionary *cachedDictionary = (NSDictionary *)[cacheManager objectForURL:url];
+            NSDictionary *cachedDictionary = (NSDictionary *)[_cacheManager objectForURL:url];
             [self setApplicationsWithDictionary:cachedDictionary];
             
             return;
@@ -315,46 +315,46 @@ NSString * const MIGAMoreGamesDataStoreDidUpdateNotification = @"MIGAMoreGamesDa
 #pragma mark -
 #pragma mark AsyncHttpRequestDelegate Methods
 
-- (void)asyncHttpRequest:(MIGAAsyncHttpRequest *)aRequest didFinishWithContent:(NSData *)responseContent {
-    if (aRequest != request)
+- (void)asyncHttpRequest:(MIGAAsyncHttpRequest *)request didFinishWithContent:(NSData *)responseContent {
+    if (request != _request)
         return;
-    NSString *responseString = [[NSString alloc] initWithData:responseContent encoding:request.receivedStringEncoding];
+    NSString *responseString = [[NSString alloc] initWithData:responseContent encoding:_request.receivedStringEncoding];
     id parsedJSON = [responseString JSONValue];
     [responseString release];
     
     if ([self validateContent:parsedJSON]) {
         NSTimeInterval expireAt = [parsedJSON objectForKey:@"expire_at"] ? [[parsedJSON objectForKey:@"expire_at"] doubleValue] : 0;
         NSTimeInterval purgeAt = [parsedJSON objectForKey:@"purge_at"] ? [[parsedJSON objectForKey:@"purge_at"] doubleValue] : 0;
-        MIGADLog(@"Caching parsed json for URL: %@.  Will expire at %f and purge at %f (or global values if global values are earlier).", [aRequest.requestedURL description], expireAt, purgeAt);
-        [cacheManager setObject:parsedJSON forURL:aRequest.requestedURL expireAt:expireAt purgeAt:purgeAt];
+        MIGADLog(@"Caching parsed json for URL: %@.  Will expire at %f and purge at %f (or global values if global values are earlier).", [request.requestedURL description], expireAt, purgeAt);
+        [_cacheManager setObject:parsedJSON forURL:request.requestedURL expireAt:expireAt purgeAt:purgeAt];
         [self setApplicationsWithDictionary:parsedJSON];
     } else {
-        [self asyncHttpRequestDidFail:aRequest];
+        [self asyncHttpRequestDidFail:request];
     }
 
-    [request release];
-    request = nil;
+    [_request release];
+    _request = nil;
 }
 
 
-- (void)asyncHttpRequestDidFail:(MIGAAsyncHttpRequest *)aRequest {		
+- (void)asyncHttpRequestDidFail:(MIGAAsyncHttpRequest *)request {		
     MIGADLog(@"Asynchronous application JSON request failed.  Attempting to obtain stale object from cache.");
 
-    NSURL *url = aRequest.requestedURL;
+    NSURL *url = request.requestedURL;
 
-    NSDictionary *cachedDictionary = (NSDictionary *)[cacheManager objectForURL:url];
+    NSDictionary *cachedDictionary = (NSDictionary *)[_cacheManager objectForURL:url];
     if (cachedDictionary) {
         MIGADLog(@"Stale cache hit for %@", [url description]);
 
-        [request release];
-        request = nil;
+        [_request release];
+        _request = nil;
 
         [self setApplicationsWithDictionary:cachedDictionary];
         return;
     }
 
     MIGADLog(@"Stale cache miss for %@", [url description]);
-    [super asyncHttpRequestDidFail:aRequest];
+    [super asyncHttpRequestDidFail:request];
 }
 
 
