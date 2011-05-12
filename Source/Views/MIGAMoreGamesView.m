@@ -120,6 +120,7 @@
     _usedCellsRange = NSMakeRange(0, 0);
     _currentPage = 0;
     self.pagingEnabled = YES;
+    self.opaque = YES;
 }
 
 

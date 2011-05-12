@@ -51,7 +51,7 @@
         titleLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
         titleLabel.textColor = [UIColor whiteColor];
         titleLabel.backgroundColor = [UIColor clearColor];
-        titleLabel.opaque = NO;
+        titleLabel.opaque = YES;
         titleLabel.text = @"Make sure you set a title!";
         
         [gameInfoView addSubview:titleLabel];
@@ -72,7 +72,7 @@
         publisherLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
         publisherLabel.textColor = [UIColor whiteColor];
         publisherLabel.backgroundColor = [UIColor clearColor];
-        publisherLabel.opaque = NO;
+        publisherLabel.opaque = YES;
         publisherLabel.text = @"Make sure you set a publisher!";
         
         [gameInfoView addSubview:publisherLabel];
@@ -94,7 +94,7 @@
         detailLabel.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
         detailLabel.textColor = [UIColor whiteColor];
         detailLabel.backgroundColor = [UIColor clearColor];
-        detailLabel.opaque = NO;
+        detailLabel.opaque = YES;
         detailLabel.text = @"Make sure you set detail text!";
         
         [headerView addSubview:detailLabel];
@@ -199,12 +199,13 @@
 
 - (id)initWithFrame:(CGRect)aFrame {
     if ((self = [super initWithFrame:aFrame])) {
-        self.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = [UIColor blackColor];
         self.opaque = YES;
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         
         headerView = [[MIGAGradientView alloc] initWithFrame:CGRectMake(0, 0, aFrame.size.width, 126.0f)];
         headerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
+        headerView.opaque = YES;
         
         gameInfoView = [[UIView alloc] initWithFrame:CGRectMake(headerView.bounds.size.height, 10.0f, headerView.bounds.size.width - headerView.bounds.size.height, 36.0f)];
         gameInfoView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin;
@@ -217,6 +218,7 @@
         
         contentView = [[MIGAGradientView alloc] initWithFrame:CGRectMake(0, 126.0f, aFrame.size.width, aFrame.size.height - 126.0f)];
         contentView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        contentView.opaque = YES;
         
         [self addSubview:headerView];
         [self addSubview:contentView];
