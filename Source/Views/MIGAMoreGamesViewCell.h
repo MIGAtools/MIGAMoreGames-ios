@@ -45,7 +45,7 @@
 
 @property (nonatomic,retain,readonly) NSString *reuseIdentifier;
 
-@property (nonatomic,retain) id<NSObject> tapTarget;
+@property (nonatomic,assign) id<NSObject> tapTarget;
 @property (nonatomic,assign) SEL tapSelector;
 
 @property (nonatomic,retain,readonly) MIGAGradientView *headerView;

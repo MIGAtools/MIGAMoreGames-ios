@@ -253,8 +253,6 @@
 
 
 - (void)dealloc {
-    [tapTarget release];
-    
     [titleLabel release];
     [publisherLabel release];
     [detailLabel release];
