@@ -236,6 +236,12 @@ static MIGAMoreGamesViewController *defaultMIGAMoreGamesViewController = nil;
     if (!defaultMIGAMoreGamesViewController) {
         defaultMIGAMoreGamesViewController = [[MIGAMoreGamesViewController alloc] init];
 
+#if MIGA_IOS_3_2_SUPPORTED
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            defaultMIGAMoreGamesViewController.modalPresentationStyle = UIModalPresentationFormSheet;
+        }
+#endif
+
         NSString *sourceURLString = [NSString stringWithFormat:@"%@%@", DEFAULT_MIGA_HOST_BASE, DEFAULT_MIGA_MORE_GAMES_CONTENT_PATH];
         NSURL *sourceURL = [NSURL URLWithString:sourceURLString];
 
@@ -367,6 +373,7 @@ static MIGAMoreGamesViewController *defaultMIGAMoreGamesViewController = nil;
     if (!self.instructions) {
         self.instructions = NSLocalizedString(@"If you've enjoyed this game, you may also enjoy the following titles. Tap on any game to learn more on the App Store™.", nil);
     }
+    
 }
 
 
@@ -717,7 +724,7 @@ static MIGAMoreGamesViewController *defaultMIGAMoreGamesViewController = nil;
 #pragma mark MIGAMoreGamesViewCellLayoutManager Methods
 
 - (void)performLayoutForCell:(MIGAMoreGamesViewCell *)cell withInterfaceOrientation:(UIInterfaceOrientation)orientation {
-    if (UIInterfaceOrientationIsPortrait(orientation)) {
+    if (UIInterfaceOrientationIsPortrait(orientation) || (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)) {
         [self layoutCellForPortaitOrientation:cell];
     } else {
         [self layoutCellForLandscapeOrientation:cell];
