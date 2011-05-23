@@ -16,6 +16,7 @@
 
 #define MIGA_MORE_GAMES_DATA_STORE_WRITE_BATCH_SIZE 5
 #define MIGA_MORE_GAMES_DATA_STORE_CONTENT_VERSION 1
+#define MIGA_MORE_GAMES_USE_TEST_MODE_WITH_DEBUG_BUILD 0
 
 NSString * const MIGAMoreGamesDataStoreDidUpdateNotification = @"MIGAMoreGamesDataStoreDidUpdate";
 NSString * const MIGAMoreGamesDataStoreDidFailLoadingNotification = @"MIGAMoreGamesDataStoreDidFailLoading";
@@ -186,7 +187,9 @@ NSString * const MIGAMoreGamesDataStoreDidFailLoadingNotification = @"MIGAMoreGa
                                        [[UIDevice currentDevice] uniqueIdentifier], @"device_id",
                                        platformName, @"platform",
 #ifdef DEBUG
+#if MIGA_MORE_GAMES_USE_TEST_MODE_WITH_DEBUG_BUILD
                                        [NSNumber numberWithInt:1], @"test_mode",
+#endif
 #endif
                                        nil];
     
