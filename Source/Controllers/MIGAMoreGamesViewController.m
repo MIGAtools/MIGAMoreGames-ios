@@ -790,8 +790,13 @@ static MIGAMoreGamesViewController *defaultMIGAMoreGamesViewController = nil;
     [self.moreGamesView reloadData];
     self.pageControl.currentPage = 0;
 
-    [self removeErrorView];
-    [self performSelector:@selector(dismissLoadingView) withObject:nil afterDelay:1.0];
+    if (self.dataStore.count < 1) {
+        if ([self isViewLoaded])
+            [self presentErrorView];        
+    } else {
+        [self removeErrorView];
+        [self performSelector:@selector(dismissLoadingView) withObject:nil afterDelay:1.0];
+    }
 }
 
 
