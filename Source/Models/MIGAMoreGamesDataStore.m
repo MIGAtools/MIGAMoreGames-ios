@@ -311,15 +311,15 @@ NSString * const MIGAMoreGamesDataStoreDidFailLoadingNotification = @"MIGAMoreGa
     BOOL objectIsExpired = NO;
     if ([_cacheManager cachedObjectExistsForURL:url isExpired:&objectIsExpired]) {
     
-        if (!objectIsExpired) {
-            MIGADLog(@"Cache hit for %@.", [url description]);
-            NSDictionary *cachedDictionary = (NSDictionary *)[_cacheManager objectForURL:url];
-            [self setApplicationsWithDictionary:cachedDictionary];
-            
+        MIGADLog(@"Cache hit for %@.", [url description]);
+        NSDictionary *cachedDictionary = (NSDictionary *)[_cacheManager objectForURL:url];
+        [self setApplicationsWithDictionary:cachedDictionary];
+
+        if (!objectIsExpired && self.count > 0) {            
             return;
         }
         
-        MIGADLog(@"Cached item for %@ is stale.  Will attempt to fetch.", [url description]);
+        MIGADLog(@"Cached item for %@ is stale or contains no apps.  Will attempt to fetch.", [url description]);
     } else {
         MIGADLog(@"Cache miss for %@. Will attempt to fetch.", [url description]);
     }
