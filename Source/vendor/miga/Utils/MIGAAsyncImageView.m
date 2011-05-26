@@ -141,7 +141,7 @@
 
 - (void)setLayerContentWithMissingImage {
     [self removeActivityIndicatorView];
-    UIImage *image = [UIImage imageNamed: @"MIGAAsyncImageViewMissingImage.png"];
+    UIImage *image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource: @"MIGAAsyncImageViewMissingImage" ofType: @"png"]];
     if (image) {
 
 #if MIGA_IOS_4_0_SUPPORTED
